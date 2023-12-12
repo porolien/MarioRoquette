@@ -9,8 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
      
      public void rocketShoot() 
      {
-        Instantiate(prefabBalle, transform.position, transform.rotation);
-        
+        GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
+        newBalle.GetComponent<rocketMove>().Sense =  RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position; 
     }
     
     // Start is called before the first frame update

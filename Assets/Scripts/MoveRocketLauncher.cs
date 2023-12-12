@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MoveRocketLauncher : MonoBehaviour
 {
-    Transform Cursor;
+    public Transform Cursor;
 
     private void Start()
     {
         Cursor = transform.GetChild(0);
+        RocketManager.Instance._moveRocketLauncher = this;
     }
     private void FixedUpdate()
     {

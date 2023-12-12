@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.XR;
 
 public class rocketMove : MonoBehaviour
 {
-    public Vector3 Sense;
+    public Vector2 Sense;
     public float Vitesse; 
    
     void Start()
@@ -18,6 +18,6 @@ public class rocketMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Sense*Vitesse);
+        transform.Translate(Sense*Vitesse);
     }
 }
