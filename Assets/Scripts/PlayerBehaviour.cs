@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -14,5 +15,15 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnShoot() 
+    {
+        Debug.Log("su");
+    }
+
+    public void OnMove(InputValue Walk)
+    {
+        Debug.Log(Walk.Get<Vector2>());
     }
 }
