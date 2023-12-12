@@ -5,25 +5,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float vitesse;
+    Vector2 velocity;
+    public float vitesseMax = 10;
+    public float acceleration = 60;
+    public float decceleration = 1;
+    private void FixedUpdate()
     {
-        
+        velocity += new Vector2(vitesse, 0) * Time.deltaTime * acceleration;
+        velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
+        transform.Translate(velocity*Time.deltaTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnShoot() 
-    {
-        Debug.Log("su");
-    }
-
     public void OnMove(InputValue Walk)
     {
-        Debug.Log(Walk.Get<Vector2>());
+        vitesse = Walk.Get<Vector2>().x;
+        Debug.Log("bouge");
+    }
+
+    public void OnJump(InputValue Jump)
+    {
+        Debug.Log("OPTN");
+    }
+
+    public void OnSprint(InputValue sprint)
+    {
+
     }
 }
