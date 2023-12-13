@@ -14,8 +14,7 @@ public class MoveRocketLauncher : MonoBehaviour
     private void FixedUpdate()
     {
         //Move Cursor
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.right = (new Vector3(mouse.x, mouse.y, 0) - transform.position).normalized;
+        transform.right = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         //transform.Translate(new Vector2(1, 0) * 5 * Time.deltaTime);
 
     }
