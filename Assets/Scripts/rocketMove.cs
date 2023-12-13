@@ -24,8 +24,11 @@ public class rocketMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-            Destroy(this);
+        if(other.gameObject.tag != "Player") 
+        {
+        Destroy(gameObject);
+        }
+            
             
     }
 }
