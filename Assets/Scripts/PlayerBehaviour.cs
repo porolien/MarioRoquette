@@ -30,16 +30,22 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Awake()
     {
+
         rb = GetComponent<Rigidbody>();
+       
+
     }
     private void FixedUpdate()
     {
+
         velocity += new Vector2(vitesse, 0) * Time.deltaTime * acceleration;
         velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
         transform.Translate(velocity*Time.deltaTime);
+
         Debug.Log("su");
         rocketShoot();
     }
+
 
     
     public void OnMove(InputValue Walk)
@@ -47,6 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
         vitesse = Walk.Get<Vector2>().x;
         Debug.Log("bouge");
     }
+
     public void OnJump(InputValue Jump)
     {
         if (IsGrounded())
@@ -96,4 +103,5 @@ public class PlayerBehaviour : MonoBehaviour
         m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
     }*/
+   
 }
