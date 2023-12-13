@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
@@ -10,10 +11,11 @@ public class rocketMove : MonoBehaviour
     public Vector2 Sense;
     public float Vitesse;
     public float DureeDeVie;
-   
+    public Vector3 TailleRocket;
     void Start()
     {
         Destroy(gameObject, DureeDeVie);
+        TailleDeLaRocket();
     }
 
     // Update is called once per frame
@@ -29,6 +31,14 @@ public class rocketMove : MonoBehaviour
         Destroy(gameObject);
         }
             
-            
+        
+    }
+
+
+    public void TailleDeLaRocket()
+    {
+        transform.localScale += TailleRocket;
+
+
     }
 }
