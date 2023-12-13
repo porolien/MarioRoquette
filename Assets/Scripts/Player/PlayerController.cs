@@ -7,6 +7,7 @@ public class PlayerController : DynamicObject
 {
     public float playerAcceleration = 160;
     public float jumpPower = 30;
+    public float rocketJumpPower = 10;
     public GameObject prefabBalle;
     Vector2 direction;
     // Start is called before the first frame update
@@ -40,6 +41,12 @@ public class PlayerController : DynamicObject
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         newBalle.GetComponent<rocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
 
+    }
+
+    void Explosion(Vector2 Center)
+    {
+        Vector2 direcRocketJump = new Vector2(transform.position.x, transform.position.y) - Center;
+        AddImpulse(direcRocketJump.normalized / (direcRocketJump.magnitude + 1) * rocketJumpPower);
     }
 
     public void OnShoot()
