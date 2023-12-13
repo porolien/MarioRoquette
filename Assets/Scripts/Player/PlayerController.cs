@@ -7,6 +7,7 @@ public class PlayerController : DynamicObject
 {
     public float playerAcceleration = 160;
     public float jumpPower = 30;
+    public GameObject prefabBalle;
     Vector2 direction;
     // Start is called before the first frame update
     private void Awake()
@@ -34,6 +35,18 @@ public class PlayerController : DynamicObject
             Debug.Log("ça saute");
         }
     }
+    public void rocketShoot()
+    {
+        GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
+        newBalle.GetComponent<rocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+
+    }
+
+    public void OnShoot()
+    {
+        Debug.Log("su");
+        rocketShoot();
+    }
 
 
     // Update is called once per frame
@@ -41,5 +54,4 @@ public class PlayerController : DynamicObject
     {
         UpdatePhysics();
     }
-
 }

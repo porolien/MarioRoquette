@@ -14,6 +14,7 @@ public class DynamicObject : MonoBehaviour
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
     private Collider2D col;
+
     ContactFilter2D contactFilter;
 
     public Vector2 getAcceleration() { return Acceleration; }
@@ -59,7 +60,7 @@ public class DynamicObject : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.6f, LayerMask.GetMask("Solid"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1, LayerMask.GetMask("Solid"));
         //Debug.Log(hit.collider.name);
         return  hit ;    
 
