@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+<<<<<<< HEAD
     public float vitesse;
     float puissanceSprint = 2;
     public float jumpForce = 10;
@@ -13,16 +14,41 @@ public class PlayerBehaviour : MonoBehaviour
     public float acceleration = 60;
     public float decceleration = 1;
     //[SerializeField] float fallgravityScale = 15;
+=======
+     public GameObject prefabBalle;
+     
+     public void rocketShoot() 
+     {
+        GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
+        newBalle.GetComponent<rocketMove>().Sense =  RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position; 
+    }
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+>>>>>>> main
 
     private void Awake()
     {
+<<<<<<< HEAD
         rb = GetComponent<Rigidbody>();
+=======
+       
+>>>>>>> main
     }
     private void FixedUpdate()
     {
+<<<<<<< HEAD
         velocity += new Vector2(vitesse, 0) * Time.deltaTime * acceleration;
         velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
         transform.Translate(velocity*Time.deltaTime);
+=======
+        Debug.Log("su");
+        rocketShoot();
+    }
+>>>>>>> main
 
     }
     public void OnMove(InputValue Walk)
@@ -31,6 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
         Debug.Log("bouge");
     }
 
+<<<<<<< HEAD
     public void OnJump(InputValue Jump)
     {
         if (IsGrounded())
@@ -80,4 +107,7 @@ public class PlayerBehaviour : MonoBehaviour
         m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
     }*/
+=======
+   
+>>>>>>> main
 }
