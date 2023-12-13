@@ -7,7 +7,8 @@ public class PlayerController : DynamicObject
 {
     public float playerAcceleration = 160;
     public float jumpPower = 30;
-    public float rocketJumpPower = 10;
+    public float speed;
+    public float rocketJumpPower = 100;
     public GameObject prefabBalle;
     Vector2 direction;
     // Start is called before the first frame update
@@ -16,10 +17,9 @@ public class PlayerController : DynamicObject
         SetUpPhysics();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
-        AddForce(direction);
+        AddForce(direction * speed);
     }
 
     public void OnMove(InputValue move)
@@ -33,7 +33,6 @@ public class PlayerController : DynamicObject
         if (IsGrounded())
         {
             AddImpulse(Vector3.up * jumpPower);
-            Debug.Log("ça saute");
         }
     }
     public void rocketShoot()
@@ -57,6 +56,11 @@ public class PlayerController : DynamicObject
         rocketShoot();
     }
 
+    public void OnSprint(InputValue sprint)
+    {
+        speed = 1+sprint.Get<float>();
+        Debug.Log(sprint.Get<float>());
+    }
 
     // Update is called once per frame
     void LateUpdate()
