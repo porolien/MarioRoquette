@@ -15,4 +15,19 @@ public class Ennemies : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player") 
+        {
+            if(collision.GetContact(0).point.y > 0.8)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+    }
 }
