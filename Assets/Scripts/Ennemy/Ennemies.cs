@@ -7,7 +7,7 @@ public class Ennemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class Ennemies : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") 
         {
-            if(collision.GetContact(0).point.y > 0.8)
+            if((collision.transform.position.y - transform.position.y) > 0.8)
             {
                 Destroy(gameObject);
             }
