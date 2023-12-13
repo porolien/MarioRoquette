@@ -5,6 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+<<<<<<< HEAD
+    public float vitesse;
+    float puissanceSprint = 2;
+    public float jumpForce = 10;
+    Rigidbody rb;
+    Vector2 velocity;
+    public float acceleration = 60;
+    public float decceleration = 1;
+    //[SerializeField] float fallgravityScale = 15;
+=======
      public GameObject prefabBalle;
      
      public void rocketShoot() 
@@ -19,23 +29,94 @@ public class PlayerBehaviour : MonoBehaviour
     {
         
     }
+>>>>>>> main
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+        rb = GetComponent<Rigidbody>();
+=======
+       
+>>>>>>> main
+>>>>>>> Nestor
     }
-
-    public void OnShoot() 
+    private void FixedUpdate()
     {
+<<<<<<< HEAD
+        velocity += new Vector2(vitesse, 0) * Time.deltaTime * acceleration;
+        velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
+        transform.Translate(velocity*Time.deltaTime);
+=======
         Debug.Log("su");
         rocketShoot();
     }
+>>>>>>> main
 
+    }
     public void OnMove(InputValue Walk)
     {
-        Debug.Log(Walk.Get<Vector2>());
+        vitesse = Walk.Get<Vector2>().x;
+        Debug.Log("bouge");
     }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    public void OnJump(InputValue Jump)
+    {
+        if (IsGrounded())
+        {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+
+        if(IsFalling())
+        {
+           // rb.gravityscale = fallgravityScale;
+        }
+        Debug.Log("OPTN");
+
+    }
+
+    public void OnSprint(InputValue sprint)
+    {
+        acceleration *= puissanceSprint;
+    }
+    
+    public bool IsGrounded()
+    {
+        return rb.velocity.y == 0;
+    }
+    public bool IsFalling()
+    {
+        return rb.velocity.y < 0;
+    }
+    /*    public float gravityScale = 1.0f;
+ 
+    // Global Gravity doesn't appear in the inspector. Modify it here in the code
+    // (or via scripting) to define a different default gravity for all objects.
+ 
+    public static float globalGravity = -9.81f;
+ 
+    Rigidbody m_rb;
+ 
+    void OnEnable ()
+        {
+        m_rb = GetComponent<Rigidbody>();
+        m_rb.useGravity = false;
+        }
+ 
+    void FixedUpdate ()
+        {
+        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        m_rb.AddForce(gravity, ForceMode.Acceleration);
+        }
+    }*/
+=======
+   
+>>>>>>> main
+>>>>>>> Nestor
 }
