@@ -28,6 +28,13 @@ public class rocketMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
+        string playerTag = "Player";
+        switch (other.gameObject.tag)
+        {
+            case "RocketRadar":
+                break;
+
+        }
         if(other.gameObject.tag != "Player") 
         {
             Debug.Log("Ceci est une explosion");
