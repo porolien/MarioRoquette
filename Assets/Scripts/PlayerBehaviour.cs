@@ -42,11 +42,14 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
         transform.Translate(velocity*Time.deltaTime);
 
-        Debug.Log("su");
-        rocketShoot();
+      
     }
 
-
+    public void OnShoot() 
+    {
+      Debug.Log("su");
+        rocketShoot();
+    }
     
     public void OnMove(InputValue Walk)
     {
@@ -82,6 +85,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         return rb.velocity.y < 0;
     }
+
+    
     /*    public float gravityScale = 1.0f;
  
     // Global Gravity doesn't appear in the inspector. Modify it here in the code
