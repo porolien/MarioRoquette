@@ -171,7 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
-  gravityScale: 102
+  gravityScale: 1
   bounciness: 0
   mass: 1
   Damping: 2.5
+  PrefabRocket: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
+    type: 3}
