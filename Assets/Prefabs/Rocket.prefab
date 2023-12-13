@@ -149,3 +149,4 @@ MonoBehaviour:
   Sense: {x: 1, y: 0}
   Vitesse: 0.1
   DureeDeVie: 1
+  TailleRocket: {x: 0.1, y: 0.1, z: 0}
