@@ -20,8 +20,8 @@ public class MysteryBlocs : Blocs
 
     public void MysteryBlocIsTouched()
     {
-        PowerUp newPowerUp = Instantiate(powerUp);
-        newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 10, 0));
+        PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
+        newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 1, 0));
 
 
     }
@@ -46,7 +46,8 @@ public class MysteryBlocs : Blocs
         if (other.gameObject.tag == "Rocket")
         {
             Debug.Log("Wow t'a fais valser le powerUP");
-            MysteryBlocIsDestroyed();
+            PowerUp newPowerUp = Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
+            newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 3, 0));
             Destroy(transform.parent.gameObject);
         }
 

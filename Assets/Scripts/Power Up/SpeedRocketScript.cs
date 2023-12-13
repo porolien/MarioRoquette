@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpeedRocketScript : PowerUp
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        SetUpPhysics();
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        UpdatePhysics();
     }
+
+
 }
