@@ -7,10 +7,10 @@ public class DynamicObject : MonoBehaviour
 {
     public Vector2 Velocity = Vector2.zero;
     private Vector2 Acceleration = Vector2.zero;
-    [SerializeField] private float gravityScale = 1;
-    [SerializeField] private float bounciness = 1;
+    [SerializeField] private float gravityScale = 102;
+    [SerializeField] private float bounciness = 0;
     [SerializeField] private float mass = 1;
-    [SerializeField] private float Damping = 1;
+    [SerializeField] private float Damping = 2.5f;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
     private Collider2D col;
@@ -24,7 +24,7 @@ public class DynamicObject : MonoBehaviour
         totalForce+=ForceToAdd / mass;
     }
 
-    public void AddInpulse(Vector2 ForceToAdd)
+    public void AddImpulse(Vector2 ForceToAdd)
     {
         totalForce += ForceToAdd / mass / Time.deltaTime;
     }

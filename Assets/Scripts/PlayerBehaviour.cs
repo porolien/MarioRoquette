@@ -48,11 +48,11 @@ public class PlayerBehaviour : MonoBehaviour
 
 
     
-    public void OnMove(InputValue Walk)
+    /*public void OnMove(InputValue Walk)
     {
         vitesse = Walk.Get<Vector2>().x;
         Debug.Log("bouge");
-    }
+    }*/
 
     public void OnJump(InputValue Jump)
     {
