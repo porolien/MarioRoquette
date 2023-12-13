@@ -10,7 +10,8 @@ public class PlayerBehaviour : MonoBehaviour
      public void rocketShoot() 
      {
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
-        newBalle.GetComponent<rocketMove>().Sense =  RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position; 
+        newBalle.GetComponent<rocketMove>().Sense =  RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+       
     }
     
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public void OnShoot() 
@@ -36,5 +37,5 @@ public class PlayerBehaviour : MonoBehaviour
         Debug.Log(Walk.Get<Vector2>());
     }
 
-   
+
 }
