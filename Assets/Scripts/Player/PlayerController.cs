@@ -46,7 +46,9 @@ public class PlayerController : DynamicObject
     void Explosion(Vector2 Center)
     {
         Vector2 direcRocketJump = new Vector2(transform.position.x, transform.position.y) - Center;
-        AddImpulse(direcRocketJump.normalized / (direcRocketJump.magnitude + 1) * rocketJumpPower);
+        Vector2 n_DirecRocketJump = direcRocketJump.normalized;
+        n_DirecRocketJump.x *= 3;
+        AddImpulse(n_DirecRocketJump / (direcRocketJump.magnitude + 1) * rocketJumpPower);
     }
 
     public void OnShoot()

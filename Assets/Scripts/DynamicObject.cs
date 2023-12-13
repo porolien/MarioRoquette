@@ -60,9 +60,10 @@ public class DynamicObject : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1, LayerMask.GetMask("Solid"));
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1, LayerMask.GetMask("Solid"));
         //Debug.Log(hit.collider.name);
-        return  hit ;    
+        //return  hit ;
+        return rb.velocity.y == 0;
 
     }
     void checkForCollisions()
