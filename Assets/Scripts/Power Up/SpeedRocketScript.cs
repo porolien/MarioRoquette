@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class SpeedRocketScript : PowerUp
 {
-    private void Awake()
-    {
-        SetUpPhysics();
-    }
-
-    void LateUpdate()
-    {
-        UpdatePhysics();
-    }
 
 
 }

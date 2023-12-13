@@ -22,7 +22,7 @@ public class rocketMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Sense*Vitesse);
+        transform.Translate(Sense*Vitesse*Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +33,6 @@ public class rocketMove : MonoBehaviour
             Debug.Log("Ceci est une explosion");
             explose();
         }
-            
         
     }
 
