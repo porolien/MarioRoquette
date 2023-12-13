@@ -47,7 +47,7 @@ public class MysteryBlocs : Blocs
         {
             Debug.Log("Wow t'a fais valser le powerUP");
             MysteryBlocIsDestroyed();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
     }
