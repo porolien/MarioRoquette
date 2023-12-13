@@ -12,6 +12,7 @@ public class rocketMove : MonoBehaviour
     public float Vitesse;
     public float DureeDeVie;
     public Vector3 TailleRocket;
+    public float RayonDeLexplosion;
     void Start()
     {
         Destroy(gameObject, DureeDeVie);
@@ -24,14 +25,30 @@ public class rocketMove : MonoBehaviour
         transform.Translate(Sense*Vitesse);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag != "Player") 
         {
-        Destroy(gameObject);
+            Debug.Log("Ceci est une explosion");
+            explose();
         }
             
         
+    }
+
+    void explose() 
+    {
+
+        Collider2D[] ObjetsTouches = Physics2D.OverlapCircleAll(transform.position, RayonDeLexplosion);
+        foreach(Collider2D ObjetTouche in ObjetsTouches)
+        {
+            Debug.Log("Nom de l'objet touché" + ObjetTouche.gameObject.name);
+            ObjetTouche.gameObject.SendMessage("Explosion",(Vector2) transform.position, SendMessageOptions.DontRequireReceiver);
+            Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
+
+        }
+
+        Destroy(gameObject);
     }
 
 
@@ -42,3 +59,6 @@ public class rocketMove : MonoBehaviour
 
     }
 }
+
+//Etape 1: faire overlap cicle pr avoir la liste des gameobjects que l'explosion touche
+//Etape 2: Iterer dans cette Liste (foreach) pr chaque element de la liste sendmessage fdp 
