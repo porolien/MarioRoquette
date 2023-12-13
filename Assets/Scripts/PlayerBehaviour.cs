@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-<<<<<<< HEAD
     public float vitesse;
     float puissanceSprint = 2;
     public float jumpForce = 10;
@@ -14,7 +13,6 @@ public class PlayerBehaviour : MonoBehaviour
     public float acceleration = 60;
     public float decceleration = 1;
     //[SerializeField] float fallgravityScale = 15;
-=======
      public GameObject prefabBalle;
      
      public void rocketShoot() 
@@ -29,43 +27,26 @@ public class PlayerBehaviour : MonoBehaviour
     {
         
     }
->>>>>>> main
 
     private void Awake()
     {
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
         rb = GetComponent<Rigidbody>();
-=======
-       
->>>>>>> main
->>>>>>> Nestor
     }
     private void FixedUpdate()
     {
-<<<<<<< HEAD
         velocity += new Vector2(vitesse, 0) * Time.deltaTime * acceleration;
         velocity.x = velocity.x * Mathf.Pow(0.5f, Time.deltaTime * decceleration); 
         transform.Translate(velocity*Time.deltaTime);
-=======
         Debug.Log("su");
         rocketShoot();
     }
->>>>>>> main
 
-    }
+    
     public void OnMove(InputValue Walk)
     {
         vitesse = Walk.Get<Vector2>().x;
         Debug.Log("bouge");
     }
-
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
     public void OnJump(InputValue Jump)
     {
         if (IsGrounded())
@@ -115,8 +96,4 @@ public class PlayerBehaviour : MonoBehaviour
         m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
     }*/
-=======
-   
->>>>>>> main
->>>>>>> Nestor
 }
