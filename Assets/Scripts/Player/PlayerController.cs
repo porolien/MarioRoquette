@@ -7,25 +7,34 @@ public class PlayerController : DynamicObject
 {
     public float playerAcceleration = 160;
     public float jumpPower = 30;
+    Vector2 direction;
     // Start is called before the first frame update
     private void Awake()
     {
         SetUpPhysics();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
+        //AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
+        AddForce(direction);
     }
-    /*public void OnMove(InputValue move)
+
+    public void OnMove(InputValue move)
     {
-        AddForce(playerAcceleration * Vector2.right);
-    }*/
+        direction = playerAcceleration * move.Get<Vector2>();
+    }
 
     public void OnJump(InputValue jump)
     {
-        AddImpulse(Vector3.up * jumpPower);
+        Debug.Log(IsGrounded());
+        if (IsGrounded())
+        {
+            AddImpulse(Vector3.up * jumpPower);
+            Debug.Log("ça saute");
+        }
     }
+
 
     // Update is called once per frame
     void LateUpdate()

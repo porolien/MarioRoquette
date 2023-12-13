@@ -38,7 +38,10 @@ public class DynamicObject : MonoBehaviour
     public void UpdatePhysics()
     {
         //gravity
-        AddForce(Vector2.down * gravityScale);
+        if(!IsGrounded())
+        {
+            AddForce(Vector2.down * gravityScale);
+        }
 
         //apply forces
         Velocity += totalForce * Time.deltaTime;
@@ -54,7 +57,13 @@ public class DynamicObject : MonoBehaviour
         //reset force
         totalForce = Vector3.zero;
     }
+    public bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.6f, LayerMask.GetMask("Solid"));
+        //Debug.Log(hit.collider.name);
+        return  hit ;    
 
+    }
     void checkForCollisions()
     {
         List<RaycastHit2D> results = new List<RaycastHit2D>();
@@ -73,6 +82,8 @@ public class DynamicObject : MonoBehaviour
                 
             }
         }
+
+
     }
 
    /* private void Awake()
