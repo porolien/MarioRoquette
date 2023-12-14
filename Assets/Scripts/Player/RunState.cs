@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunState : MonoBehaviour
+public class RunState : IBasePlayerState
 {
-    void OnEnter(PlayerStateMachine stateMachine)
+    PlayerStateMachine sm;
+    void OnEnter(PlayerStateMachine _stateMachine)
     {
-
+        this.sm = _stateMachine;
     }
 
     void OnExit()
@@ -16,6 +17,17 @@ public class RunState : MonoBehaviour
 
     void Update()
     {
+        if (!sm.pc.isGrounded)
+        {
+            sm.Transition(sm.fallState);
+        }
+
+        if (sm.pc.isHoldingJumpKey)
+        {
+            sm.Transition(sm.jumpState);
+        }
+
+
 
     }
 }

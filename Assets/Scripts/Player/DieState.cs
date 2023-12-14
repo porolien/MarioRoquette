@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DieState : MonoBehaviour
+public class DieState : IBasePlayerState
 {
-    void OnEnter(PlayerStateMachine stateMachine)
+    PlayerStateMachine stateMachine;
+    void OnEnter(PlayerStateMachine _stateMachine)
     {
-
+        this.stateMachine = _stateMachine;
     }
 
     void OnExit()
@@ -16,6 +17,6 @@ public class DieState : MonoBehaviour
 
     void Update()
     {
-
+        //On ne peux plus changer de state
     }
 }

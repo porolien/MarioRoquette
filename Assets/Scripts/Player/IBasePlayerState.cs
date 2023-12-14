@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IBasePlayerState 
 {
+
     void OnEnter(PlayerStateMachine stateMachine)
     {
 
