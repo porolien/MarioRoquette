@@ -11,7 +11,7 @@ public class PlayerStateMachine : MonoBehaviour
     public JumpState jumpState;
     public FallState fallState;
     public DieState dieState;
-    public PlayerController playerController;
+    public PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +21,11 @@ public class PlayerStateMachine : MonoBehaviour
         fallState = new FallState();
         dieState = new DieState();
         jumpState = new JumpState();
-        playerController = GetComponent<PlayerController>();
+        pc = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         currentState.Update();
     }

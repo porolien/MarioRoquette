@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkState : MonoBehaviour
+public class WalkState : IBasePlayerState
 {
-    void OnEnter(PlayerStateMachine stateMachine)
+    PlayerStateMachine stateMachine;
+    void OnEnter(PlayerStateMachine _stateMachine)
     {
-
+        this.stateMachine = _stateMachine;
     }
 
     void OnExit()
@@ -16,6 +17,6 @@ public class WalkState : MonoBehaviour
 
     void Update()
     {
-
+        stateMachine.Transition(stateMachine.walkState);
     }
 }
