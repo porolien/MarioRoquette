@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class RunState : IBasePlayerState
 {
-    void OnEnter(PlayerStateMachine stateMachine)
+    PlayerStateMachine sm;
+    void OnEnter(PlayerStateMachine _stateMachine)
     {
-
+        this.sm = _stateMachine;
     }
 
     void OnExit()
@@ -16,6 +17,17 @@ public class RunState : IBasePlayerState
 
     void Update()
     {
-        //Si on s'arrête, jump, tombe, arrête de courir
+        if (!sm.pc.isGrounded)
+        {
+            sm.Transition(sm.fallState);
+        }
+
+        if (sm.pc.isHoldingJumpKey)
+        {
+            sm.Transition(sm.jumpState);
+        }
+
+
+
     }
 }

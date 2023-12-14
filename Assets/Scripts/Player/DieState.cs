@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DieState : IBasePlayerState
 {
-    void OnEnter(PlayerStateMachine stateMachine)
+    PlayerStateMachine stateMachine;
+    void OnEnter(PlayerStateMachine _stateMachine)
     {
-
+        this.stateMachine = _stateMachine;
     }
 
     void OnExit()

@@ -5,20 +5,34 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : DynamicObject
 {
+
+    [Header("Physics")]
     public float playerAcceleration = 160;
     public float jumpPower = 30;
-    public float rocketJumpPower = 10;
-    public GameObject prefabBalle;
-    Vector2 direction;
+    public float maxWalkSpeed = 15;
+    public float GroundDamping = 50;
+    [SerializeField] float rocketJumpPower = 10;
+
+
+    [SerializeField] GameObject prefabBalle;
+    //Vector2 direction;
+
+    [Header("Inputs")]
+    public Vector2 MovementInput = new Vector2(0,0);
+    public bool isHoldingJumpKey = false;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
         SetUpPhysics();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
+        AddForce(MovementInput * playerAcceleration * Vector2.right);
+
+        /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
         AddForce(direction);
         //print(move.Get<Vector2>());
         if (MovementInput.sqrMagnitude > 0.1f )
@@ -47,22 +61,24 @@ public class PlayerController : DynamicObject
         }
 
 
-        print(direction);
+        print(direction);*/
     }
 
     public void OnMove(InputValue move)
     {
-        direction = playerAcceleration * move.Get<Vector2>();
+        MovementInput = move.Get<Vector2>();
+        //direction = playerAcceleration * move.Get<Vector2>();
     }
 
     public void OnJump(InputValue jump)
     {
+        isHoldingJumpKey = jump.Get<bool>();
         //Debug.Log(IsGrounded());
-        if (IsGrounded())
+        /*if (IsGrounded)
         {
             AddImpulse(Vector3.up * jumpPower);
             //Debug.Log("�a saute");
-        }
+        }*/
     }
     public void RocketShoot()
     {

@@ -13,7 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
     public DieState dieState;
     public PlayerController pc;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         idleState = new IdleState();
         walkState = new WalkState();
