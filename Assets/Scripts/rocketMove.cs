@@ -17,9 +17,11 @@ public class RocketMove : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] private GameObject explosionVfxPrefab;
     ContactFilter2D contactFilter;
+    public float multiplicateurDeLexplosion = 1;
 
     void Start()
     {
+        RocketManager.Instance.rocketMove = this;
         col = GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid") & LayerMask.GetMask("Ennemis");
 
@@ -69,6 +71,7 @@ public class RocketMove : MonoBehaviour
         }
         //vfx
         GameObject explosionVfx = GameObject.Instantiate(explosionVfxPrefab, transform.position + (Vector3)collision.normal*0.5f, Quaternion.identity);
+       // explosionVfx.transform.localScale *= multiplicateurDeLexplosion;
         Destroy(explosionVfx, 2);
         //sfx
         audioSource.Play();
