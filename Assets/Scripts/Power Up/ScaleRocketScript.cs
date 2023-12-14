@@ -6,6 +6,8 @@ public class ScaleRocketScript : PowerUp
 {
     protected override void PowerUpEffect()
     {
-        Debug.Log("Ca grossis");
+        RocketManager.Instance.rocketMove.RayonDeLexplosion *= 2;
+        RocketManager.Instance.rocketMove.TailleRocket *= 2;
+        RocketManager.Instance.rocketMove.multiplicateurDeLexplosion *= 2;
     }
 }
