@@ -14,6 +14,7 @@ public class RocketMove : MonoBehaviour
     public Vector3 TailleRocket;
     public float RayonDeLexplosion;
     Collider2D col;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] private GameObject explosionVfxPrefab;
     ContactFilter2D contactFilter;
 
@@ -66,11 +67,14 @@ public class RocketMove : MonoBehaviour
             Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 
         }
-
         //vfx
         GameObject explosionVfx = GameObject.Instantiate(explosionVfxPrefab, transform.position + (Vector3)collision.normal*0.5f, Quaternion.identity);
         Destroy(explosionVfx, 2);
+        //sfx
+        audioSource.Play();
         Destroy(gameObject);
+        //sfx
+
     }
 
 
