@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpState : MonoBehaviour
+public class JumpState : IBasePlayerState
 {
     void OnEnter(PlayerStateMachine stateMachine)
     {
@@ -16,6 +16,6 @@ public class JumpState : MonoBehaviour
 
     void Update()
     {
-
+        //Si on touche le sol ou si on redescend on change de state
     }
 }

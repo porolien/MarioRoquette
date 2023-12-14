@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkState : MonoBehaviour
+public class WalkState : IBasePlayerState
 {
     void OnEnter(PlayerStateMachine stateMachine)
     {
@@ -16,6 +16,6 @@ public class WalkState : MonoBehaviour
 
     void Update()
     {
-
+        //si on appuie sur shift ou si on tombe ou si on jump ou si on meurt on change de state
     }
 }

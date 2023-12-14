@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunState : MonoBehaviour
+public class RunState : IBasePlayerState
 {
     void OnEnter(PlayerStateMachine stateMachine)
     {
@@ -16,6 +16,6 @@ public class RunState : MonoBehaviour
 
     void Update()
     {
-
+        //Si on s'arrête, jump, tombe, arrête de courir
     }
 }
