@@ -14,7 +14,7 @@ public class RocketMove : MonoBehaviour
     public Vector3 TailleRocket;
     public float RayonDeLexplosion;
     Collider2D col;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clip;
     [SerializeField] private GameObject explosionVfxPrefab;
     ContactFilter2D contactFilter;
     public float multiplicateurDeLexplosion = 1;
@@ -74,7 +74,7 @@ public class RocketMove : MonoBehaviour
        // explosionVfx.transform.localScale *= multiplicateurDeLexplosion;
         Destroy(explosionVfx, 2);
         //sfx
-        audioSource.Play();
+        AudioManager.Instance.Playsound(clip);
         Destroy(gameObject);
         //sfx
 
