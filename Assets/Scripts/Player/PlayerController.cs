@@ -29,17 +29,17 @@ public class PlayerController : DynamicObject
 
     public void OnJump(InputValue jump)
     {
-        Debug.Log(IsGrounded());
+        //Debug.Log(IsGrounded());
         if (IsGrounded())
         {
             AddImpulse(Vector3.up * jumpPower);
-            Debug.Log("ça saute");
+            //Debug.Log("ça saute");
         }
     }
-    public void rocketShoot()
+    public void RocketShoot()
     {
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
-        newBalle.GetComponent<rocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        newBalle.GetComponent<RocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
 
     }
 
@@ -53,8 +53,8 @@ public class PlayerController : DynamicObject
 
     public void OnShoot()
     {
-        Debug.Log("su");
-        rocketShoot();
+        //Debug.Log("su");
+        RocketShoot();
     }
 
 
