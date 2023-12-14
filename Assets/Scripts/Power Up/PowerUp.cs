@@ -28,7 +28,7 @@ public class PowerUp : DynamicObject
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("T'a graille le powerUP FDP");
+            
             Destroy(gameObject);
             PowerUpEffect();
         }

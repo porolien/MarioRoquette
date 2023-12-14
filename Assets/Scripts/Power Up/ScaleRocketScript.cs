@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScaleRocketScript : MonoBehaviour
+public class ScaleRocketScript : PowerUp
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void PowerUpEffect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Ca grossis");
     }
 }
