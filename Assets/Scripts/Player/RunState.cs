@@ -5,17 +5,17 @@ using UnityEngine;
 public class RunState : IBasePlayerState
 {
     PlayerStateMachine sm;
-    void OnEnter(PlayerStateMachine _stateMachine)
+    public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
     }
 
-    void OnExit()
+    public override void OnExit()
     {
 
     }
 
-    void Update()
+    public override void Update()
     {
         if (!sm.pc.isGrounded)
         {

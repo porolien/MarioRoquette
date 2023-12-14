@@ -1,23 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class IdleState : IBasePlayerState
 {
     PlayerStateMachine sm;
-    void OnEnter(PlayerStateMachine _stateMachine)
+    public override void OnEnter(PlayerStateMachine _stateMachine)
     {
+        Debug.Log("state entered");
         this.sm = _stateMachine;
-        sm.pc.Damping = sm.pc.GroundDamping;
+        this.sm.pc.Damping = sm.pc.GroundDamping;
+        Update();
     }
 
-    void OnExit()
+    public override void OnExit()
     {
 
     }
 
-    void Update()
+    public override void Update()
     {
+        Debug.Log(this.sm.ToString());
+
         if(!sm.pc.isGrounded)
         {
             sm.Transition(sm.fallState);

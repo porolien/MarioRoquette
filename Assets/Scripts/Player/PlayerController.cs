@@ -7,10 +7,15 @@ public class PlayerController : DynamicObject
 {
 
     [Header("Physics")]
-    public float playerAcceleration = 160;
-    public float jumpPower = 30;
+    public float GroundPlayerAcceleration = 160;
+    public float AirPlayerAcceleration = 50;
     public float maxWalkSpeed = 15;
     public float GroundDamping = 50;
+    public float AirDamping = 10;
+    public float maxAirSpeed = 20;
+    public float InitialJumpPower = 10;
+    public float JumpThrustPower = 10;
+    public float JumpTime = 0.5f;
     [SerializeField] float rocketJumpPower = 10;
 
 
@@ -30,7 +35,8 @@ public class PlayerController : DynamicObject
 
     private void Update()
     {
-        AddForce(MovementInput * playerAcceleration * Vector2.right);
+        isHoldingJumpKey = Input.GetKey(KeyCode.Space);
+        //AddForce(MovementInput * playerAcceleration * Vector2.right);
 
         /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
         AddForce(direction);
@@ -70,16 +76,15 @@ public class PlayerController : DynamicObject
         //direction = playerAcceleration * move.Get<Vector2>();
     }
 
-    public void OnJump(InputValue jump)
+    /*public void OnJump(InputValue jump)
     {
-        isHoldingJumpKey = jump.Get<bool>();
-        //Debug.Log(IsGrounded());
-        /*if (IsGrounded)
-        {
-            AddImpulse(Vector3.up * jumpPower);
-            //Debug.Log("�a saute");
-        }*/
+        isHoldingJumpKey = jump.Get<float>()!=0;
     }
+
+    public void OnStopJump(InputValue jump)
+    {
+        isHoldingJumpKey = false;
+    }*/
     public void RocketShoot()
     {
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);

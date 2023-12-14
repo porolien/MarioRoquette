@@ -2,21 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBasePlayerState 
+public  abstract class IBasePlayerState 
 {
 
-    void OnEnter(PlayerStateMachine stateMachine)
-    {
+    public abstract void OnEnter(PlayerStateMachine stateMachine);
 
-    }
+    public abstract void OnExit();
 
-    void OnExit()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
+    public abstract void Update();
+    
 }
