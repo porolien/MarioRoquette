@@ -27,11 +27,15 @@ public class PlayerController : DynamicObject
     public bool isHoldingJumpKey = false;
     public bool isHoldingSprintKey = false;
 
+    public bool canShoot;
+    public float cadence;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        cadence = 0.75f;
         SetUpPhysics();
+        canShoot = true;
     }
 
     private void Update()
@@ -110,12 +114,15 @@ public class PlayerController : DynamicObject
     public void OnShoot()
     {
         //Debug.Log("su");
-        RocketShoot();
+        if (canShoot)
+        {
+            RocketShoot();
+            StartCoroutine(Delay());
+        }
     }
 
-
-    // Update is called once per frame
-    void LateUpdate()
+        // Update is called once per frame
+        void LateUpdate()
     {
         UpdatePhysics();
     }
@@ -141,4 +148,13 @@ public class PlayerController : DynamicObject
             }
         }
     }
-}
+
+        IEnumerator Delay()
+        {
+            canShoot = false;
+            yield return new WaitForSeconds(cadence);
+            canShoot = true;
+
+        }
+
+    }
