@@ -83,7 +83,7 @@ public class RocketMove : MonoBehaviour
 
     public void TailleDeLaRocket()
     {
-        transform.localScale += TailleRocket;
+        TailleRocket += transform.localScale;
 
 
     }
