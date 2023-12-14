@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Sprite/Blocs/Buisson.fbx.meta
-guid: e08a33168947be24fa1d938b4db3a0dc
-========
-guid: 9287b464984867e4ea23647b32779b23
->>>>>>>> d7d5eb241e0c85f088967e795d6507b15c6b6ba6:Assets/Sprite/Blocs/Point interro good.fbx.meta
+guid: 56d508584764d09458933f2d4db7490c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 0ebaabf848634b24f907ec73ef3a5dff, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -39,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -94,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
