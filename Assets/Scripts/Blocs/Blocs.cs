@@ -6,16 +6,15 @@ public class Blocs : MonoBehaviour
 {
     public bool breakable;
 
-    // Start is called before the first frame update
-    void Start()
+    void Explosion(Vector2 Center)
     {
-        
-    }
+        if (breakable)
+        {
+        Destroy(gameObject);
+        Debug.Log("Ta mere nathan");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
