@@ -11,6 +11,7 @@ public class WalkState : IBasePlayerState
 
         sm.pc.Damping = sm.pc.GroundDamping;
         sm.pc.AddForce(sm.pc.MovementInput * sm.pc.GroundPlayerAcceleration * Vector2.right);
+        sm.pc.setWalkParticlesActive(true);
         checkForTransitions();
 
 
@@ -18,7 +19,7 @@ public class WalkState : IBasePlayerState
 
     public override void OnExit()
     {
-        
+        sm.pc.setWalkParticlesActive(false);
     }
 
     public override void Update()

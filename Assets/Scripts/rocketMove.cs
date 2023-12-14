@@ -21,6 +21,7 @@ public class RocketMove : MonoBehaviour
 
     void Start()
     {
+        //audioSource=GetComponent<AudioSource>();
         RocketManager.Instance.rocketMove = this;
         col = GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid") & LayerMask.GetMask("Ennemis");
@@ -64,7 +65,7 @@ public class RocketMove : MonoBehaviour
         Collider2D[] ObjetsTouches = Physics2D.OverlapCircleAll(transform.position, RayonDeLexplosion);
         foreach (Collider2D ObjetTouche in ObjetsTouches)
         {
-            Debug.Log("Nom de l'objet touché" + ObjetTouche.gameObject.name);
+            Debug.Log("Nom de l'objet touchï¿½" + ObjetTouche.gameObject.name);
             ObjetTouche.gameObject.SendMessage("Explosion",/*(Vector2) transform.position*/collision.point, SendMessageOptions.DontRequireReceiver);
             Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 
@@ -74,7 +75,7 @@ public class RocketMove : MonoBehaviour
        // explosionVfx.transform.localScale *= multiplicateurDeLexplosion;
         Destroy(explosionVfx, 2);
         //sfx
-        AudioManager.Instance.Playsound(clip);
+        //audioSource.Play();
         Destroy(gameObject);
         //sfx
 
