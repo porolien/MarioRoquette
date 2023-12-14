@@ -53,7 +53,7 @@ public class PlayerController : DynamicObject
 
     public void OnShoot()
     {
-        Debug.Log("su");
+        //Debug.Log("su");
         rocketShoot();
     }
 
