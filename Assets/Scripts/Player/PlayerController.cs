@@ -31,6 +31,7 @@ public class PlayerController : DynamicObject
     public bool canShoot;
     public float cadence;
 
+
     // Start is called before the first frame update
     private void Awake()
     {
