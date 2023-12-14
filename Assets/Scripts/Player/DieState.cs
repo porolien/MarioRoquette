@@ -5,17 +5,17 @@ using UnityEngine;
 public class DieState : IBasePlayerState
 {
     PlayerStateMachine stateMachine;
-    void OnEnter(PlayerStateMachine _stateMachine)
+    public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.stateMachine = _stateMachine;
     }
 
-    void OnExit()
+    public override void OnExit()
     {
 
     }
 
-    void Update()
+    public override void Update()
     {
         //On ne peux plus changer de state
     }

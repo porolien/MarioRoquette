@@ -25,12 +25,14 @@ public class DynamicObject : MonoBehaviour
 
     public void AddForce(Vector2 ForceToAdd)
     {
-        totalForce+=ForceToAdd / mass;
+        Velocity += ForceToAdd * Time.deltaTime;
+        //totalForce+=ForceToAdd / mass;
     }
 
     public void AddImpulse(Vector2 ForceToAdd)
     {
-        totalForce += ForceToAdd / mass / Time.deltaTime;
+        Velocity += ForceToAdd;
+        //totalForce += ForceToAdd / mass / Time.deltaTime;
     }
 
     public void SetUpPhysics()

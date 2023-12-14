@@ -1,27 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class IdleState : IBasePlayerState
 {
     PlayerStateMachine sm;
-    void OnEnter(PlayerStateMachine _stateMachine)
+    public override void OnEnter(PlayerStateMachine _stateMachine)
     {
+        Debug.Log("state entered");
         this.sm = _stateMachine;
-        sm.pc.Damping = sm.pc.GroundDamping;
+        this.sm.pc.Damping = sm.pc.GroundDamping;
+        Update();
     }
 
-    void OnExit()
+    public override void OnExit()
     {
 
     }
 
-    void Update()
+    public override void Update()
     {
-        if(!sm.pc.isGrounded)
+        Debug.Log(this.sm.ToString());
+        this.sm.pc.Damping = sm.pc.GroundDamping;
+
+        if (!sm.pc.isGrounded)
         {
             sm.Transition(sm.fallState);
-        }
+        }else
 
         if (sm.pc.isHoldingJumpKey)
         {
@@ -29,7 +36,7 @@ public class IdleState : IBasePlayerState
         }
 
 
-        if(sm.pc.MovementInput!=Vector2.zero) 
+        else if(sm.pc.MovementInput!=Vector2.zero) 
         {
             sm.Transition(sm.walkState);
         }
