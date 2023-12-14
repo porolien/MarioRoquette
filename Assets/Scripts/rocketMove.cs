@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
 
-public class rocketMove : MonoBehaviour
+public class RocketMove : MonoBehaviour
 {
     public Vector2 Sense;
     public float Vitesse;
@@ -38,12 +38,12 @@ public class rocketMove : MonoBehaviour
         if(other.gameObject.tag != "Player") 
         {
             Debug.Log("Ceci est une explosion");
-            explose();
+            Explose();
         }
         
     }
 
-    void explose() 
+    void Explose() 
     {
 
         Collider2D[] ObjetsTouches = Physics2D.OverlapCircleAll(transform.position, RayonDeLexplosion);
