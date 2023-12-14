@@ -63,4 +63,19 @@ public class PlayerController : DynamicObject
     {
         UpdatePhysics();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ennemy")
+        {
+            if ((transform.position.y - collision.transform.position.y) > 0.8)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

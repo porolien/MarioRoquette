@@ -41,6 +41,7 @@ public class DynamicObject : MonoBehaviour
         //gravity
         if(!IsGrounded())
         {
+            //print(IsGrounded());
             AddForce(Vector2.down * gravityScale);
         }
 
@@ -60,10 +61,11 @@ public class DynamicObject : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1, LayerMask.GetMask("Solid"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        Debug.DrawRay(transform.position, Vector3.down * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f),Color.red);
         //Debug.Log(hit.collider.name);
         //return  hit ;
-        return rb.velocity.y == 0;
+        return hit;//rb.velocity.y == 0;
 
     }
     void checkForCollisions()

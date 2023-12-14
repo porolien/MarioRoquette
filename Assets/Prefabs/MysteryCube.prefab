@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 7014277980596642998}
   - component: {fileID: 1062085015978693507}
   - component: {fileID: 4531366173085916664}
-  - component: {fileID: -7721534520232911661}
-  - component: {fileID: 418181547437574564}
   - component: {fileID: 7651586552717232668}
-  m_Layer: 0
+  - component: {fileID: 1327121993989607735}
+  m_Layer: 3
   m_Name: MysteryCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,21 +86,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7721534520232911661
-MonoBehaviour:
+--- !u!50 &7651586552717232668
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2583407426376136578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d3ce203bf039640a30c841e140365f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  breakable: 0
-  powerUp: {fileID: 0}
---- !u!61 &418181547437574564
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &1327121993989607735
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,33 +158,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &7651586552717232668
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2583407426376136578}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &3231552943389721264
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakable: 0
-  powerUp: {fileID: 0}
+  powerUp: {fileID: -1648808603462894275, guid: d4da2a8e172cc8144a74454b0adbe28e,
+    type: 3}
 --- !u!61 &7421417505444025330
 BoxCollider2D:
   m_ObjectHideFlags: 0
