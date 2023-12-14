@@ -44,6 +44,7 @@ Shader "Hidden/Shader/postProcess_Pixellize"
     float2 _Resolution;
     float _outlineSize;
     float _outlineStrength;
+    Texture2D _VFXTexture;
     TEXTURE2D_X(_MainTex);
 
 
@@ -65,8 +66,11 @@ Shader "Hidden/Shader/postProcess_Pixellize"
 
 
         float3 color =  SAMPLE_TEXTURE2D_X(_MainTex, s_linear_clamp_sampler, ClampAndScaleUVForBilinearPostProcessTexture(coord  )) * pow(1-length(float2( lumix,lumiy)),_outlineStrength);
-
-
+        
+        //float3 vfx = SAMPLE_TEXTURE2D_X(_VFXTexture,s_linear_clamp_sampler,ClampAndScaleUVForBilinearPostProcessTexture(input.texcoord.xy));
+        
+        //color+=vfx;
+        //color+=vfx;
         return float4(color, 1);
     }
 

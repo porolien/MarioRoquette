@@ -1,33 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class DynamicObject : MonoBehaviour
 {
     public Vector2 Velocity = Vector2.zero;
     private Vector2 Acceleration = Vector2.zero;
-    [SerializeField] private float gravityScale = 102;
+    [SerializeField] public float gravityScale = 102;
     [SerializeField] private float bounciness = 0;
     [SerializeField] private float mass = 1;
-    [SerializeField] private float Damping = 2.5f;
+    [SerializeField] public float Damping = 1f;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
     private Collider2D col;
 
     ContactFilter2D contactFilter;
 
+    public bool isGrounded = false;
+
     public Vector2 getAcceleration() { return Acceleration; }
     public Vector2 getVelocity() { return Velocity; }
 
     public void AddForce(Vector2 ForceToAdd)
     {
-        totalForce+=ForceToAdd / mass;
+        Velocity += ForceToAdd * Time.deltaTime;
+        //totalForce+=ForceToAdd / mass;
     }
 
     public void AddImpulse(Vector2 ForceToAdd)
     {
-        totalForce += ForceToAdd / mass / Time.deltaTime;
+        Velocity += ForceToAdd;
+        //totalForce += ForceToAdd / mass / Time.deltaTime;
     }
 
     public void SetUpPhysics()
@@ -38,9 +43,11 @@ public class DynamicObject : MonoBehaviour
     }
     public void UpdatePhysics()
     {
+        isGrounded = CheckForGround();
         //gravity
-        if(!IsGrounded())
+        if (!isGrounded)
         {
+            //print(IsGrounded());
             AddForce(Vector2.down * gravityScale);
         }
 
@@ -48,7 +55,13 @@ public class DynamicObject : MonoBehaviour
         Velocity += totalForce * Time.deltaTime;
         Acceleration = -totalForce;
 
-        Velocity.x*=Mathf.Pow(0.01f, Time.deltaTime* Damping);
+        //damping
+
+        float vel = Mathf.Max(Mathf.Abs(Velocity.x) -  Time.deltaTime*Damping, 0);
+        vel *= Mathf.Sign(Velocity.x);
+
+        Velocity.x = vel;
+
 
         checkForCollisions();
 
@@ -58,12 +71,13 @@ public class DynamicObject : MonoBehaviour
         //reset force
         totalForce = Vector3.zero;
     }
-    public bool IsGrounded()
+    bool CheckForGround()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1, LayerMask.GetMask("Solid"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        Debug.DrawRay(transform.position, Vector3.down * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f),Color.red);
         //Debug.Log(hit.collider.name);
         //return  hit ;
-        return rb.velocity.y == 0;
+        return hit;//rb.velocity.y == 0;
 
     }
     void checkForCollisions()

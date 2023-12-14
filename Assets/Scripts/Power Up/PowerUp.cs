@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PowerUp : DynamicObject
 {
+    public GameObject PrefabRocket;
+
+
 
     private void Awake()
     {
@@ -14,14 +18,8 @@ public class PowerUp : DynamicObject
     {
         UpdatePhysics();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    protected virtual void PowerUpEffect()
     {
 
     }
@@ -30,8 +28,9 @@ public class PowerUp : DynamicObject
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("T'a graille le powerUP FDP");
+            
             Destroy(gameObject);
+            PowerUpEffect();
         }
     }
 }

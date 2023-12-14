@@ -8,12 +8,12 @@ public sealed class PixellizeEffect : CustomPostProcessVolumeComponent, IPostPro
 {
 
     public Vector2Parameter Resolution = new Vector2Parameter(new Vector2(320, 180));
-    public FloatParameter outlineSize = new FloatParameter(1f); 
+    public FloatParameter outlineSize = new FloatParameter(1f);
     public FloatParameter outlineStrength = new FloatParameter(1f);
+    [SerializeField]
+    public RenderTexture _VFXTexture;
     Material m_Material;
-
-    public bool IsActive() => m_Material != null;
-
+    public bool IsActive() => m_Material != null && Resolution != new Vector2(0, 0);
     // Do not forget to add this post process in the Custom Post Process Orders list (Project Settings > Graphics > HDRP Global Settings).
     public override CustomPostProcessInjectionPoint injectionPoint => CustomPostProcessInjectionPoint.BeforePostProcess;
 
@@ -25,19 +25,21 @@ public sealed class PixellizeEffect : CustomPostProcessVolumeComponent, IPostPro
             m_Material = new Material(Shader.Find(kShaderName));
         else
             Debug.LogError($"Unable to find shader '{kShaderName}'. Post Process Volume PixellizeEffect is unable to load.");
+
     }
 
     public override void Render(CommandBuffer cmd, HDCamera camera, RTHandle source, RTHandle destination)
     {
         if (m_Material == null)
-            return;
-
+            return;  
 
         m_Material.SetVector("_Resolution",Resolution.value);
         m_Material.SetTexture("_MainTex", source);
         m_Material.SetFloat("_outlineSize", outlineSize.value); 
-            m_Material.SetFloat("_outlineStrength", outlineStrength.value);
+        m_Material.SetFloat("_outlineStrength", outlineStrength.value);
+       // m_Material.SetTexture("_VFXTexture", GameObject.Find("vfxCam").gameObject.GetComponent<Camera>().targetTexture);
         HDUtils.DrawFullScreen(cmd, m_Material, destination, shaderPassId: 0);
+
     }
 
     public override void Cleanup()

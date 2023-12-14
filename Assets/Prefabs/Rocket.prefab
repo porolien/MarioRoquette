@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,10 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sense: {x: 1, y: 0}
-  Vitesse: 0.5
+  Vitesse: 30
   DureeDeVie: 1
   TailleRocket: {x: 0.1, y: 0.1, z: 0}
-  RayonDeLexplosion: 15
+  RayonDeLexplosion: 3
+  clip: {fileID: 8300000, guid: cd08d4d11edef074e8179d2dd210c50f, type: 3}
+  explosionVfxPrefab: {fileID: 3665804816969930285, guid: 64de8a66fd0d6af42a31269a81af7a9d,
+    type: 3}
+  multiplicateurDeLexplosion: 1
 --- !u!61 &-9117333053867215431
 BoxCollider2D:
   m_ObjectHideFlags: 0
