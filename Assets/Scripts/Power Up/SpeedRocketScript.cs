@@ -6,7 +6,7 @@ public class SpeedRocketScript : PowerUp
 {
     protected override void PowerUpEffect()
     {
-        RocketManager.Instance.playerController.cadence /= 2;
+        RocketManager.Instance.playerController.cadence /= 1.5f;
             
     }
 
