@@ -44,12 +44,12 @@ public class WalkState : IBasePlayerState
             sm.Transition(sm.fallState);
         }
 
-        if (sm.pc.isHoldingJumpKey)
+        else if (sm.pc.isHoldingJumpKey)
         {
             sm.Transition(sm.jumpState);
         }
 
-        if (sm.pc.MovementInput == Vector2.zero)
+        else if (sm.pc.MovementInput == Vector2.zero)
         {
             sm.Transition(sm.idleState);
         }

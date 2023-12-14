@@ -22,7 +22,7 @@ public class RunState : IBasePlayerState
             sm.Transition(sm.fallState);
         }
 
-        if (sm.pc.isHoldingJumpKey)
+        else if (sm.pc.isHoldingJumpKey)
         {
             sm.Transition(sm.jumpState);
         }

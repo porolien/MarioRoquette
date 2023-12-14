@@ -17,7 +17,7 @@ public class PlayerController : DynamicObject
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
     [SerializeField] float rocketJumpPower = 10;
-
+    [SerializeField] float reculRoquette = 10;
 
     [SerializeField] GameObject prefabBalle;
     //Vector2 direction;
@@ -35,6 +35,10 @@ public class PlayerController : DynamicObject
 
     private void Update()
     {
+        /*if(Input.GetKeyDown(KeyCode.R))
+        {
+            Velocity = new Vector2(1,1) * 30;
+        }*/
         isHoldingJumpKey = Input.GetKey(KeyCode.Space);
         //AddForce(MovementInput * playerAcceleration * Vector2.right);
 
@@ -88,7 +92,9 @@ public class PlayerController : DynamicObject
     public void RocketShoot()
     {
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
-        newBalle.GetComponent<RocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        newBalle.GetComponent<RocketMove>().Sense = Direction;
+        AddImpulse(-Direction * reculRoquette);
 
     }
 

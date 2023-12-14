@@ -23,11 +23,12 @@ public class IdleState : IBasePlayerState
     public override void Update()
     {
         Debug.Log(this.sm.ToString());
+        this.sm.pc.Damping = sm.pc.GroundDamping;
 
-        if(!sm.pc.isGrounded)
+        if (!sm.pc.isGrounded)
         {
             sm.Transition(sm.fallState);
-        }
+        }else
 
         if (sm.pc.isHoldingJumpKey)
         {
@@ -35,7 +36,7 @@ public class IdleState : IBasePlayerState
         }
 
 
-        if(sm.pc.MovementInput!=Vector2.zero) 
+        else if(sm.pc.MovementInput!=Vector2.zero) 
         {
             sm.Transition(sm.walkState);
         }

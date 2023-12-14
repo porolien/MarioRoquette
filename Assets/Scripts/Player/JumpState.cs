@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class JumpState : IBasePlayerState
@@ -16,7 +17,7 @@ public class JumpState : IBasePlayerState
 
     public override void OnExit()
     {
-
+        Debug.Log(Time.time - startTime);
     }
 
     public override void Update()
@@ -41,4 +42,6 @@ public class JumpState : IBasePlayerState
             sm.pc.Damping = 0;
         }
     }
+
+
 }
