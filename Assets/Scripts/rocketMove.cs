@@ -11,7 +11,7 @@ public class RocketMove : MonoBehaviour
     public Vector2 Sense;
     public float Vitesse;
     public float DureeDeVie;
-    public Vector3 TailleRocket;
+    public Transform TailleRocket;
     public float RayonDeLexplosion;
     Collider2D col;
     [SerializeField] AudioClip clip;
@@ -26,7 +26,7 @@ public class RocketMove : MonoBehaviour
         contactFilter.layerMask = LayerMask.GetMask("Solid") & LayerMask.GetMask("Ennemis");
 
         Destroy(gameObject, DureeDeVie);
-        TailleDeLaRocket();
+        
     }
 
     // Update is called once per frame
@@ -83,10 +83,10 @@ public class RocketMove : MonoBehaviour
 
     public void TailleDeLaRocket()
     {
-        transform.localScale += TailleRocket;
-
-
+        transform.localScale *= 2;
     }
+
+  
 }
 
 
