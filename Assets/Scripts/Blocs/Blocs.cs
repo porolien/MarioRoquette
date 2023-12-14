@@ -5,21 +5,24 @@ using UnityEngine;
 public class Blocs : MonoBehaviour
 {
     public bool breakable;
+    public bool canExplosed;
 
-    // Start is called before the first frame update
-    void Start()
+    void Explosion(Vector2 Center)
     {
-        
+        if (canExplosed)
+        {
+        Destroy(gameObject);
+        Debug.Log("Ta mere nathan");
+
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void BlocHitted()
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.tag);
+        if(!breakable) 
+        { 
+            //grossir le bloc et le faire monter un ptit peu, puis le rétrecir et le remettre à sa place
+        }
     }
 }

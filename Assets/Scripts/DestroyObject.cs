@@ -19,6 +19,6 @@ public class DestroyObject : MonoBehaviour
    void Explosion(Vector2 Center)
     {
         Destroy(gameObject);
-        Debug.Log("Ta mere nathan");
+        //Debug.Log("Ta mere nathan");
     }
 }

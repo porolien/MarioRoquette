@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8775847621882185460}
   - component: {fileID: 1530700616804472886}
   - component: {fileID: 8353646098333187442}
-  - component: {fileID: -8213161631009368356}
   - component: {fileID: 318389474136920234}
   - component: {fileID: 4868967639424275273}
+  - component: {fileID: -1648808603462894275}
   m_Layer: 0
   m_Name: SpeedRocket
   m_TagString: Untagged
@@ -86,23 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8213161631009368356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8656089566950010317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9613e243a776cca4b8e3153e25c079c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0}
-  gravityScale: 102
-  bounciness: 0
-  mass: 1
-  Damping: 2.5
 --- !u!61 &318389474136920234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +158,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1648808603462894275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656089566950010317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e874614d93d9548885a08fd9d70a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0}
+  gravityScale: 30
+  bounciness: 0
+  mass: 1
+  Damping: 2.5
+  PrefabRocket: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
+    type: 3}
