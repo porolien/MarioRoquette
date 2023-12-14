@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerController : DynamicObject
 {
@@ -31,6 +32,7 @@ public class PlayerController : DynamicObject
     public bool canShoot;
     public float cadence;
 
+    VisualEffect walkVFX;
 
     // Start is called before the first frame update
     private void Awake()
@@ -43,6 +45,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         RocketManager.Instance.playerController = this;
+        walkVFX = GetComponentInChildren<VisualEffect>();
     }
 
     private void Update()
@@ -109,6 +112,19 @@ public class PlayerController : DynamicObject
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
 
+    }
+
+    public void setWalkParticlesActive(bool newActive)
+    {
+        if(newActive)
+        {
+            walkVFX.Play();
+        }
+        else
+        {
+            walkVFX.Stop();
+        }
+        //walkVFX.Stop();
     }
 
     void Explosion(Vector2 Center)

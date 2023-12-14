@@ -9,7 +9,6 @@ public class IdleState : IBasePlayerState
     PlayerStateMachine sm;
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
-        Debug.Log("state entered");
         this.sm = _stateMachine;
         this.sm.pc.Damping = sm.pc.GroundDamping;
         Update();

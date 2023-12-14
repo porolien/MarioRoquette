@@ -21,6 +21,7 @@ public class RocketMove : MonoBehaviour
 
     void Start()
     {
+        //audioSource=GetComponent<AudioSource>();
         RocketManager.Instance.rocketMove = this;
         col = GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid") & LayerMask.GetMask("Ennemis");
@@ -74,7 +75,7 @@ public class RocketMove : MonoBehaviour
        // explosionVfx.transform.localScale *= multiplicateurDeLexplosion;
         Destroy(explosionVfx, 2);
         //sfx
-        audioSource.Play();
+        //audioSource.Play();
         Destroy(gameObject);
         //sfx
 
