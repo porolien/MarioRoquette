@@ -10,9 +10,6 @@ public class PlayerController : DynamicObject
     public float rocketJumpPower = 10;
     public GameObject prefabBalle;
     Vector2 direction;
-    Vector2 MovementInput;
-
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,12 +19,6 @@ public class PlayerController : DynamicObject
     private void FixedUpdate()
     {
         //AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
-        
-    }
-
-    private void Update()
-    {
-        direction = playerAcceleration * MovementInput;
         AddForce(direction);
         //print(move.Get<Vector2>());
         if (MovementInput.sqrMagnitude > 0.1f )
@@ -58,25 +49,25 @@ public class PlayerController : DynamicObject
 
         print(direction);
     }
+
     public void OnMove(InputValue move)
     {
-        MovementInput = move.Get<Vector2>();
-        
+        direction = playerAcceleration * move.Get<Vector2>();
     }
 
     public void OnJump(InputValue jump)
     {
-        Debug.Log(isGrounded);
-        if (isGrounded)
+        //Debug.Log(IsGrounded());
+        if (IsGrounded())
         {
             AddImpulse(Vector3.up * jumpPower);
-            Debug.Log("ça saute");
+            //Debug.Log("ï¿½a saute");
         }
     }
-    public void rocketShoot()
+    public void RocketShoot()
     {
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
-        newBalle.GetComponent<rocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        newBalle.GetComponent<RocketMove>().Sense = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
 
     }
 
@@ -84,15 +75,14 @@ public class PlayerController : DynamicObject
     {
         Vector2 direcRocketJump = new Vector2(transform.position.x, transform.position.y) - Center;
         Vector2 n_DirecRocketJump = direcRocketJump.normalized;
-        //n_DirecRocketJump.x *= 3;
-        AddImpulse(n_DirecRocketJump /* (direcRocketJump.magnitude + 1) 9*/ * rocketJumpPower);
+        n_DirecRocketJump.x *= 3;
+        AddImpulse(n_DirecRocketJump / (direcRocketJump.magnitude + 1) * rocketJumpPower);
     }
-
 
     public void OnShoot()
     {
-        Debug.Log("su");
-        rocketShoot();
+        //Debug.Log("su");
+        RocketShoot();
     }
 
 

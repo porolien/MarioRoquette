@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : MonoBehaviour
+public class IdleState : IBasePlayerState
 {
     void OnEnter(PlayerStateMachine stateMachine)
     {
@@ -16,6 +16,6 @@ public class IdleState : MonoBehaviour
 
     void Update()
     {
-
+        //Si on jump, bouge, tombe
     }
 }
