@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sense: {x: 1, y: 0}
-  Vitesse: 0.5
+  Vitesse: 30
   DureeDeVie: 1
   TailleRocket: {x: 0.1, y: 0.1, z: 0}
-  RayonDeLexplosion: 15
+  RayonDeLexplosion: 5
 --- !u!61 &-9117333053867215431
 BoxCollider2D:
   m_ObjectHideFlags: 0
