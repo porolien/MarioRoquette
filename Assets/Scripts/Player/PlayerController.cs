@@ -38,6 +38,11 @@ public class PlayerController : DynamicObject
         canShoot = true;
     }
 
+    private void Start()
+    {
+        RocketManager.Instance.playerController = this;
+    }
+
     private void Update()
     {
         /*if(Input.GetKeyDown(KeyCode.R))

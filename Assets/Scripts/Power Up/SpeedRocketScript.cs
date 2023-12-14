@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpeedRocketScript : PowerUp
 {
+    protected override void PowerUpEffect()
+    {
 
+    }
 
 }
