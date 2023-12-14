@@ -10,7 +10,7 @@ public class RocketManager : MonoBehaviour
     private static RocketManager _instance = null;
     public static RocketManager Instance => _instance;
     //
-
+    public PlayerController playerController;
 
     private void Awake()
     {

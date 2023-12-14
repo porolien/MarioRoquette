@@ -19,6 +19,10 @@ public class PowerUp : DynamicObject
         UpdatePhysics();
     }
 
+    protected virtual void PowerUpEffect()
+    {
+
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
@@ -26,6 +30,7 @@ public class PowerUp : DynamicObject
         {
             Debug.Log("T'a graille le powerUP FDP");
             Destroy(gameObject);
+            PowerUpEffect();
         }
     }
 }
