@@ -5,10 +5,11 @@ using UnityEngine;
 public class Blocs : MonoBehaviour
 {
     public bool breakable;
+    public bool canExplosed;
 
     void Explosion(Vector2 Center)
     {
-        if (breakable)
+        if (canExplosed)
         {
         Destroy(gameObject);
         Debug.Log("Ta mere nathan");
@@ -17,8 +18,11 @@ public class Blocs : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public virtual void BlocHitted()
     {
-        Debug.Log(collision.gameObject.tag);
+        if(!breakable) 
+        { 
+            //grossir le bloc et le faire monter un ptit peu, puis le rétrecir et le remettre à sa place
+        }
     }
 }

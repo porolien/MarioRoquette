@@ -9,7 +9,8 @@ public class MysteryBlocs : Blocs
     // Start is called before the first frame update
     void Start()
     {
-        
+        breakable = false;
+        canExplosed = true;
     }
 
     // Update is called once per frame
@@ -18,10 +19,16 @@ public class MysteryBlocs : Blocs
         
     }
 
+    public override void BlocHitted()
+    {
+        MysteryBlocIsTouched();
+    }
+
     public void MysteryBlocIsTouched()
     {
         PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
+        Destroy(this);
     }
 
     public void MysteryBlocIsDestroyed()
