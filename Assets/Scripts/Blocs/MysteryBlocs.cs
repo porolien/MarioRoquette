@@ -22,8 +22,6 @@ public class MysteryBlocs : Blocs
     {
         PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
-
-
     }
 
     public void MysteryBlocIsDestroyed()
