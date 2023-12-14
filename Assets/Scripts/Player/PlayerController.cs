@@ -19,6 +19,7 @@ public class PlayerController : DynamicObject
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
+    public AudioSource audioSource;
     [SerializeField] GameObject prefabBalle;
     //Vector2 direction;
 
@@ -27,11 +28,20 @@ public class PlayerController : DynamicObject
     public bool isHoldingJumpKey = false;
     public bool isHoldingSprintKey = false;
 
+    public bool canShoot;
+    public float cadence;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        cadence = 0.75f;
         SetUpPhysics();
+        canShoot = true;
+    }
+
+    private void Start()
+    {
+        RocketManager.Instance.playerController = this;
     }
 
     private void Update()
@@ -92,6 +102,7 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
+        audioSource.Play();
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
@@ -103,19 +114,21 @@ public class PlayerController : DynamicObject
     {
         Vector2 direcRocketJump = new Vector2(transform.position.x, transform.position.y) - Center;
         Vector2 n_DirecRocketJump = direcRocketJump.normalized;
-        n_DirecRocketJump.x *= 3;
         AddImpulse(n_DirecRocketJump / (direcRocketJump.magnitude + 1) * rocketJumpPower);
     }
 
     public void OnShoot()
     {
         //Debug.Log("su");
-        RocketShoot();
+        if (canShoot)
+        {
+            RocketShoot();
+            StartCoroutine(Delay());
+        }
     }
 
-
-    // Update is called once per frame
-    void LateUpdate()
+        // Update is called once per frame
+        void LateUpdate()
     {
         UpdatePhysics();
     }
@@ -141,4 +154,13 @@ public class PlayerController : DynamicObject
             }
         }
     }
-}
+
+        IEnumerator Delay()
+        {
+            canShoot = false;
+            yield return new WaitForSeconds(cadence);
+            canShoot = true;
+
+        }
+
+    }
