@@ -25,6 +25,7 @@ public class PlayerController : DynamicObject
     [Header("Inputs")]
     public Vector2 MovementInput = new Vector2(0,0);
     public bool isHoldingJumpKey = false;
+    public bool isHoldingSprintKey = false;
 
 
     // Start is called before the first frame update
@@ -130,6 +131,13 @@ public class PlayerController : DynamicObject
             else
             {
                 Destroy(gameObject);
+            }
+        }
+        if(collision.gameObject.tag == "Bloc")
+        {
+            if ((collision.transform.position.y - transform.position.y) > 0.8)
+            {
+                //Ouvrir la Box
             }
         }
     }
