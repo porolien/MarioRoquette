@@ -11,7 +11,11 @@ public class EndLevel : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Wow t'a finis t'est vraiment trop chaud mec");
+            RocketMove.muultiplicateurScale = 1;
+            RocketMove.RayonDeLexplosion = 3;
+            RocketMove.multiplicateurDeLexplosion = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            
         }
     }
 }
