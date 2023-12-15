@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerController : DynamicObject
 {
@@ -19,6 +20,7 @@ public class PlayerController : DynamicObject
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
+    [SerializeField] AudioClip clip;
     public AudioSource audioSource;
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
@@ -33,6 +35,8 @@ public class PlayerController : DynamicObject
     public bool canShoot;
     public float cadence;
 
+    VisualEffect walkVFX;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -44,6 +48,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         RocketManager.Instance.playerController = this;
+        walkVFX = GetComponentInChildren<VisualEffect>();
     }
 
     private void Update()
@@ -104,12 +109,26 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
-        audioSource.Play();
+        AudioManager.Instance.Playsound(clip);
+        //audioSource.Play();
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
 
+    }
+
+    public void setWalkParticlesActive(bool newActive)
+    {
+        if(newActive)
+        {
+            walkVFX.Play();
+        }
+        else
+        {
+            walkVFX.Stop();
+        }
+        //walkVFX.Stop();
     }
 
     void Explosion(Vector2 Center)

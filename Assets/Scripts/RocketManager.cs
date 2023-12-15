@@ -11,6 +11,7 @@ public class RocketManager : MonoBehaviour
     public static RocketManager Instance => _instance;
     //
     public PlayerController playerController;
+    public RocketMove rocketMove;
 
     private void Awake()
     {
