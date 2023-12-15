@@ -7,7 +7,7 @@ public class Blocs : MonoBehaviour
 {
     public bool breakable;
     public bool canExplosed;
-    [SerializeField] GameObject breakVFXPrefab;
+    [SerializeField]protected GameObject breakVFXPrefab;
 
     void Explosion(Vector2 Center)
     {
