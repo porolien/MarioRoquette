@@ -9,15 +9,17 @@ public class JumpState : IBasePlayerState
     float startTime;
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
+
         startTime=Time.time;
         this.sm = _stateMachine;
-
+        AudioManager.Instance.PlaySound(sm.pc.jumpSound);
         sm.pc.AddImpulse(Vector2.up * sm.pc.InitialJumpPower);
+
     }
 
     public override void OnExit()
     {
-        Debug.Log(Time.time - startTime);
+       
     }
 
     public override void Update()
