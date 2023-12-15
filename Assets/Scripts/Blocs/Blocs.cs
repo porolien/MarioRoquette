@@ -25,8 +25,8 @@ public class Blocs : MonoBehaviour
         if(!breakable) 
         {
             transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
-            //grossir le bloc et le faire monter un ptit peu, puis le rétrecir et le remettre à sa place
-            //puis le détruire?
+            //grossir le bloc et le faire monter un ptit peu, puis le rï¿½trecir et le remettre ï¿½ sa place
+            //puis le dï¿½truire?
         }
         else
         {
