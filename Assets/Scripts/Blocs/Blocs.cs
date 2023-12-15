@@ -13,10 +13,9 @@ public class Blocs : MonoBehaviour
     {
         if (canExplosed)
         {
-            GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position , Quaternion.identity);
-            explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position-Center).normalized*10));
-            Destroy(explosionVfx, 2);
-            Destroy(transform.parent.gameObject);
+            StartCoroutine(Die2((Vector3)(((Vector2)transform.position - Center).normalized * 10)));
+            
+
         }
 
     }
@@ -24,13 +23,42 @@ public class Blocs : MonoBehaviour
     public virtual void BlocHitted()
     {
         if(!breakable) 
-        { 
-            //grossir le bloc et le faire monter un ptit peu, puis le rétrecir et le remettre à sa place
-            //puis le détruire?
+        {
+            transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+            //grossir le bloc et le faire monter un ptit peu, puis le rï¿½trecir et le remettre ï¿½ sa place
+            //puis le dï¿½truire?
         }
         else
         {
-            Destroy(transform.parent.gameObject);
+            StartCoroutine(Die());
+            //Destroy(transform.parent.gameObject);
         }
+    }
+
+    IEnumerator Die()
+    {
+        transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+        GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+        yield return new WaitForSeconds(0.4f);
+        
+        //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
+        Destroy(explosionVfx, 2);
+        Destroy(transform.parent.gameObject);
+    }
+
+    //nsm
+    IEnumerator Die2(Vector2 additionalVel)
+    {
+        GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity",additionalVel);
+        Destroy(explosionVfx, 2);
+
+        transform.parent.gameObject.GetComponent<Animation>().Play("Brick_Explode");
+
+        yield return new WaitForSeconds(0.1f);
+        //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
+        Destroy(explosionVfx, 2);
+        Destroy(transform.parent.gameObject);
     }
 }

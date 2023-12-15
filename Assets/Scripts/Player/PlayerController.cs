@@ -114,6 +114,7 @@ public class PlayerController : DynamicObject
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
+        
 
     }
 
