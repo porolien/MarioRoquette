@@ -117,8 +117,6 @@ public class PlayerController : DynamicObject
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
-        
-
     }
 
     public void setWalkParticlesActive(bool newActive)
@@ -153,9 +151,9 @@ public class PlayerController : DynamicObject
 
         // Update is called once per frame
         void LateUpdate()
-    {
-        UpdatePhysics();
-    }
+        {
+            UpdatePhysics();
+        }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -180,7 +178,14 @@ public class PlayerController : DynamicObject
         }
     }
 
-        IEnumerator Delay()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("cameraCheckpoint"))
+        {
+            Camera.main.transform.parent.gameObject.GetComponent<cameraBehaviour>().targetY = collision.gameObject.transform.position.y;
+        }
+    }
+    IEnumerator Delay()
         {
             canShoot = false;
             yield return new WaitForSeconds(cadence);
