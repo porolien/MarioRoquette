@@ -13,7 +13,11 @@ public class JumpState : IBasePlayerState
         this.sm = _stateMachine;
         AudioManager.Instance.PlaySound(sm.pc.jumpSound);
         sm.pc.AddImpulse(Vector2.up * sm.pc.InitialJumpPower);
-        sm.playerAnim.ChangeAnimPlayer("StateJumping");
+        if(sm.playerAnim != null)
+        {
+            sm.playerAnim.ChangeAnimPlayer("StateJumping");
+        }
+        
     }
 
     public override void OnExit()
