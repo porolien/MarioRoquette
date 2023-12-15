@@ -379,7 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetGameObject: {fileID: 0}
-  smoothTime: 0.8
+  targetY: 0
+  smoothTime: 0.6
   previsionDuJOueur: 1.3
 --- !u!1 &6055470030812253912
 GameObject:

@@ -8,7 +8,6 @@ public class MysteryBlocs : Blocs
     
     public PowerUp powerUp;
     public Mesh mesh;
-    public Material material;
     //[SerializeField] protected GameObject breakVFXPrefab;
     // Start is called before the first frame update
     void Start()
@@ -34,19 +33,20 @@ public class MysteryBlocs : Blocs
 
         PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
-
+        //transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+        //GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        //explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+        //Destroy(explosionVfx,2 );
+        transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
-        Destroy(explosionVfx,2 );
-        for(int i = 0; i < transform.parent.childCount; i++) 
-        {
-            if (transform.parent.GetChild(i).name == "Visual")
-            {
-                transform.parent.GetChild(i).GetComponent<MeshFilter>().mesh = mesh;
-                transform.parent.GetChild(i).GetComponent<MeshRenderer>().material = material;   
-            }
-        }
+
+        //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
+        Destroy(explosionVfx, 2);
+        transform.parent.Find("Visual").gameObject.GetComponent<MeshFilter>().mesh = mesh;
         Destroy(this);
+
+        //StartCoroutine(Die());
     }
 
 
