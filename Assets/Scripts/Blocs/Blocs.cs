@@ -7,7 +7,8 @@ public class Blocs : MonoBehaviour
 {
     public bool breakable;
     public bool canExplosed;
-    [SerializeField]protected GameObject breakVFXPrefab;
+    [SerializeField] AudioClip breakSound;
+    [SerializeField] GameObject breakVFXPrefab;
 
     void Explosion(Vector2 Center)
     {
@@ -30,6 +31,7 @@ public class Blocs : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlaySound(breakSound);
             StartCoroutine(Die());
             //Destroy(transform.parent.gameObject);
         }
