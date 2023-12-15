@@ -7,6 +7,8 @@ public class MysteryBlocs : Blocs
 {
     
     public PowerUp powerUp;
+    public Mesh mesh;
+    public Material material;
     //[SerializeField] protected GameObject breakVFXPrefab;
     // Start is called before the first frame update
     void Start()
