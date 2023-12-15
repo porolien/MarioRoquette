@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakable: 1
   canExplosed: 1
-  breakBloc: {fileID: 8300000, guid: 10efb8c3057dc9244812076ceb5309b1, type: 3}
+  breakSound: {fileID: 8300000, guid: 10efb8c3057dc9244812076ceb5309b1, type: 3}
   breakVFXPrefab: {fileID: 2230307488901760445, guid: a80e5c06f27707540954642fe2a83f19,
     type: 3}
 --- !u!1 &6213719959670068782
