@@ -15,7 +15,11 @@ public class DeathPlayer : MonoBehaviour
         {
             Debug.Log("Bah t'est mort pas ouf quoi");
             Destroy(Joueur);
+            RocketMove.muultiplicateurScale = 1;
+            RocketMove.RayonDeLexplosion = 3;
+            RocketMove.multiplicateurDeLexplosion = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            
         } 
     }
 }
