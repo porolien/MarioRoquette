@@ -25,6 +25,8 @@ public class PlayerController : DynamicObject
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
     public FallState _fallState;
+    public PlayerAnim playerAnim;
+    float rota;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -95,6 +97,17 @@ public class PlayerController : DynamicObject
     public void OnMove(InputValue move)
     {
         MovementInput = move.Get<Vector2>();
+        
+        switch (MovementInput.x)
+        {
+            case -1:
+                rota = 180;
+                break;
+            case 1:
+                rota = 0;
+                break;
+        }
+        transform.rotation = Quaternion.Euler(transform.rotation.x, rota, transform.rotation.z);
         //direction = playerAcceleration * move.Get<Vector2>();
     }
 

@@ -22,4 +22,9 @@ public class cameraBehaviour : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(transform.position, target, ref vel, smoothTime);
     }
+    void Explosion()
+    {
+        Debug.Log("OPTNSAMERE");
+        ShakeManager.Instance.OnShake(0.5f, 3, 10, transform.GetChild(0));
+    }
 }

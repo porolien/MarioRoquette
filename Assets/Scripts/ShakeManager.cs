@@ -23,11 +23,9 @@ public class ShakeManager : MonoBehaviour
         }
 
     }
-    private void OnShake(float duration, float strength)
+    public void OnShake(float duration, float strength, int vibrato, Transform ObjectToShake)
     {
-        transform.DOShakePosition(duration, strength);
-        transform.DOShakeRotation(duration, strength);
+        ObjectToShake.DOShakePosition(duration, strength, vibrato);
+        ObjectToShake.DOShakeRotation(duration, strength, vibrato);
     }
-
-    public static void Shake(float duration, float strength) => Instance.OnShake(duration, strength);
 }
