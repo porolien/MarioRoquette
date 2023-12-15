@@ -25,6 +25,12 @@ public class PlayerStateMachine : MonoBehaviour
         Transition(idleState);
     }
 
+    private void Start()
+    {
+        pc._currentState = currentState;
+        pc._idleState = idleState;
+    }
+
     // Update is called once per frame
     void Update()
     {

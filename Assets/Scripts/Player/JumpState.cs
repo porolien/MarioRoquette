@@ -17,7 +17,7 @@ public class JumpState : IBasePlayerState
 
     public override void OnExit()
     {
-        Debug.Log(Time.time - startTime);
+       
     }
 
     public override void Update()

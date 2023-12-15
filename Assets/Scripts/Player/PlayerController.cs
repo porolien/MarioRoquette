@@ -21,6 +21,8 @@ public class PlayerController : DynamicObject
 
     public AudioSource audioSource;
     [SerializeField] GameObject prefabBalle;
+    public IBasePlayerState _currentState;
+    public IdleState _idleState;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -146,11 +148,13 @@ public class PlayerController : DynamicObject
                 Destroy(gameObject);
             }
         }
-        if(collision.gameObject.tag == "Bloc")
+        if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
-            if ((collision.transform.position.y - transform.position.y) > 0.8)
+            Debug.Log(Mathf.Abs(collision.transform.position.x - transform.position.x));
+            Debug.Log(_currentState);
+            if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
-                //Ouvrir la Box
+                collision.gameObject.GetComponent<Blocs>().BlocHitted();
             }
         }
     }

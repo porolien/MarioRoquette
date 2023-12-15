@@ -266,14 +266,14 @@ MonoBehaviour:
   gravityScale: 102
   bounciness: 0
   mass: 1
-  Damping: 10
+  Damping: 45
   isGrounded: 1
   GroundPlayerAcceleration: 160
   AirPlayerAcceleration: 75
-  maxWalkSpeed: 15
-  GroundDamping: 30
-  AirDamping: 10
-  maxAirSpeed: 20
+  maxWalkSpeed: 13
+  GroundDamping: 45
+  AirDamping: 40
+  maxAirSpeed: 13
   InitialJumpPower: 15
   JumpThrustPower: 150
   JumpTime: 0.15
@@ -285,8 +285,8 @@ MonoBehaviour:
   MovementInput: {x: 0, y: 0}
   isHoldingJumpKey: 0
   isHoldingSprintKey: 0
-  canShoot: 0
-  cadence: 0
+  canShoot: 1
+  cadence: 0.75
 --- !u!70 &1943311961445210598
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
