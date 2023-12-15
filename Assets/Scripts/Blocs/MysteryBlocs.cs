@@ -37,7 +37,7 @@ public class MysteryBlocs : Blocs
         //Lancer le power up à l'endroit opposé à l'explosion
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+   /* private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
@@ -54,7 +54,7 @@ public class MysteryBlocs : Blocs
             //Destroy(transform.parent.gameObject);
         }
 
-    }
+    }*/
 
     void Explosion(Vector2 source)
     {
