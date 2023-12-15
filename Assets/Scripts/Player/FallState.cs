@@ -8,13 +8,13 @@ public class FallState : IBasePlayerState
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
-
+        sm.playerAnim.ChangeAnimPlayer("StateFalling");
 
     }
 
     public override void OnExit()
     {
-
+        sm.playerAnim.ChangeAnimPlayer("IsLanding");
     }
 
     public override void Update()

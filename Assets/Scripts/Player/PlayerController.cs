@@ -25,6 +25,7 @@ public class PlayerController : DynamicObject
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
     public FallState _fallState;
+    public PlayerAnim playerAnim;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -95,6 +96,8 @@ public class PlayerController : DynamicObject
     public void OnMove(InputValue move)
     {
         MovementInput = move.Get<Vector2>();
+        Debug.Log("mario");
+        transform.rotation = Quaternion.Euler(transform.rotation.x, -transform.rotation.y, transform.rotation.z);
         //direction = playerAcceleration * move.Get<Vector2>();
     }
 
