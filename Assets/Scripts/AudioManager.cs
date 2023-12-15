@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance => _instance;
     //
     [SerializeField] AudioSource musicSource, sfxSource;
+
     private void Awake()
     {
         //Singleton
@@ -22,8 +23,13 @@ public class AudioManager : MonoBehaviour
             _instance = this;
         }
     }
-    public void Playsound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.PlayOneShot(clip);
     }
 }
