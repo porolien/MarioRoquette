@@ -46,7 +46,6 @@ public class MysteryBlocs : Blocs
                 transform.parent.GetChild(i).GetComponent<MeshRenderer>().material = material;   
             }
         }
-        
         Destroy(this);
     }
 
