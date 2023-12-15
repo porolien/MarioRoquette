@@ -98,8 +98,6 @@ public class DynamicObject : MonoBehaviour
                 
             }
         }
-
-
     }
 
    /* private void Awake()

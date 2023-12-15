@@ -30,5 +30,9 @@ public class Blocs : MonoBehaviour
             //grossir le bloc et le faire monter un ptit peu, puis le rétrecir et le remettre à sa place
             //puis le détruire?
         }
+        else
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }

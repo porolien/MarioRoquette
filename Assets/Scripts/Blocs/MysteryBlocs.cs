@@ -34,18 +34,16 @@ public class MysteryBlocs : Blocs
     public void MysteryBlocIsDestroyed()
     {
         PowerUp newPowerUp = Instantiate(powerUp);
-        //Lancer le power up à l'endroit opposé à l'explosion
+        //Lancer le power up ï¿½ l'endroit opposï¿½ ï¿½ l'explosion
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+   /* private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Wow un power UP");
             MysteryBlocIsTouched();
             Destroy(this);
-            
         }
 
         if (other.gameObject.tag == "Rocket")
@@ -54,7 +52,7 @@ public class MysteryBlocs : Blocs
             //Destroy(transform.parent.gameObject);
         }
 
-    }
+    }*/
 
     void Explosion(Vector2 source)
     {

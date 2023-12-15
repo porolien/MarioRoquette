@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rocket
   - Ennemy
+  - Bloc
   layers:
   - Default
   - TransparentFX

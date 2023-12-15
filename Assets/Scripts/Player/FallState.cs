@@ -21,6 +21,7 @@ public class FallState : IBasePlayerState
     {
         if (sm.pc.isGrounded)
         {
+            Debug.Log("yes");
             sm.Transition(sm.idleState);
         }
 

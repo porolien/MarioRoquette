@@ -21,7 +21,6 @@ public class IdleState : IBasePlayerState
 
     public override void Update()
     {
-        Debug.Log(this.sm.ToString());
         this.sm.pc.Damping = sm.pc.GroundDamping;
 
         if (!sm.pc.isGrounded)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1327121993989607735}
   m_Layer: 3
   m_Name: Block_Question
-  m_TagString: Untagged
+  m_TagString: Bloc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5130806343535344597}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Bloc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakable: 0
   canExplosed: 1
+  breakVFXPrefab: {fileID: 0}
   powerUp: {fileID: -1648808603462894275, guid: d4da2a8e172cc8144a74454b0adbe28e,
     type: 3}
 --- !u!61 &7421417505444025330
@@ -186,7 +187,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
