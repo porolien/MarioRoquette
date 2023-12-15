@@ -107,7 +107,7 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
-        AudioManager.Instance.Playsound(clip);
+        //AudioManager.Instance.Playsound(clip);
         //audioSource.Play();
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
