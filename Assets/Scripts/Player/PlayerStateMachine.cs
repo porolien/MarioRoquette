@@ -28,7 +28,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void Start()
     {
         pc._currentState = currentState;
-        pc._idleState = idleState;
+        pc._fallState = fallState;
     }
 
     // Update is called once per frame

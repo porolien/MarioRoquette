@@ -20,11 +20,11 @@ public class PlayerController : DynamicObject
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
-    [SerializeField] AudioClip clip;
-    public AudioSource audioSource;
+    [SerializeField] AudioClip missileSound;
+    public AudioClip jumpSound;
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
-    public IdleState _idleState;
+    public FallState _fallState;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -109,8 +109,7 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
-        //AudioManager.Instance.Playsound(clip);
-        //audioSource.Play();
+        AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
@@ -167,9 +166,8 @@ public class PlayerController : DynamicObject
                 Destroy(gameObject);
             }
         }
-        if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
+        if(collision.gameObject.tag == "Bloc" && _currentState == _fallState)
         {
-            Debug.Log(Mathf.Abs(collision.transform.position.x - transform.position.x));
             Debug.Log(_currentState);
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
