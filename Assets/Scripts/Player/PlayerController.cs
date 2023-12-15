@@ -21,7 +21,7 @@ public class PlayerController : DynamicObject
     [SerializeField] float reculRoquette = 10;
 
     [SerializeField] AudioClip clip;
-    public AudioSource audioSource;
+
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
     public IdleState _idleState;
@@ -109,8 +109,8 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
-        //AudioManager.Instance.Playsound(clip);
-        //audioSource.Play();
+        AudioManager.Instance.PlaySound(clip);
+
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         newBalle.GetComponent<RocketMove>().Sense = Direction;
