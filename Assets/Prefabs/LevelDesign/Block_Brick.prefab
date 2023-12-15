@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7014277980596642998}
   - component: {fileID: 7651586552717232668}
   - component: {fileID: 1327121993989607735}
+  - component: {fileID: 4381346213772920269}
   m_Layer: 3
   m_Name: Block_Brick
   m_TagString: Untagged
@@ -107,6 +108,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!111 &4381346213772920269
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583407426376136578}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c226b325dc364cd468c877206916d066, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: fbf3158538d4fd047a71330e90459e0a, type: 2}
+  - {fileID: 7400000, guid: c226b325dc364cd468c877206916d066, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3231552943389721264
 GameObject:
   m_ObjectHideFlags: 0

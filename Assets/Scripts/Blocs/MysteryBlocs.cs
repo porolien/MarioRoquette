@@ -39,13 +39,11 @@ public class MysteryBlocs : Blocs
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Wow un power UP");
             MysteryBlocIsTouched();
             Destroy(this);
-            
         }
 
         if (other.gameObject.tag == "Rocket")
