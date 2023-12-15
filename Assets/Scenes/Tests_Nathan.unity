@@ -14646,7 +14646,8 @@ MonoBehaviour:
   JumpTime: 0.15
   rocketJumpPower: 50
   reculRoquette: 10
-  clip: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
+  missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
+  jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
   prefabBalle: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
     type: 3}
   MovementInput: {x: 0, y: 0}
