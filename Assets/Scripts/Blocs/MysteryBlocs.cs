@@ -8,7 +8,6 @@ public class MysteryBlocs : Blocs
     
     public PowerUp powerUp;
     public Mesh mesh;
-    public Material material;
     //[SerializeField] protected GameObject breakVFXPrefab;
     // Start is called before the first frame update
     void Start()
@@ -44,7 +43,9 @@ public class MysteryBlocs : Blocs
 
         //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
         Destroy(explosionVfx, 2);
+        transform.parent.Find("Visual").gameObject.GetComponent<MeshFilter>().mesh = mesh;
         Destroy(this);
+
         //StartCoroutine(Die());
     }
 
