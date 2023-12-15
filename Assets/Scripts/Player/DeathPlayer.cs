@@ -18,6 +18,7 @@ public class DeathPlayer : MonoBehaviour
             RocketMove.muultiplicateurScale = 1;
             RocketMove.RayonDeLexplosion = 3;
             RocketMove.multiplicateurDeLexplosion = 1;
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
             
         } 
