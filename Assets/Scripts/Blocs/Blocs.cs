@@ -17,8 +17,6 @@ public class Blocs : MonoBehaviour
             explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position-Center).normalized*10));
             Destroy(explosionVfx, 2);
             Destroy(transform.parent.gameObject);
-            Debug.Log("Ta mere nathan");
-
         }
 
     }
