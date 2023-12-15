@@ -104,7 +104,7 @@ public class PlayerController : DynamicObject
                 rota = 180;
                 break;
             case 1:
-                rota = 0;
+                rota = 0 ;
                 break;
         }
         transform.rotation = Quaternion.Euler(transform.rotation.x, rota, transform.rotation.z);
@@ -125,6 +125,12 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        if (rota == 180)
+        {
+            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+        }
+        
+        
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
         
