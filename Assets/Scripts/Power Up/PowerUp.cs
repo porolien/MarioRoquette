@@ -6,8 +6,8 @@ using UnityEngine;
 public class PowerUp : DynamicObject
 {
     public GameObject PrefabRocket;
-
-
+    private float vitesse = 100;
+    private float vmax = 10;
 
     private void Awake()
     {
@@ -17,8 +17,21 @@ public class PowerUp : DynamicObject
     void LateUpdate()
     {
         UpdatePhysics();
+       
     }
-
+     void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * vitesse, GetComponent<Collider2D>().bounds.size.x / 2 + 0.1f, LayerMask.GetMask("Solid"));
+        Debug.DrawRay(transform.position, Vector3.right * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f), Color.red);
+        if (hit) 
+        {
+            vitesse *= -1;
+        }
+        
+        
+        if(Mathf.Abs(Velocity.x)<vmax) AddForce(Vector2.right * vitesse);
+        
+    }
     protected virtual void PowerUpEffect()
     {
 
