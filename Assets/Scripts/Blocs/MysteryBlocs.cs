@@ -32,12 +32,18 @@ public class MysteryBlocs : Blocs
 
         PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
-
+        //transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+        //GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        //explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+        //Destroy(explosionVfx,2 );
+        transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
-        Destroy(explosionVfx,2 );
 
+        //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
+        Destroy(explosionVfx, 2);
         Destroy(this);
+        //StartCoroutine(Die());
     }
 
 

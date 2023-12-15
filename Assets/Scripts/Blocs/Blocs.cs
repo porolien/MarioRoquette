@@ -37,7 +37,7 @@ public class Blocs : MonoBehaviour
         }
     }
 
-    IEnumerator Die()
+    protected IEnumerator Die()
     {
         transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
