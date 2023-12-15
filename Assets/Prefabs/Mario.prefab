@@ -759,8 +759,8 @@ MonoBehaviour:
   isGrounded: 0
   GroundPlayerAcceleration: 160
   AirPlayerAcceleration: 30
-  maxWalkSpeed: 10
-  GroundDamping: 30
+  maxWalkSpeed: 9
+  GroundDamping: 60
   AirDamping: 10
   maxAirSpeed: 10
   InitialJumpPower: 15
@@ -768,11 +768,11 @@ MonoBehaviour:
   JumpTime: 0.15
   rocketJumpPower: 50
   reculRoquette: 10
-  missileSound: {fileID: 0}
+  missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
   jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
   prefabBalle: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
     type: 3}
-  playerAnim: {fileID: 793214447299326971}
+  playerAnim: {fileID: 0}
   MovementInput: {x: 0, y: 0}
   isHoldingJumpKey: 0
   isHoldingSprintKey: 0
