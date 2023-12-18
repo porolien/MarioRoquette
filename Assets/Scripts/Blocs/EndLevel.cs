@@ -15,6 +15,12 @@ public class EndLevel : MonoBehaviour
             RocketMove.RayonDeLexplosion = 3;
             RocketMove.multiplicateurDeLexplosion = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            Debug.Log(PlayerPrefs.GetFloat("Timer"));
+            Debug.Log(ScoreManager.Instance.SetBestTimer());
+            if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
+            {
+                PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
+            }
             
         }
     }
