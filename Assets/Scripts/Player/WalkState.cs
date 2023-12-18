@@ -18,7 +18,7 @@ public class WalkState : IBasePlayerState
         }
         checkForTransitions();
 
-
+        
     }
 
     public override void OnExit()
@@ -47,6 +47,7 @@ public class WalkState : IBasePlayerState
         if (!sm.pc.isGrounded)
         {
             sm.Transition(sm.fallState);
+            sm.pc.StartCoroutine(CoyoteTime(sm.pc.coyoteTime));
         }
 
         else if (sm.pc.isHoldingJumpKey)
@@ -57,9 +58,22 @@ public class WalkState : IBasePlayerState
         else if (sm.pc.MovementInput == Vector2.zero)
         {
             sm.Transition(sm.idleState);
+            
         }
-
-
+    }
+    IEnumerator CoyoteTime(float coyoteTime)
+    {
+        float endTime = Time.time + coyoteTime;
+        while (Time.time < endTime)
+        {
+            if (sm.currentState != sm.fallState) break;
+            if (sm.pc.isHoldingJumpKey)
+            {
+                sm.Transition(sm.jumpState);
+                break;
+            }
+            yield return 0;
+        }
         
     }
 }
