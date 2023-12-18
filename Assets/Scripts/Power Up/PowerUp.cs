@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ public class PowerUp : DynamicObject
     public GameObject PrefabRocket;
     private float vitesse = 100;
     private float vmax = 10;
-
+    private float NmbrDePowerUpMax = 1;
+    private float NmbreDePowerUpEnCours = 0;
     private void Awake()
     {
         SetUpPhysics();
@@ -41,9 +43,21 @@ public class PowerUp : DynamicObject
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
-            
-            Destroy(gameObject);
-            PowerUpEffect();
+            if(NmbreDePowerUpEnCours < NmbrDePowerUpMax)
+            {
+                NmbreDePowerUpEnCours++;
+                Debug.Log(NmbreDePowerUpEnCours);
+                Destroy(gameObject);
+                PowerUpEffect();
+            }
+            else if (NmbreDePowerUpEnCours > NmbrDePowerUpMax)
+            {
+                Destroy(gameObject);
+                Debug.Log("T'as deja un power UP");
+            }
+          
         }
+
+      
     }
 }
