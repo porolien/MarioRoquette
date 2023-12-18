@@ -723,7 +723,6 @@ Transform:
   - {fileID: 3882382790349692054}
   - {fileID: 3821068563115761938}
   - {fileID: 3809520390996349205}
-  - {fileID: 3148069062217707785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3934560526519629212
@@ -881,8 +880,9 @@ MonoBehaviour:
   JumpThrustPower: 75
   JumpTime: 0.15
   coyoteTime: 0.2
+  footstepsSeparation: 0.5
   rocketJumpPower: 50
-  reculRoquette: 10
+  reculRoquette: 20
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
   jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
   prefabBalle: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
@@ -3425,7 +3425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cursor: {fileID: 7727908026698649524}
-  rocketLauncher: {fileID: 0}
+  rocketLauncher: {fileID: 9096582081670217496}
 --- !u!114 &5817366040082109641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3534,7 +3534,8 @@ Transform:
   m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3148069062217707785}
   m_Father: {fileID: 6264604076989116316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1228088191791401831
@@ -3862,12 +3863,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9096582081670217496}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.49119762, y: 0.5, z: 0.50865006, w: 0.5}
-  m_LocalPosition: {x: 1.2649021, y: 0.0349048, z: -2.022079}
-  m_LocalScale: {x: 3.6918526, y: 3.6918538, z: 3.6918538}
+  m_LocalRotation: {x: -0.4944059, y: 0.49682665, z: 0.5055323, w: 0.5031533}
+  m_LocalPosition: {x: -0.7096133, y: 0.17452401, z: -10.02956}
+  m_LocalScale: {x: 18.457561, y: 2.5, z: 20.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7452351496694638267}
+  m_Father: {fileID: 7727908026698649524}
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &1667528842145281894
 MeshFilter:

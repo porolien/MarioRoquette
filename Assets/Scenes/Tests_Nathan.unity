@@ -16652,6 +16652,7 @@ MonoBehaviour:
   missileSound: {fileID: 0}
   explosionSound: {fileID: 0}
   jumpSound: {fileID: 0}
+  footstepsSounds: []
 --- !u!4 &833518687
 Transform:
   m_ObjectHideFlags: 0
