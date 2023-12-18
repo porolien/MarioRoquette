@@ -54,7 +54,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         RocketManager.Instance.playerController = this;
-        walkVFX = GetComponentInChildren<VisualEffect>();
+        walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
     }
 
     private void Update()
@@ -142,6 +142,7 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
         if (rota == 180)
         {
             Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
