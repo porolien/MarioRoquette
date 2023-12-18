@@ -18,6 +18,7 @@ public class PlayerController : DynamicObject
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
     public float coyoteTime = 0.2f;
+    public float footstepsSeparation = 0.5f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 

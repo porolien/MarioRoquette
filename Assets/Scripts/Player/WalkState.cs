@@ -10,6 +10,7 @@ public class WalkState : IBasePlayerState
     {
         this.sm = _stateMachine;
 
+        sm.pc.StartCoroutine(Footsteps(sm.pc.footstepsSeparation));
         sm.pc.Damping = sm.pc.GroundDamping;
         sm.pc.AddForce(sm.pc.MovementInput * sm.pc.GroundPlayerAcceleration * Vector2.right);
         sm.pc.setWalkParticlesActive(true);
@@ -25,6 +26,7 @@ public class WalkState : IBasePlayerState
 
     public override void OnExit()
     {
+        sm.pc.StopCoroutine("Footsteps");
         sm.pc.setWalkParticlesActive(false);
     }
 
@@ -77,5 +79,11 @@ public class WalkState : IBasePlayerState
             yield return 0;
         }
         
+    }
+
+    IEnumerator Footsteps(float footstepsSeparation)
+    {
+        AudioManager.Instance.PlayFootsteps();
+        yield return new WaitForSeconds(footstepsSeparation);
     }
 }
