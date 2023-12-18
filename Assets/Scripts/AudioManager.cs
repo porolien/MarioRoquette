@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance => _instance;
     //
     [SerializeField] AudioSource musicSource, sfxSource;
+    [SerializeField] AudioClip missileSound;
+    [SerializeField] AudioClip explosionSound;
+    [SerializeField] AudioClip jumpSound;
 
     private void Awake()
     {
@@ -22,6 +25,19 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
         }
+    }
+
+    public void PlayMissile()
+    {
+        PlaySound(missileSound);
+    }
+    public void PlayExplosion()
+    {
+        PlaySound(explosionSound);
+    }
+    public void PlayJump()
+    {
+        PlaySound(jumpSound);
     }
     public void PlaySound(AudioClip clip)
     {

@@ -17,6 +17,7 @@ public class PlayerController : DynamicObject
     public float InitialJumpPower = 10;
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
+    public float coyoteTime = 0.2f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
@@ -59,7 +60,7 @@ public class PlayerController : DynamicObject
         {
             Velocity = new Vector2(1,1) * 30;
         }*/
-        isHoldingJumpKey = Input.GetKey(KeyCode.Space);
+       // isHoldingJumpKey = Input.GetKey(KeyCode.Space);
         //AddForce(MovementInput * playerAcceleration * Vector2.right);
 
         /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
@@ -111,6 +112,19 @@ public class PlayerController : DynamicObject
         //direction = playerAcceleration * move.Get<Vector2>();
     }
 
+    public void OnJump(InputValue value)
+    {
+        Debug.Log(value.Get<float>());
+        if(value.Get<float>() == 1) 
+        {
+            isHoldingJumpKey = true;
+        }
+        else
+        {
+            isHoldingJumpKey = false;
+        }
+    }
+
     /*public void OnJump(InputValue jump)
     {
         isHoldingJumpKey = jump.Get<float>()!=0;
@@ -128,11 +142,16 @@ public class PlayerController : DynamicObject
         if (rota == 180)
         {
             Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+            AddImpulse(Direction * reculRoquette);
+        }
+        else
+        {
+            AddImpulse(-Direction * reculRoquette);
         }
         
         
         newBalle.GetComponent<RocketMove>().Sense = Direction;
-        AddImpulse(-Direction * reculRoquette);
+        
     }
 
     public void setWalkParticlesActive(bool newActive)
