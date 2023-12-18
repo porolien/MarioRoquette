@@ -23767,13 +23767,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234450757}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93599796, y: 3.3273206, z: -2.53}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.16, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1508623291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1001 &1242827411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29780,6 +29780,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2375710195425690799, guid: ec6cb291946ce2a4d957d55479513e50,
     type: 3}
   m_PrefabInstance: {fileID: 1507551754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1508623291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6264604076989116316, guid: c527105fd95e1a84a9b619cf06dc9bac,
+    type: 3}
+  m_PrefabInstance: {fileID: 3693550018760716945}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1512070989 stripped
 Transform:
@@ -41284,6 +41290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
+    - target: {fileID: 3882382790349692054, guid: c527105fd95e1a84a9b619cf06dc9bac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.82
+      objectReference: {fileID: 0}
     - target: {fileID: 6264604076989116316, guid: c527105fd95e1a84a9b619cf06dc9bac,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -41346,7 +41357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6264604076989116316, guid: c527105fd95e1a84a9b619cf06dc9bac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1234450760}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c527105fd95e1a84a9b619cf06dc9bac, type: 3}
 --- !u!1001 &5582965892412465335
@@ -41537,4 +41552,3 @@ SceneRoots:
   - {fileID: 3693550018760716945}
   - {fileID: 1394031370}
   - {fileID: 64982355}
-  - {fileID: 1234450760}
