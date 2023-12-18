@@ -751,20 +751,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c223778d391e6d45ae544a0813c279e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: -309.09348}
+  Velocity: {x: 0, y: 0}
   gravityScale: 75
   bounciness: 0
   mass: 1
-  Damping: 10
-  isGrounded: 0
-  GroundPlayerAcceleration: 160
+  Damping: 60
+  isGrounded: 1
+  GroundPlayerAcceleration: 100
   AirPlayerAcceleration: 30
   maxWalkSpeed: 9
   GroundDamping: 60
   AirDamping: 10
   maxAirSpeed: 10
-  InitialJumpPower: 15
-  JumpThrustPower: 120
+  InitialJumpPower: 20
+  JumpThrustPower: 75
   JumpTime: 0.15
   rocketJumpPower: 50
   reculRoquette: 10
