@@ -9,11 +9,13 @@ public class PowerUp : DynamicObject
     public GameObject PrefabRocket;
     private float vitesse = 100;
     private float vmax = 10;
-    private float NmbrDePowerUpMax = 1;
-    private float NmbreDePowerUpEnCours = 0;
+    static int NmbrDePowerUpMax = 1;
+    static int NmbreDePowerUpEnCours = 0;
+
     private void Awake()
     {
         SetUpPhysics();
+        NmbreDePowerUpEnCours = 0;
     }
 
     void LateUpdate()
