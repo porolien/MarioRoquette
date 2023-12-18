@@ -6858,6 +6858,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 432876983}
   sfxSource: {fileID: 1101997737}
+  missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
+  explosionSound: {fileID: 8300000, guid: cd08d4d11edef074e8179d2dd210c50f, type: 3}
+  jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
 --- !u!4 &833518687
 Transform:
   m_ObjectHideFlags: 0
@@ -14118,6 +14121,7 @@ MonoBehaviour:
   InitialJumpPower: 15
   JumpThrustPower: 120
   JumpTime: 0.15
+  coyoteTime: 0.2
   rocketJumpPower: 50
   reculRoquette: 10
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}

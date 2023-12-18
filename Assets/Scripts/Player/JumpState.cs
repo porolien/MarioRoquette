@@ -13,6 +13,12 @@ public class JumpState : IBasePlayerState
         startTime=Time.time;
         this.sm = _stateMachine;
         AudioManager.Instance.PlaySound(sm.pc.jumpSound);
+        sm.pc.StopCoroutine("CoyoteTime");
+        if (sm.pc.Velocity.y < 0)
+        {
+            sm.pc.AddImpulse(Vector2.up * -sm.pc.Velocity.y);
+
+        }
         sm.pc.AddImpulse(Vector2.up * sm.pc.InitialJumpPower);
         animName = "StateJumping";
         if (sm.playerAnim != null)
@@ -33,7 +39,6 @@ public class JumpState : IBasePlayerState
         {
             sm.Transition(sm.fallState);
         }
-
 
         sm.pc.AddForce(Vector2.up * sm.pc.JumpThrustPower);
         sm.pc.Damping = sm.pc.gravityScale;
