@@ -83,21 +83,29 @@ public class DynamicObject : MonoBehaviour
     void checkForCollisions()
     {
         List<RaycastHit2D> results = new List<RaycastHit2D>();
-        if (col.Cast(Velocity,contactFilter,results,Velocity.magnitude*Time.deltaTime,true) > 0)
+        for(int i = 0; i < 3; i++)
         {
-            foreach(RaycastHit2D hit in results )
+            if (col.Cast(Velocity, contactFilter, results, Velocity.magnitude * Time.deltaTime, true) > 0)
             {
-                if (Vector3.Dot (hit.point-(Vector2)transform.position,Velocity)>0)
+                foreach (RaycastHit2D hit in results)
                 {
-                    //snap object to hit surface
-                    rb.position += Velocity * Time.deltaTime * hit.fraction;
-                    //Velocity *= hit.fraction;
-                    Debug.DrawRay(rb.position, Vector3.up, Color.red, 5);
-                    Velocity = (Vector2)Vector3.ProjectOnPlane(Velocity, hit.normal) + hit.normal * bounciness;
+                    if (Vector3.Dot(hit.point - (Vector2)transform.position, Velocity) > 0)
+                    {
+                        //snap object to hit surface
+                        rb.position += Velocity * Time.deltaTime * hit.fraction;
+                        //Velocity *= hit.fraction;
+                        Debug.DrawRay(rb.position, Vector3.up, Color.red, 5);
+                        Velocity = (Vector2)Vector3.ProjectOnPlane(Velocity, hit.normal) + hit.normal * bounciness;
+                    }
+
                 }
-                
+            }
+            else
+            {
+                break;
             }
         }
+        
     }
 
    /* private void Awake()
