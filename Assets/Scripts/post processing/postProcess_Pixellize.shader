@@ -10,6 +10,8 @@ Shader "Hidden/Shader/postProcess_Pixellize"
 
     #pragma target 4.5
     #pragma only_renderers d3d11 playstation xboxone xboxseries vulkan metal switch
+    
+
 
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
@@ -44,6 +46,7 @@ Shader "Hidden/Shader/postProcess_Pixellize"
     float2 _Resolution;
     float _outlineSize;
     float _outlineStrength;
+    float4 fogColor;
     Texture2D _VFXTexture;
     TEXTURE2D_X(_MainTex);
 
@@ -66,7 +69,15 @@ Shader "Hidden/Shader/postProcess_Pixellize"
 
 
         float3 color =  SAMPLE_TEXTURE2D_X(_MainTex, s_linear_clamp_sampler, ClampAndScaleUVForBilinearPostProcessTexture(coord  )) * pow(1-length(float2( lumix,lumiy)),_outlineStrength);
+        float a = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, s_linear_clamp_sampler, ClampAndScaleUVForBilinearPostProcessTexture(coord  )).x;
+        a*=1000;
+        a=min(max(a,0.8),1);
+        if(a!=0){
+            color = lerp(color,fogColor.xyz,1-a);
+        }
         
+        
+        //color = float3(a,a,a);
         //float3 vfx = SAMPLE_TEXTURE2D_X(_VFXTexture,s_linear_clamp_sampler,ClampAndScaleUVForBilinearPostProcessTexture(input.texcoord.xy));
         
         //color+=vfx;

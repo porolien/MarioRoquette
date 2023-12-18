@@ -10,6 +10,7 @@ public sealed class PixellizeEffect : CustomPostProcessVolumeComponent, IPostPro
     public Vector2Parameter Resolution = new Vector2Parameter(new Vector2(320, 180));
     public FloatParameter outlineSize = new FloatParameter(1f);
     public FloatParameter outlineStrength = new FloatParameter(1f);
+    public ColorParameter fogColor = new ColorParameter(Color.white);
     [SerializeField]
     public RenderTexture _VFXTexture;
     Material m_Material;
@@ -35,6 +36,7 @@ public sealed class PixellizeEffect : CustomPostProcessVolumeComponent, IPostPro
 
         m_Material.SetVector("_Resolution",Resolution.value);
         m_Material.SetTexture("_MainTex", source);
+        m_Material.SetColor("fogColor", fogColor.value);
         m_Material.SetFloat("_outlineSize", outlineSize.value); 
         m_Material.SetFloat("_outlineStrength", outlineStrength.value);
        // m_Material.SetTexture("_VFXTexture", GameObject.Find("vfxCam").gameObject.GetComponent<Camera>().targetTexture);
