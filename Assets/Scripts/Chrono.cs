@@ -1,26 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
-using Unity.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
-public class Chrono : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    static float chrono;
-    [SerializeField]
-    public TMP_Text Texte;
+    [SerializeField] TextMeshProUGUI timerTexte;
+    float elapsedTime = 0;
 
-    private void Awake()
+    // Update is called once per frame
+    void Update()
     {
-        
+        if (elapsedTime > 0)
+        {
+            monTIme();
+        }
+        else
+        {
+            elapsedTime = 0;
+            timerTexte.text = elapsedTime.ToString();
+        }
     }
 
-    public void Update()
+    public void monTIme()
     {
-        GetComponent<TMP_Text>().text = ((int)Time.time).ToString();        
-        //TMP_Text chrono;
+        elapsedTime += Time.deltaTime;
+        int minute = (int)(elapsedTime / 60);
+        int seconds = (int)(elapsedTime % 60);
+
+        if (seconds < 10)
+        {
+            timerTexte.text = (minute.ToString() + ":0" + seconds.ToString());
+        }
+        else
+        {
+            timerTexte.text = (minute.ToString() + ":" + seconds.ToString());
+        }
+
+        timerTexte.maxVisibleCharacters = 4;
     }
-
-
 }
