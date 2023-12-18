@@ -11,11 +11,13 @@ public class IdleState : IBasePlayerState
     {
         this.sm = _stateMachine;
         this.sm.pc.Damping = sm.pc.GroundDamping;
+        sm.pc.StopCoroutine("CoyoteTime");
         if (sm.playerAnim != null)
         {
             sm.playerAnim.ChangeAnimPlayer("StateIdle");
         }
         Update();
+
     }
 
     public override void OnExit()
