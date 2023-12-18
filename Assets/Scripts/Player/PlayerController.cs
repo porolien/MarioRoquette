@@ -17,6 +17,7 @@ public class PlayerController : DynamicObject
     public float InitialJumpPower = 10;
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
+    public float coyoteTime = 0.2f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
@@ -25,12 +26,17 @@ public class PlayerController : DynamicObject
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
     public FallState _fallState;
+    public PlayerAnim playerAnim;
+    float rota;
+    public Vector2 aimDirection;
     //Vector2 direction;
 
     [Header("Inputs")]
     public Vector2 MovementInput = new Vector2(0,0);
     public bool isHoldingJumpKey = false;
     public bool isHoldingSprintKey = false;
+
+    public bool isControllerMode;
 
     public bool canShoot;
     public float cadence;
@@ -48,7 +54,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         RocketManager.Instance.playerController = this;
-        walkVFX = GetComponentInChildren<VisualEffect>();
+        walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
     }
 
     private void Update()
@@ -57,7 +63,7 @@ public class PlayerController : DynamicObject
         {
             Velocity = new Vector2(1,1) * 30;
         }*/
-        isHoldingJumpKey = Input.GetKey(KeyCode.Space);
+       // isHoldingJumpKey = Input.GetKey(KeyCode.Space);
         //AddForce(MovementInput * playerAcceleration * Vector2.right);
 
         /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
@@ -95,7 +101,31 @@ public class PlayerController : DynamicObject
     public void OnMove(InputValue move)
     {
         MovementInput = move.Get<Vector2>();
+        
+        switch (MovementInput.x)
+        {
+            case -1:
+                rota = 180;
+                break;
+            case 1:
+                rota = 0 ;
+                break;
+        }
+        transform.rotation = Quaternion.Euler(transform.rotation.x, rota, transform.rotation.z);
         //direction = playerAcceleration * move.Get<Vector2>();
+    }
+
+    public void OnJump(InputValue value)
+    {
+        Debug.Log(value.Get<float>());
+        if(value.Get<float>() == 1) 
+        {
+            isHoldingJumpKey = true;
+        }
+        else
+        {
+            isHoldingJumpKey = false;
+        }
     }
 
     /*public void OnJump(InputValue jump)
@@ -112,10 +142,20 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
-        newBalle.GetComponent<RocketMove>().Sense = Direction;
-        AddImpulse(-Direction * reculRoquette);
+        transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
+        if (rota == 180)
+        {
+            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+            AddImpulse(Direction * reculRoquette);
+        }
+        else
+        {
+            AddImpulse(-Direction * reculRoquette);
+        }
         
-
+        
+        newBalle.GetComponent<RocketMove>().Sense = Direction;
+        
     }
 
     public void setWalkParticlesActive(bool newActive)
@@ -148,11 +188,25 @@ public class PlayerController : DynamicObject
         }
     }
 
-        // Update is called once per frame
-        void LateUpdate()
+    public void OnMoveCursorController(InputValue value)
     {
-        UpdatePhysics();
+        Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();
+        isControllerMode = true;
     }
+
+    public void OnMoveCursorMouse(InputValue value)
+    {
+        /*Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();*/
+        isControllerMode = false;
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+        {
+            UpdatePhysics();
+        }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -177,7 +231,14 @@ public class PlayerController : DynamicObject
         }
     }
 
-        IEnumerator Delay()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("cameraCheckpoint"))
+        {
+            Camera.main.transform.parent.gameObject.GetComponent<cameraBehaviour>().targetY = collision.gameObject.transform.position.y;
+        }
+    }
+    IEnumerator Delay()
         {
             canShoot = false;
             yield return new WaitForSeconds(cadence);

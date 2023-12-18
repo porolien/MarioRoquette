@@ -5,16 +5,24 @@ using UnityEngine;
 public class FallState : IBasePlayerState
 {
     PlayerStateMachine sm;
+    string animName;
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
-
+        animName = "StateFalling";
+        if (sm.playerAnim != null)
+        {
+            sm.playerAnim.ChangeAnimPlayer(animName);
+        }
 
     }
 
     public override void OnExit()
     {
-
+        if (sm.playerAnim != null)
+        {
+           // sm.playerAnim.ChangeAnimPlayer("IsLanding");
+        }
     }
 
     public override void Update()

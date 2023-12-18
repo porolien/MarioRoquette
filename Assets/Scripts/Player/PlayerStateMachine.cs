@@ -11,6 +11,7 @@ public class PlayerStateMachine : MonoBehaviour
     public JumpState jumpState;
     public FallState fallState;
     public DieState dieState;
+    public PlayerAnim playerAnim;
     public PlayerController pc;
     // Start is called before the first frame update
     void Awake()
@@ -48,6 +49,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
         currentState = _theNewState;
         currentState.OnEnter(this);
+        Debug.LogAssertion(_theNewState);
     }
 }
 
