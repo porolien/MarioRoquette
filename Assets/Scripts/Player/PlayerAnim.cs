@@ -11,7 +11,6 @@ public class PlayerAnim : MonoBehaviour
     }
     public void ChangeAnimPlayer(string _animState)
     {
-        Debug.Log(_animState);
         animator.SetBool(_animState, true);
     }
 }

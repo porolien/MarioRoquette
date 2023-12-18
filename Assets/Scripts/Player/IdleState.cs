@@ -7,10 +7,12 @@ using UnityEngine;
 public class IdleState : IBasePlayerState
 {
     PlayerStateMachine sm;
+    string animName;
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
         this.sm.pc.Damping = sm.pc.GroundDamping;
+        animName = "StateIdle";
         if (sm.playerAnim != null)
         {
             sm.playerAnim.ChangeAnimPlayer("StateIdle");

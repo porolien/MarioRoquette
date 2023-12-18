@@ -5,6 +5,7 @@ using UnityEngine;
 public class WalkState : IBasePlayerState
 {
     PlayerStateMachine sm;
+    string animName;
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
@@ -12,9 +13,10 @@ public class WalkState : IBasePlayerState
         sm.pc.Damping = sm.pc.GroundDamping;
         sm.pc.AddForce(sm.pc.MovementInput * sm.pc.GroundPlayerAcceleration * Vector2.right);
         sm.pc.setWalkParticlesActive(true);
+        animName = "StateWalking";
         if (sm.playerAnim != null)
         {
-            sm.playerAnim.ChangeAnimPlayer("StateWalking");
+            sm.playerAnim.ChangeAnimPlayer(animName);
         }
         checkForTransitions();
 
