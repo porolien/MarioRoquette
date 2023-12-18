@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4478535004657929265}
   - component: {fileID: 8550274194509362867}
+  - component: {fileID: 6333348820131168145}
   m_Layer: 0
   m_Name: MoveCursor
   m_TagString: Untagged
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cursor: {fileID: 0}
+--- !u!114 &6333348820131168145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664188931764553501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b97acf5889dd8946b4d2c88fb8e9c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 1a08167aaa44fcf429d9de1d2c2e4725, type: 3}
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &1646882317928372240
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,12 +291,14 @@ MonoBehaviour:
   InitialJumpPower: 15
   JumpThrustPower: 150
   JumpTime: 0.15
+  coyoteTime: 0.2
   rocketJumpPower: 50
   reculRoquette: 10
-  clip: {fileID: 0}
-  audioSource: {fileID: 0}
+  missileSound: {fileID: 0}
+  jumpSound: {fileID: 0}
   prefabBalle: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
     type: 3}
+  playerAnim: {fileID: 0}
   MovementInput: {x: 0, y: 0}
   isHoldingJumpKey: 0
   isHoldingSprintKey: 0
@@ -361,4 +378,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99ac97687001fa48ae1487929db47e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnim: {fileID: 0}
   pc: {fileID: 0}
