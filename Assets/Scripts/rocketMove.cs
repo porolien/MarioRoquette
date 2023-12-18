@@ -73,7 +73,7 @@ public class RocketMove : MonoBehaviour
             Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 
         }
-        Camera.main.SendMessage("Explosion", SendMessageOptions.DontRequireReceiver);
+        Camera.main.transform.parent.SendMessage("Explosion", SendMessageOptions.DontRequireReceiver);
         //vfx
         GameObject explosionVfx = GameObject.Instantiate(explosionVfxPrefab, transform.position + (Vector3)collision.normal * 0.5f, Quaternion.identity);
         explosionVfx.transform.localScale *= multiplicateurDeLexplosion;

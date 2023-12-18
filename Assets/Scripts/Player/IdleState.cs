@@ -11,6 +11,10 @@ public class IdleState : IBasePlayerState
     {
         this.sm = _stateMachine;
         this.sm.pc.Damping = sm.pc.GroundDamping;
+        if (sm.playerAnim != null)
+        {
+            sm.playerAnim.ChangeAnimPlayer("StateIdle");
+        }
         Update();
     }
 

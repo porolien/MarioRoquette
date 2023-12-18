@@ -12,6 +12,10 @@ public class WalkState : IBasePlayerState
         sm.pc.Damping = sm.pc.GroundDamping;
         sm.pc.AddForce(sm.pc.MovementInput * sm.pc.GroundPlayerAcceleration * Vector2.right);
         sm.pc.setWalkParticlesActive(true);
+        if (sm.playerAnim != null)
+        {
+            sm.playerAnim.ChangeAnimPlayer("StateWalking");
+        }
         checkForTransitions();
 
 

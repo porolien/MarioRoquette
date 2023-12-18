@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class MysteryBlocs : Blocs
 {
     
     public PowerUp powerUp;
+    public Mesh mesh;
+    //[SerializeField] protected GameObject breakVFXPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +29,27 @@ public class MysteryBlocs : Blocs
 
     public void MysteryBlocIsTouched()
     {
+
+
         PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
+        //transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+        //GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        //explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+        //Destroy(explosionVfx,2 );
+        transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
+        GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+
+        //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
+        Destroy(explosionVfx, 2);
+        transform.parent.Find("Visual").gameObject.GetComponent<MeshFilter>().mesh = mesh;
         Destroy(this);
+
+        //StartCoroutine(Die());
     }
 
-    public void MysteryBlocIsDestroyed()
-    {
-        PowerUp newPowerUp = Instantiate(powerUp);
-        //Lancer le power up � l'endroit oppos� � l'explosion
-    }
+
 
    /* private void OnTriggerEnter2D(Collider2D other)
     {
@@ -56,11 +70,15 @@ public class MysteryBlocs : Blocs
 
     void Explosion(Vector2 source)
     {
-        Debug.Log("Wow t'a fais valser le powerUP");
         PowerUp newPowerUp = Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
         Vector2 recul = (Vector2)transform.position - source;
         recul = recul.normalized*20;
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(recul);
+
+        GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+        explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - source).normalized * 10));
+        Destroy(explosionVfx, 2);
+
 
         Destroy(transform.parent.gameObject);
     }

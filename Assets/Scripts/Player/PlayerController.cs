@@ -25,6 +25,8 @@ public class PlayerController : DynamicObject
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
     public FallState _fallState;
+    public PlayerAnim playerAnim;
+    float rota;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -95,6 +97,17 @@ public class PlayerController : DynamicObject
     public void OnMove(InputValue move)
     {
         MovementInput = move.Get<Vector2>();
+        
+        switch (MovementInput.x)
+        {
+            case -1:
+                rota = 180;
+                break;
+            case 1:
+                rota = 0 ;
+                break;
+        }
+        transform.rotation = Quaternion.Euler(transform.rotation.x, rota, transform.rotation.z);
         //direction = playerAcceleration * move.Get<Vector2>();
     }
 
@@ -112,10 +125,14 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        if (rota == 180)
+        {
+            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+        }
+        
+        
         newBalle.GetComponent<RocketMove>().Sense = Direction;
         AddImpulse(-Direction * reculRoquette);
-        
-
     }
 
     public void setWalkParticlesActive(bool newActive)
@@ -150,9 +167,9 @@ public class PlayerController : DynamicObject
 
         // Update is called once per frame
         void LateUpdate()
-    {
-        UpdatePhysics();
-    }
+        {
+            UpdatePhysics();
+        }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -177,7 +194,14 @@ public class PlayerController : DynamicObject
         }
     }
 
-        IEnumerator Delay()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("cameraCheckpoint"))
+        {
+            Camera.main.transform.parent.gameObject.GetComponent<cameraBehaviour>().targetY = collision.gameObject.transform.position.y;
+        }
+    }
+    IEnumerator Delay()
         {
             canShoot = false;
             yield return new WaitForSeconds(cadence);
