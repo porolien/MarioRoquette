@@ -25,7 +25,7 @@ public class PlayerController : DynamicObject
     public AudioClip jumpSound;
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
-    public FallState _fallState;
+    public IdleState _idleState;
     public PlayerAnim playerAnim;
     float rota;
     public Vector2 aimDirection;
@@ -221,7 +221,7 @@ public class PlayerController : DynamicObject
                 Destroy(gameObject);
             }
         }
-        if(collision.gameObject.tag == "Bloc" && _currentState == _fallState)
+        if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
             Debug.Log(_currentState);
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
