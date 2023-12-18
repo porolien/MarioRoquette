@@ -13,7 +13,9 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (elapsedTime > 0)
+
+       
+        if (elapsedTime < 0)
         {
             monTIme();
         }
@@ -26,10 +28,10 @@ public class Timer : MonoBehaviour
 
     public void monTIme()
     {
-        elapsedTime += Time.deltaTime;
+        elapsedTime += Time.time;
         int minute = (int)(elapsedTime / 60);
         int seconds = (int)(elapsedTime % 60);
-
+        
         if (seconds < 10)
         {
             timerTexte.text = (minute.ToString() + ":0" + seconds.ToString());
