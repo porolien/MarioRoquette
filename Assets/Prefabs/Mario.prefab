@@ -766,6 +766,7 @@ MonoBehaviour:
   InitialJumpPower: 20
   JumpThrustPower: 75
   JumpTime: 0.15
+  coyoteTime: 0.2
   rocketJumpPower: 50
   reculRoquette: 10
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
@@ -2823,6 +2824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6264604076989116316}
   - component: {fileID: 4954757786781567630}
+  - component: {fileID: 5817366040082109641}
   m_Layer: 0
   m_Name: MoveCursor
   m_TagString: Untagged
@@ -2859,6 +2861,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cursor: {fileID: 7727908026698649524}
+--- !u!114 &5817366040082109641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7812195225120508769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b97acf5889dd8946b4d2c88fb8e9c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 1a08167aaa44fcf429d9de1d2c2e4725, type: 3}
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &8037161335005066192
 GameObject:
   m_ObjectHideFlags: 0
