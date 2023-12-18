@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
-using Unity.UI;
 using TMPro;
 
 public class Chrono : MonoBehaviour
