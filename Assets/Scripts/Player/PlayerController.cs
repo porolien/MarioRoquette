@@ -210,5 +210,9 @@ public class PlayerController : DynamicObject
             canShoot = true;
 
         }
+    public void PlayASound()
+    {
+        AudioManager.Instance.PlayFootsteps();
+    }
 
     }
