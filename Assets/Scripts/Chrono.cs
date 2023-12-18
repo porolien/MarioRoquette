@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
       
         /*int minute = (int)(elapsedTime / 60);
         int seconds = (int)(elapsedTime % 60);
-
+        
         if (seconds < 10)
         {
             timerTexte.text = (minute.ToString() + ":0" + seconds.ToString());

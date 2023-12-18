@@ -59,43 +59,7 @@ public class PlayerController : DynamicObject
 
     private void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.R))
-        {
-            Velocity = new Vector2(1,1) * 30;
-        }*/
-       // isHoldingJumpKey = Input.GetKey(KeyCode.Space);
-        //AddForce(MovementInput * playerAcceleration * Vector2.right);
-
-        /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
-        AddForce(direction);
-        //print(move.Get<Vector2>());
-        if (MovementInput.sqrMagnitude > 0.1f )
-        {
-            Damping = 0;
-            if (Mathf.Abs(Velocity.x) > 10)
-            {
-                Damping = playerAcceleration;
-            }
-        }
-        else
-        {
-            if (isGrounded)
-            {
-                Damping = 30;
-                
-            }
-            else
-            {
-
-
-                Damping = gravityScale;
-            }
-
-
-        }
-
-
-        print(direction);*/
+            GetComponent<TrailRenderer>().emitting= Velocity.sqrMagnitude > 35 * 35;
     }
 
     public void OnMove(InputValue move)
@@ -204,9 +168,9 @@ public class PlayerController : DynamicObject
 
     // Update is called once per frame
     void LateUpdate()
-        {
-            UpdatePhysics();
-        }
+    {
+        UpdatePhysics();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
