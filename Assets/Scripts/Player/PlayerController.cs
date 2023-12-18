@@ -28,12 +28,15 @@ public class PlayerController : DynamicObject
     public FallState _fallState;
     public PlayerAnim playerAnim;
     float rota;
+    public Vector2 aimDirection;
     //Vector2 direction;
 
     [Header("Inputs")]
     public Vector2 MovementInput = new Vector2(0,0);
     public bool isHoldingJumpKey = false;
     public bool isHoldingSprintKey = false;
+
+    public bool isControllerMode;
 
     public bool canShoot;
     public float cadence;
@@ -184,8 +187,22 @@ public class PlayerController : DynamicObject
         }
     }
 
-        // Update is called once per frame
-        void LateUpdate()
+    public void OnMoveCursorController(InputValue value)
+    {
+        Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();
+        isControllerMode = true;
+    }
+
+    public void OnMoveCursorMouse(InputValue value)
+    {
+        /*Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();*/
+        isControllerMode = false;
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
         {
             UpdatePhysics();
         }
