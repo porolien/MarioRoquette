@@ -25,15 +25,18 @@ public class PlayerController : DynamicObject
     public AudioClip jumpSound;
     [SerializeField] GameObject prefabBalle;
     public IBasePlayerState _currentState;
-    public FallState _fallState;
+    public IdleState _idleState;
     public PlayerAnim playerAnim;
     float rota;
+    public Vector2 aimDirection;
     //Vector2 direction;
 
     [Header("Inputs")]
     public Vector2 MovementInput = new Vector2(0,0);
     public bool isHoldingJumpKey = false;
     public bool isHoldingSprintKey = false;
+
+    public bool isControllerMode;
 
     public bool canShoot;
     public float cadence;
@@ -51,7 +54,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         RocketManager.Instance.playerController = this;
-        walkVFX = GetComponentInChildren<VisualEffect>();
+        walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
     }
 
     private void Update()
@@ -139,6 +142,7 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
+        transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
         if (rota == 180)
         {
             Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
@@ -184,8 +188,22 @@ public class PlayerController : DynamicObject
         }
     }
 
-        // Update is called once per frame
-        void LateUpdate()
+    public void OnMoveCursorController(InputValue value)
+    {
+        Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();
+        isControllerMode = true;
+    }
+
+    public void OnMoveCursorMouse(InputValue value)
+    {
+        /*Debug.Log(value.Get<Vector2>());
+        aimDirection = value.Get<Vector2>();*/
+        isControllerMode = false;
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
         {
             UpdatePhysics();
         }
@@ -203,7 +221,7 @@ public class PlayerController : DynamicObject
                 Destroy(gameObject);
             }
         }
-        if(collision.gameObject.tag == "Bloc" && _currentState == _fallState)
+        if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
             Debug.Log(_currentState);
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))

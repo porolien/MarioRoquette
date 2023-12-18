@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FallState : IBasePlayerState
 {
@@ -21,7 +22,8 @@ public class FallState : IBasePlayerState
     {
         if (sm.playerAnim != null)
         {
-           // sm.playerAnim.ChangeAnimPlayer("IsLanding");
+            sm.pc.transform.Find("FrenchMarioCombined/vfx_jump").GetComponent<VisualEffect>().Play();
+            // sm.playerAnim.ChangeAnimPlayer("IsLanding");
         }
     }
 
