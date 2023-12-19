@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 public class PlayerController : DynamicObject
@@ -110,8 +111,9 @@ public class PlayerController : DynamicObject
         transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
         if (rota == 180)
         {
-            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, transform.position.y - RocketManager.Instance._moveRocketLauncher.Cursor.position.y  );
             AddImpulse(Direction * reculRoquette);
+            Direction = new Vector2(-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, -transform.position.y + RocketManager.Instance._moveRocketLauncher.Cursor.position.y);
         }
         else
         {
@@ -151,6 +153,15 @@ public class PlayerController : DynamicObject
             RocketShoot();
             StartCoroutine(Delay());
         }
+    }
+
+    public void OnReset()
+    {
+        RocketMove.muultiplicateurScale = 1;
+        RocketMove.RayonDeLexplosion = 3;
+        RocketMove.multiplicateurDeLexplosion = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
     public void OnMoveCursorController(InputValue value)
@@ -210,5 +221,9 @@ public class PlayerController : DynamicObject
             canShoot = true;
 
         }
+    public void PlayASound()
+    {
+        AudioManager.Instance.PlayFootsteps();
+    }
 
     }

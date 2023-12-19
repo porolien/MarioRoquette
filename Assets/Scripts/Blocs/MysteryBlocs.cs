@@ -41,6 +41,10 @@ public class MysteryBlocs : Blocs
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
 
+        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
+        Popup.GetComponent<scorePopup>().init(150, Color.white);
+        Popup.transform.localScale *= 1.8f;
+
         //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
         Destroy(explosionVfx, 2);
         transform.parent.Find("Visual").gameObject.GetComponent<MeshFilter>().mesh = mesh;
@@ -79,6 +83,9 @@ public class MysteryBlocs : Blocs
         explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - source).normalized * 10));
         Destroy(explosionVfx, 2);
 
+        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
+        Popup.GetComponent<scorePopup>().init(150, Color.white);
+        Popup.transform.localScale *= 1.8f;
 
         Destroy(transform.parent.gameObject);
     }

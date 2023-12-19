@@ -14,7 +14,7 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] public float Damping = 1f;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
-    private Collider2D col;
+    public Collider2D col;
 
     ContactFilter2D contactFilter;
 
@@ -80,6 +80,13 @@ public class DynamicObject : MonoBehaviour
         return hit;//rb.velocity.y == 0;
 
     }
+
+    public bool checkForSideCollisions(float rightMagnitude)
+    {
+        List<RaycastHit2D> results = new List<RaycastHit2D>();
+        return col.Cast(Vector3.right, contactFilter, results, rightMagnitude, true) > 0;
+    }
+
     void checkForCollisions()
     {
         List<RaycastHit2D> results = new List<RaycastHit2D>();

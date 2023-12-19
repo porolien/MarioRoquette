@@ -10,7 +10,8 @@ public class WalkState : IBasePlayerState
     {
         this.sm = _stateMachine;
 
-        sm.pc.StartCoroutine(Footsteps(sm.pc.footstepsSeparation));
+        //sm.pc.StartCoroutine(Footsteps(sm.pc.footstepsSeparation));
+        sm.pc.InvokeRepeating("PlayASound", sm.pc.footstepsSeparation, sm.pc.footstepsSeparation);
         sm.pc.Damping = sm.pc.GroundDamping;
         sm.pc.AddForce(sm.pc.MovementInput * sm.pc.GroundPlayerAcceleration * Vector2.right);
         sm.pc.setWalkParticlesActive(true);
@@ -26,7 +27,8 @@ public class WalkState : IBasePlayerState
 
     public override void OnExit()
     {
-        sm.pc.StopCoroutine("Footsteps");
+        //sm.pc.StopCoroutine("Footsteps");
+        sm.pc.CancelInvoke();
         sm.pc.setWalkParticlesActive(false);
     }
 
@@ -43,6 +45,7 @@ public class WalkState : IBasePlayerState
         {
             sm.pc.Damping = 0;
         }
+
         
     }
 
@@ -59,11 +62,13 @@ public class WalkState : IBasePlayerState
             sm.Transition(sm.jumpState);
         }
 
-        else if (sm.pc.MovementInput == Vector2.zero)
+        else if (sm.pc.MovementInput == Vector2.zero  || sm.pc.checkForSideCollisions(sm.pc.MovementInput.x * sm.pc.col.bounds.size.x / 2 + 0.2f))
         {
             sm.Transition(sm.idleState);
             
         }
+
+
     }
     IEnumerator CoyoteTime(float coyoteTime)
     {
@@ -83,7 +88,18 @@ public class WalkState : IBasePlayerState
 
     IEnumerator Footsteps(float footstepsSeparation)
     {
-        AudioManager.Instance.PlayFootsteps();
+        
         yield return new WaitForSeconds(footstepsSeparation);
+        AudioManager.Instance.PlayFootsteps();
+        if (sm.walkState == sm.currentState)
+        {
+            sm.pc.StartCoroutine(Footsteps(sm.pc.footstepsSeparation));
+        }
+    }
+
+    void Footstepss()
+    {
+        Debug.Log("marche");
+        AudioManager.Instance.PlayFootsteps();
     }
 }
