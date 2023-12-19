@@ -32,6 +32,7 @@ public class FallState : IBasePlayerState
         if (sm.pc.isGrounded)
         {
             Debug.Log("yes");
+            AudioManager.Instance.PlayFall();
             sm.Transition(sm.idleState);
         }
 
