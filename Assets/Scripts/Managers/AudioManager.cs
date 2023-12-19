@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepsSounds[Random.Range(0, 5)]);
+        PlaySound(footstepsSounds[Random.Range(0, footstepsSounds.Count)]);
         //PlaySound(footstepSound);
     }
     public void PlayFall()
