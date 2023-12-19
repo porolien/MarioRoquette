@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     //[SerializeField] AudioClip footstepSound;
     [SerializeField] AudioClip fallSound;
     [SerializeField] AudioClip flightSound;
+    [SerializeField] AudioClip coinSound;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepsSounds[Random.Range(0, footstepsSounds.Count)]);
+        PlaySound(footstepsSounds[Random.Range(0,5)]);
         //PlaySound(footstepSound);
     }
     public void PlayFall()
@@ -58,11 +59,19 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(flightSound);
     }
+    public void PlayCoin()
+    {
+        PlaySound(coinSound);
+    }
     public void PlaySound(AudioClip clip)
     {
         if (clip == fallSound)
         {
             sfxSource.pitch = Random.Range(0.5f,0.7f);
+        }
+        else if (clip == coinSound)
+        {
+            sfxSource.pitch = 1;
         }
         else
         {

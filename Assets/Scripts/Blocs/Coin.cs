@@ -18,29 +18,29 @@ public class Coin : DynamicObject
     bool isDead = false;
 
     [SerializeField] float magnetDistance = 3;
-    [SerializeField] float magnetStrength = 20;
     GameObject player;
-
+    bool physicsEnabled = false;
     [SerializeField]
     public void Awake()
     {
         SetUpPhysics();
-        player =FindObjectOfType<PlayerController>().gameObject;
+        player = FindObjectOfType<PlayerController>().gameObject;
         nmbreDePiece = 0;
         //CoinTexte = GameObject.Find("ShowCoin").GetComponent<TMP_Text>();
     }
 
     void LateUpdate()
     {
-        UpdatePhysics();
+        if (physicsEnabled) UpdatePhysics();
     }
 
     private void Update()
     {
         Vector2 offset = player.transform.position - transform.position;
-        if (Vector2.SqrMagnitude(offset)<magnetDistance*magnetDistance)
+        if (Vector2.SqrMagnitude(offset) < magnetDistance * magnetDistance && !Physics2D.Raycast(transform.position, offset, magnetDistance, LayerMask.GetMask("solid")))
         {
-            AddForce(offset.normalized*magnetStrength);
+            magnetDistance = 100;
+            transform.position = Vector2.SmoothDamp(transform.position, player.transform.position, ref Velocity, 0.07f, maxVelocity);
         }
     }
 
@@ -52,19 +52,31 @@ public class Coin : DynamicObject
         }
     }
 
+    void OnSpawnedByQuestionBlock()
+    {
+        physicsEnabled = true;
+    }
+
+    void Explosion(Vector2 Center)
+    {
+        physicsEnabled = true;
+        AddImpulse(((Vector2)transform.position-Center).normalized*20);
+    }
+
     IEnumerator Die()
     {
         isDead = true;
+        AudioManager.Instance.PlayCoin();
         nmbreDePiece++;
         //CoinTexte.text = nmbreDePiece.ToString();
         GetComponentInChildren<Animator>().StopPlayback();
-        transform.localScale *= 1.6f ;
+        transform.localScale *= 1.6f;
 
-        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position+Vector3.forward*-1, Quaternion.identity);
+        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position + Vector3.forward * -1, Quaternion.identity);
         Popup.GetComponent<scorePopup>().init(200, Color.white);
         Popup.transform.localScale *= 2;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         Debug.Log("Tu as " + nmbreDePiece + " Coins");
         Destroy(gameObject);
     }
