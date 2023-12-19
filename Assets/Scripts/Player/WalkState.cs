@@ -45,6 +45,7 @@ public class WalkState : IBasePlayerState
         {
             sm.pc.Damping = 0;
         }
+
         
     }
 
@@ -61,11 +62,13 @@ public class WalkState : IBasePlayerState
             sm.Transition(sm.jumpState);
         }
 
-        else if (sm.pc.MovementInput == Vector2.zero)
+        else if (sm.pc.MovementInput == Vector2.zero  || sm.pc.checkForSideCollisions(sm.pc.MovementInput.x * sm.pc.col.bounds.size.x / 2 + 0.2f))
         {
             sm.Transition(sm.idleState);
             
         }
+
+
     }
     IEnumerator CoyoteTime(float coyoteTime)
     {

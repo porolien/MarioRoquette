@@ -16653,6 +16653,7 @@ MonoBehaviour:
   explosionSound: {fileID: 0}
   jumpSound: {fileID: 0}
   footstepsSounds: []
+  footstepSound: {fileID: 0}
 --- !u!4 &833518687
 Transform:
   m_ObjectHideFlags: 0
@@ -29498,6 +29499,7 @@ MonoBehaviour:
   breakable: 0
   canExplosed: 0
   breakSound: {fileID: 0}
+  scorePopupPrefab: {fileID: 0}
   breakVFXPrefab: {fileID: 0}
 --- !u!4 &1477838203 stripped
 Transform:
