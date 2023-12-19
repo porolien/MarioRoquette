@@ -32,6 +32,7 @@ public class PlayerController : DynamicObject
     float rota;
     public Vector2 aimDirection;
     public PlayerInput playerInput;
+    public GameObject RocketLauncher;
     //Vector2 direction;
 
     [Header("Inputs")]
