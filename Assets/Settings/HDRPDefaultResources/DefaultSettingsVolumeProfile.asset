@@ -22,6 +22,9 @@ MonoBehaviour:
   outlineStrength:
     m_OverrideState: 1
     m_Value: 200
+  fogColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.024531841, g: 0, b: 1, a: 0}
   _VFXTexture: {fileID: 0}
 --- !u!114 &-8500501345142028434
 MonoBehaviour:
