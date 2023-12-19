@@ -28,8 +28,10 @@ public class MoveRocketLauncher : MonoBehaviour
         }
         Vector2 offset = RocketManager.Instance.playerController.transform.position - Cursor.transform.position;
         //RocketManager.Instance.playerController.transform.position - Cursor.transform.position
+        
         rocketLauncher.transform.eulerAngles = Vector3.forward * (Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg);
         rocketLauncher.transform.Rotate(rocketLauncher.transform.rotation.x, rocketLauncher.transform.rotation.y, rocketLauncher.transform.rotation.z - 90);
+        
         //transform.Translate(new Vector2(1, 0) * 5 * Time.deltaTime);
 
     }

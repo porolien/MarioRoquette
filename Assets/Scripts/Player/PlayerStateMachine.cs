@@ -49,7 +49,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
         currentState = _theNewState;
         currentState.OnEnter(this);
-        Debug.LogAssertion(_theNewState);
+        //Debug.LogAssertion(_theNewState);
     }
 }
 
