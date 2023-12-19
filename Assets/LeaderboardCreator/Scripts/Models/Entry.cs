@@ -7,7 +7,7 @@ namespace Dan.Models
     public struct Entry
     {
         public string Username;
-        public int Score;
+        public float Score;
         public ulong Date;
         public string Extra;
         public int Rank;

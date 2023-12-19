@@ -26,6 +26,7 @@ public class EndLevel : MonoBehaviour
             }
             leaderBoardUI.SetActive(true);
             leaderboardShowcase._playerScore = (int)(Mathf.Round(PlayerPrefs.GetFloat("Timer") * 100f)) ;
+            leaderboardShowcase.AddPlayerScore();
         }
     }
 
