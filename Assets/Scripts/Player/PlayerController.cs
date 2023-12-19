@@ -199,10 +199,12 @@ public class PlayerController : DynamicObject
         }
         if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
-            Debug.Log(_currentState);
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
-                collision.gameObject.GetComponent<Blocs>().BlocHitted();
+                if(collision.gameObject.GetComponent<Blocs>() != null)
+                {
+                    collision.gameObject.GetComponent<Blocs>().BlocHitted();
+                }
             }
         }
     }
