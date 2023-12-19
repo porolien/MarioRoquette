@@ -82,7 +82,7 @@ public class RocketMove : MonoBehaviour
         Destroy(explosionVfx, 2);
         //sfx
         AudioManager.Instance.PlaySound(explosionSound);
-        RumbleManager.Instance.Rumble(1, 1, 1);
+        RumbleManager.Instance.Rumble(0.7f, 0.7f, 0.5f);
         Destroy(gameObject);
 
 
