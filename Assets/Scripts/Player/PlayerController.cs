@@ -201,7 +201,7 @@ public class PlayerController : DynamicObject
         {
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
-                if(collision.gameObject != null)
+                if(collision.gameObject.GetComponent<Blocs>() != null)
                 {
                     collision.gameObject.GetComponent<Blocs>().BlocHitted();
                 }
