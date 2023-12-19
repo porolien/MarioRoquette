@@ -17,7 +17,7 @@ public class DynamicObject : MonoBehaviour
     private Rigidbody2D rb;
     public Collider2D col;
 
-    ContactFilter2D contactFilter;
+    protected ContactFilter2D contactFilter;
 
     public bool isGrounded = false;
 
