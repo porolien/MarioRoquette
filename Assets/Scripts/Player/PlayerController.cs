@@ -57,6 +57,7 @@ public class PlayerController : DynamicObject
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
         playerInput = GetComponent<PlayerInput>();
         RocketManager.Instance.playerController = this;
         walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
