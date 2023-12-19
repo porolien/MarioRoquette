@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FallState : IBasePlayerState
 {
@@ -21,6 +22,7 @@ public class FallState : IBasePlayerState
     {
         if (sm.playerAnim != null)
         {
+            sm.pc.transform.Find("FrenchMarioCombined/vfx_jump").GetComponent<VisualEffect>().Play();
             // sm.playerAnim.ChangeAnimPlayer("IsLanding");
         }
     }
@@ -30,6 +32,8 @@ public class FallState : IBasePlayerState
         if (sm.pc.isGrounded)
         {
             Debug.Log("yes");
+            AudioManager.Instance.PlayFall();
+            RumbleManager.Instance.Rumble(0.1f, 0.1f, 0.2f);
             sm.Transition(sm.idleState);
         }
 

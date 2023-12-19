@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 
 public class RocketMove : MonoBehaviour
@@ -18,6 +19,7 @@ public class RocketMove : MonoBehaviour
     ContactFilter2D contactFilter;
     public static float multiplicateurDeLexplosion = 1;
     public static float muultiplicateurScale = 1;
+
 
     void Start()
     {
@@ -80,6 +82,7 @@ public class RocketMove : MonoBehaviour
         Destroy(explosionVfx, 2);
         //sfx
         AudioManager.Instance.PlaySound(explosionSound);
+        RumbleManager.Instance.Rumble(0.7f, 0.7f, 0.5f);
         Destroy(gameObject);
 
 
@@ -92,6 +95,9 @@ public class RocketMove : MonoBehaviour
         transform.localScale *= 2;
 
     }
+
+    
+
 
 
 }

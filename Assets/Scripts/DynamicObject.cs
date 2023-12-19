@@ -12,11 +12,12 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private float bounciness = 0;
     [SerializeField] private float mass = 1;
     [SerializeField] public float Damping = 1f;
+    public float maxVelocity = 40;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
-    private Collider2D col;
+    public Collider2D col;
 
-    ContactFilter2D contactFilter;
+    protected ContactFilter2D contactFilter;
 
     public bool isGrounded = false;
 
@@ -66,7 +67,9 @@ public class DynamicObject : MonoBehaviour
         checkForCollisions();
 
         //apply velocity
-        rb.position += Velocity * Time.deltaTime;
+        
+        Velocity = Vector2.ClampMagnitude(Velocity, maxVelocity);
+        rb.position += Velocity* Time.deltaTime;
 
         //reset force
         totalForce = Vector3.zero;
@@ -80,24 +83,39 @@ public class DynamicObject : MonoBehaviour
         return hit;//rb.velocity.y == 0;
 
     }
+
+    public bool checkForSideCollisions(float rightMagnitude)
+    {
+        List<RaycastHit2D> results = new List<RaycastHit2D>();
+        return col.Cast(Vector3.right, contactFilter, results, rightMagnitude, true) > 0;
+    }
+
     void checkForCollisions()
     {
         List<RaycastHit2D> results = new List<RaycastHit2D>();
-        if (col.Cast(Velocity,contactFilter,results,Velocity.magnitude*Time.deltaTime,true) > 0)
+        for(int i = 0; i < 3; i++)
         {
-            foreach(RaycastHit2D hit in results )
+            if (col.Cast(Velocity, contactFilter, results, Velocity.magnitude * Time.deltaTime, true) > 0)
             {
-                if (Vector3.Dot (hit.point-(Vector2)transform.position,Velocity)>0)
+                foreach (RaycastHit2D hit in results)
                 {
-                    //snap object to hit surface
-                    rb.position += Velocity * Time.deltaTime * hit.fraction;
-                    //Velocity *= hit.fraction;
-                    Debug.DrawRay(rb.position, Vector3.up, Color.red, 5);
-                    Velocity = (Vector2)Vector3.ProjectOnPlane(Velocity, hit.normal) + hit.normal * bounciness;
+                    if (Vector3.Dot(hit.point - (Vector2)transform.position, Velocity) > 0)
+                    {
+                        //snap object to hit surface
+                        rb.position += Velocity * Time.deltaTime * hit.fraction;
+                        //Velocity *= hit.fraction;
+                        Debug.DrawRay(rb.position, Vector3.up, Color.red, 5);
+                        Velocity = (Vector2)Vector3.ProjectOnPlane(Velocity, hit.normal) + hit.normal * bounciness;
+                    }
+
                 }
-                
+            }
+            else
+            {
+                break;
             }
         }
+        
     }
 
    /* private void Awake()

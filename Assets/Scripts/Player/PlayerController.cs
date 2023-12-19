@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 public class PlayerController : DynamicObject
@@ -18,6 +19,7 @@ public class PlayerController : DynamicObject
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
     public float coyoteTime = 0.2f;
+    public float footstepsSeparation = 0.5f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
@@ -29,6 +31,8 @@ public class PlayerController : DynamicObject
     public PlayerAnim playerAnim;
     float rota;
     public Vector2 aimDirection;
+    public PlayerInput playerInput;
+    public GameObject RocketLauncher;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -53,49 +57,16 @@ public class PlayerController : DynamicObject
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
+        playerInput = GetComponent<PlayerInput>();
         RocketManager.Instance.playerController = this;
         walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     private void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.R))
-        {
-            Velocity = new Vector2(1,1) * 30;
-        }*/
-       // isHoldingJumpKey = Input.GetKey(KeyCode.Space);
-        //AddForce(MovementInput * playerAcceleration * Vector2.right);
-
-        /*//AddForce(Input.GetAxis("Horizontal")*playerAcceleration*Vector2.right);
-        AddForce(direction);
-        //print(move.Get<Vector2>());
-        if (MovementInput.sqrMagnitude > 0.1f )
-        {
-            Damping = 0;
-            if (Mathf.Abs(Velocity.x) > 10)
-            {
-                Damping = playerAcceleration;
-            }
-        }
-        else
-        {
-            if (isGrounded)
-            {
-                Damping = 30;
-                
-            }
-            else
-            {
-
-
-                Damping = gravityScale;
-            }
-
-
-        }
-
-
-        print(direction);*/
+            GetComponent<TrailRenderer>().emitting= Velocity.sqrMagnitude > 35 * 35;
     }
 
     public void OnMove(InputValue move)
@@ -145,8 +116,9 @@ public class PlayerController : DynamicObject
         transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
         if (rota == 180)
         {
-            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, RocketManager.Instance._moveRocketLauncher.Cursor.position.y - transform.position.y);
+            Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, transform.position.y - RocketManager.Instance._moveRocketLauncher.Cursor.position.y  );
             AddImpulse(Direction * reculRoquette);
+            Direction = new Vector2(-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, -transform.position.y + RocketManager.Instance._moveRocketLauncher.Cursor.position.y);
         }
         else
         {
@@ -188,6 +160,11 @@ public class PlayerController : DynamicObject
         }
     }
 
+    public void OnReset()
+    {
+        Retry();
+    }
+
     public void OnMoveCursorController(InputValue value)
     {
         Debug.Log(value.Get<Vector2>());
@@ -204,9 +181,9 @@ public class PlayerController : DynamicObject
 
     // Update is called once per frame
     void LateUpdate()
-        {
-            UpdatePhysics();
-        }
+    {
+        UpdatePhysics();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -223,10 +200,12 @@ public class PlayerController : DynamicObject
         }
         if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
-            Debug.Log(_currentState);
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
-                collision.gameObject.GetComponent<Blocs>().BlocHitted();
+                if(collision.gameObject.GetComponent<Blocs>() != null)
+                {
+                    collision.gameObject.GetComponent<Blocs>().BlocHitted();
+                }
             }
         }
     }
@@ -245,5 +224,17 @@ public class PlayerController : DynamicObject
             canShoot = true;
 
         }
-
+    public void PlayASound()
+    {
+        AudioManager.Instance.PlayFootsteps();
     }
+
+    public void Retry()
+    {
+        RocketMove.muultiplicateurScale = 1;
+        RocketMove.RayonDeLexplosion = 3;
+        RocketMove.multiplicateurDeLexplosion = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
+}

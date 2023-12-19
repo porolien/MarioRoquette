@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip missileSound;
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip jumpSound;
+    [SerializeField] List<AudioClip> footstepsSounds;
+    //[SerializeField] AudioClip footstepSound;
+    [SerializeField] AudioClip fallSound;
+    [SerializeField] AudioClip flightSound;
+    [SerializeField] AudioClip coinSound;
 
     private void Awake()
     {
@@ -26,22 +32,60 @@ public class AudioManager : MonoBehaviour
             _instance = this;
         }
     }
-
+    // all : pitch random entre 0.5 et 0.7
     public void PlayMissile()
     {
-        PlaySound(missileSound);
+        PlaySound(missileSound,1,1); // réduire volume
     }
     public void PlayExplosion()
     {
-        PlaySound(explosionSound);
+        PlaySound(explosionSound,1,1); // réduire volume
     }
     public void PlayJump()
     {
-        PlaySound(jumpSound);
+        sfxSource.pitch = -10;
+        PlaySound(jumpSound,1,1);
+        
     }
-    public void PlaySound(AudioClip clip)
+    public void PlayFootsteps()
     {
-        sfxSource.PlayOneShot(clip);
+        PlaySound(footstepsSounds[Random.Range(0,5)],1,1); //suppr liste rdm ?
+        //PlaySound(footstepSound); <- a tester avec le pitch / volume haut
+    }
+    public void PlayFall()
+    {
+        PlaySound(fallSound,1,1); // volume haut et pitch bas
+    }
+    public void PlayFlight()
+    {
+        PlaySound(flightSound,1,1); //ça marche pas connard
+    }
+    public void PlayCoin() // réduire volume(?)
+    {
+        PlaySound(coinSound,1,1);
+    }
+    public void PlaySound(AudioClip clip, float volume=1, float pitch=1)
+    {
+        /*if (clip == fallSound)
+        {
+            sfxSource.pitch = Random.Range(0.5f,0.7f);
+        }
+        else if (clip == coinSound)
+        {
+            sfxSource.pitch = 1;
+        }
+        else
+        {
+            sfxSource.pitch = Random.Range(0.8f,1);
+        }*/
+
+        gameObject.AddComponent<AudioSource>();
+        AudioSource source = GetComponent<AudioSource>();
+        source.volume = volume;
+        source.pitch = pitch;
+        source.PlayOneShot(clip);
+        Destroy(GetComponent<AudioSource>(),2);
+        //sfxSource.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip)

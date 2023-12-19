@@ -8,6 +8,7 @@ public class Blocs : MonoBehaviour
     public bool breakable;
     public bool canExplosed;
     [SerializeField] AudioClip breakSound;
+    [SerializeField] protected GameObject scorePopupPrefab;
     [SerializeField] protected GameObject breakVFXPrefab;
 
     void Explosion(Vector2 Center)
@@ -42,6 +43,10 @@ public class Blocs : MonoBehaviour
         transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
+
+        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
+        Popup.GetComponent<scorePopup>().init(50, Color.white);
+
         yield return new WaitForSeconds(0.4f);
         
         //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
@@ -56,11 +61,16 @@ public class Blocs : MonoBehaviour
         explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity",additionalVel);
         Destroy(explosionVfx, 2);
 
+        GameObject Popup = GameObject.Instantiate(scorePopupPrefab,transform.position,Quaternion.identity);
+        Popup.GetComponent<scorePopup>().init(50, Color.white);
+
         transform.parent.gameObject.GetComponent<Animation>().Play("Brick_Explode");
 
         yield return new WaitForSeconds(0.1f);
         //explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - Center).normalized * 10));
-        Destroy(explosionVfx, 2);
+        
         Destroy(transform.parent.gameObject);
     }
+
+    
 }
