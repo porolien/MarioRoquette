@@ -11,17 +11,27 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerTexte;
     [SerializeField] TextMeshProUGUI bestTimerTexte;
     public float elapsedTime = 0;
+    bool gameIsNotFinish;
 
     private void Start()
     {
-        ScoreManager.Instance.timer = this;
-        bestTimerTexte.text = "Best: " + (Mathf.Round(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) * 100f) / 100f ).ToString() + "";
+            gameIsNotFinish = true;
+            ScoreManager.Instance.timer = this;
+            bestTimerTexte.text = (Mathf.Round(PlayerPrefs.GetFloat("Timer") * 100f) / 100f) + "";
+        
     }
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        timerTexte.text = "Current Time: "+  Mathf.Round(elapsedTime * 100f) / 100f ;
+        if (gameIsNotFinish)
+        {
+            elapsedTime += Time.deltaTime;
+            timerTexte.text = Mathf.Round(elapsedTime * 100f) / 100f + "";
+        }
     }
 
+    public void StopTime()
+    {
+        gameIsNotFinish = false;
+    }
     
 }
