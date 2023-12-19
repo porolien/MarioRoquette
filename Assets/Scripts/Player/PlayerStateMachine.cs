@@ -23,20 +23,21 @@ public class PlayerStateMachine : MonoBehaviour
         dieState = new DieState();
         jumpState = new JumpState();
         pc = GetComponent<PlayerController>();
-        Transition(idleState);
+        
     }
 
     private void Start()
     {
         pc._currentState = currentState;
         pc._idleState = idleState;
+        Transition(jumpState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentState.Update();
-        print(currentState.ToString());
+        if(currentState!=null) currentState.Update();
+        //print(currentState.ToString());
     }
 
     //On va faire une transition pour changer l'état de notre ennemie ici,

@@ -70,7 +70,6 @@ public class RocketMove : MonoBehaviour
         Collider2D[] ObjetsTouches = Physics2D.OverlapCircleAll(transform.position, RayonDeLexplosion * multiplicateurDeLexplosion);
         foreach (Collider2D ObjetTouche in ObjetsTouches)
         {
-            Debug.Log("Nom de l'objet touch " + ObjetTouche.gameObject.name);
             ObjetTouche.gameObject.SendMessage("Explosion",/*(Vector2) transform.position*/collision.point, SendMessageOptions.DontRequireReceiver);
             Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2695735997812121442}
   - component: {fileID: 1087601649102503470}
   m_Layer: 0
-  m_Name: CameraCheckPoint
+  m_Name: AlignCameraY
   m_TagString: cameraCheckpoint
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

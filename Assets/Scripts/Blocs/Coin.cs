@@ -77,7 +77,7 @@ public class Coin : DynamicObject
         Popup.transform.localScale *= 2;
 
         yield return new WaitForSeconds(0.05f);
-        Debug.Log("Tu as " + nmbreDePiece + " Coins");
+        //Debug.Log("Tu as " + nmbreDePiece + " Coins");
         Destroy(gameObject);
     }
 }

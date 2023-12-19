@@ -26,7 +26,6 @@ public class cameraBehaviour : MonoBehaviour
     }
     void Explosion()
     {
-        Debug.Log("OPTNSAMERE");
         ShakeManager.Instance.OnShake(0.25f, 1, 15, transform.GetChild(0));
     }
 }

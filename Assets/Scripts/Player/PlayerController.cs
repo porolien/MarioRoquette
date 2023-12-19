@@ -66,7 +66,19 @@ public class PlayerController : DynamicObject
 
     private void Update()
     {
-            GetComponent<TrailRenderer>().emitting= Velocity.sqrMagnitude > 35 * 35;
+        //enable particle trail when going at high speed
+        GetComponent<TrailRenderer>().emitting= Velocity.sqrMagnitude > 35 * 35;
+
+        //block hitting 
+        
+        RaycastHit2D[] hit = new RaycastHit2D[1];
+        Debug.DrawRay(transform.position, Vector2.up * (col.bounds.size.y/2 + 0.1f+Velocity.y*Time.deltaTime), Color.red);
+        if (Velocity.y > 0 && Physics2D.CircleCast(transform.position, col.bounds.size.x/2-0.1f, Vector2.up,contactFilter, hit, col.bounds.size.y / 2 + 0.1f + Velocity.y * Time.deltaTime) >0)//transform.position, Vector2.up,  , out hit, LayerMask.GetMask("Solid")))
+        {
+            Debug.LogAssertion("ta grosse mere la chienne");
+            if(hit[0].collider.gameObject.GetComponentInChildren<Blocs>()) hit[0].collider.gameObject.GetComponentInChildren<Blocs>().BlocHitted();
+        }
+            
     }
 
     public void OnMove(InputValue move)
@@ -88,7 +100,7 @@ public class PlayerController : DynamicObject
 
     public void OnJump(InputValue value)
     {
-        Debug.Log(value.Get<float>());
+        //Debug.Log(value.Get<float>());
         if(value.Get<float>() == 1) 
         {
             isHoldingJumpKey = true;
@@ -198,7 +210,7 @@ public class PlayerController : DynamicObject
                 Destroy(gameObject);
             }
         }
-        if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
+        /*if(collision.gameObject.tag == "Bloc" && _currentState == _idleState)
         {
             if ((collision.transform.position.y - transform.position.y) > 0.8 && (Mathf.Abs(collision.transform.position.x - transform.position.x) <= 0.9))
             {
@@ -207,7 +219,7 @@ public class PlayerController : DynamicObject
                     collision.gameObject.GetComponent<Blocs>().BlocHitted();
                 }
             }
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

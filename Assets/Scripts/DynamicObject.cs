@@ -41,6 +41,7 @@ public class DynamicObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col=GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid");
+        contactFilter.useLayerMask = true;
     }
     public void UpdatePhysics()
     {

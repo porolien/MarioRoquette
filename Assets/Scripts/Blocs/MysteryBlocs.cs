@@ -24,9 +24,13 @@ public class MysteryBlocs : Blocs
 
     public override void BlocHitted()
     {
-        MysteryBlocIsTouched();
-    }
+        if (!isDying)
+        {
+            isDying = true;
+            MysteryBlocIsTouched();
 
+        }
+    }
     public void MysteryBlocIsTouched()
     {
 
@@ -75,21 +79,27 @@ public class MysteryBlocs : Blocs
 
     void Explosion(Vector2 source)
     {
-        GameObject newPowerUp = GameObject.Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
-        newPowerUp.SendMessage("OnSpawnedByQuestionBlock", SendMessageOptions.DontRequireReceiver);
-        Vector2 recul = (Vector2)transform.position - source;
-        recul = recul.normalized*20;
-        newPowerUp.GetComponent<DynamicObject>().AddImpulse(recul);
+        if (!isDying)
+        {
+            isDying = true;
+
+            GameObject newPowerUp = GameObject.Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
+            newPowerUp.SendMessage("OnSpawnedByQuestionBlock", SendMessageOptions.DontRequireReceiver);
+            Vector2 recul = (Vector2)transform.position - source;
+            recul = recul.normalized * 20;
+            newPowerUp.GetComponent<DynamicObject>().AddImpulse(recul);
+
+
+            GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
+            explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - source).normalized * 10));
+            Destroy(explosionVfx, 2);
+
+            GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
+            Popup.GetComponent<scorePopup>().init(150, Color.white);
+            Popup.transform.localScale *= 1.8f;
+
+            Destroy(transform.parent.gameObject);
+        }
         
-
-        GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
-        explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - source).normalized * 10));
-        Destroy(explosionVfx, 2);
-
-        GameObject Popup = GameObject.Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
-        Popup.GetComponent<scorePopup>().init(150, Color.white);
-        Popup.transform.localScale *= 1.8f;
-
-        Destroy(transform.parent.gameObject);
     }
 }
