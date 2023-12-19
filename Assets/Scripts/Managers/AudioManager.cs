@@ -13,7 +13,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] List<AudioClip> footstepsSounds;
-    [SerializeField] AudioClip footstepSound;
+    //[SerializeField] AudioClip footstepSound;
+    [SerializeField] AudioClip fallSound;
 
     private void Awake()
     {
@@ -48,9 +49,21 @@ public class AudioManager : MonoBehaviour
         PlaySound(footstepsSounds[Random.Range(0, 5)]);
         //PlaySound(footstepSound);
     }
+    public void PlayFall()
+    {
+        PlaySound(fallSound);
+    }
     public void PlaySound(AudioClip clip)
     {
+        if (clip == fallSound)
+        {
+            sfxSource.pitch = Random.Range(0.5f,0.7f);
+        }
+        else
+        {
         sfxSource.pitch = Random.Range(0.8f,1);
+        }
+
         Debug.Log(sfxSource.pitch);
         sfxSource.PlayOneShot(clip);
     }
