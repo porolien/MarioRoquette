@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-
+    SetEndUI setEndUI;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -20,9 +20,11 @@ public class EndLevel : MonoBehaviour
             if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
             {
                 PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
+                setEndUI.SetTheUI();
             }
             
         }
     }
+
 }
 
