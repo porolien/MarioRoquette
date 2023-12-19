@@ -32,14 +32,14 @@ public class AudioManager : MonoBehaviour
             _instance = this;
         }
     }
-
+    // all : pitch random entre 0.5 et 0.7
     public void PlayMissile()
     {
-        PlaySound(missileSound,1,1);
+        PlaySound(missileSound,1,1); // réduire volume
     }
     public void PlayExplosion()
     {
-        PlaySound(explosionSound,1,1);
+        PlaySound(explosionSound,1,1); // réduire volume
     }
     public void PlayJump()
     {
@@ -49,18 +49,18 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepsSounds[Random.Range(0,5)],1,1);
-        //PlaySound(footstepSound);<- a tester avec le pitch
+        PlaySound(footstepsSounds[Random.Range(0,5)],1,1); //suppr liste rdm ?
+        //PlaySound(footstepSound); <- a tester avec le pitch / volume haut
     }
     public void PlayFall()
     {
-        PlaySound(fallSound,1,1);
+        PlaySound(fallSound,1,1); // volume haut et pitch bas
     }
     public void PlayFlight()
     {
-        PlaySound(flightSound,1,1);
+        PlaySound(flightSound,1,1); //ça marche pas connard
     }
-    public void PlayCoin()
+    public void PlayCoin() // réduire volume(?)
     {
         PlaySound(coinSound,1,1);
     }
