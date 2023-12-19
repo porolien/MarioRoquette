@@ -32,7 +32,7 @@ namespace Dan.Demo
 
         public void AddPlayerScore()
         {
-            _playerScoreText.text = $"Your time: {_playerScore}";
+            _playerScoreText.text = $"Your time: {(float)_playerScore/100} seconds";
         }
         
         public void Load()
@@ -118,7 +118,9 @@ namespace Dan.Demo
         private void CreateEntryDisplay(Entry entry)
         {
             var entryDisplay = Instantiate(_entryDisplayPrefab.gameObject, _entryDisplayParent);
+            entry.Score /= 100;
             entryDisplay.GetComponent<EntryDisplay>().SetEntry(entry);
+
         }
 
         private IEnumerator LoadingTextCoroutine(TMP_Text text)
@@ -174,7 +176,7 @@ namespace Dan.Demo
 
         private void OnPersonalEntryLoaded(Entry entry)
         {
-            _personalEntryText.text = $"{entry.RankSuffix()}. {entry.Username} : {(float)(entry.Score/100)}";
+            _personalEntryText.text = $"{entry.RankSuffix()}. {entry.Username} : {entry.Score}";
             MovePersonalEntryMenu(0f);
         }
         

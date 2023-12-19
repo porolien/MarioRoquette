@@ -4347,7 +4347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &190212717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16661,7 +16661,7 @@ RectTransform:
   m_Father: {fileID: 1254700631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.53776246}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20239,7 +20239,7 @@ MonoBehaviour:
   explosionSound: {fileID: 0}
   jumpSound: {fileID: 0}
   footstepsSounds: []
-  footstepSound: {fileID: 0}
+  fallSound: {fileID: 0}
 --- !u!4 &833518687
 Transform:
   m_ObjectHideFlags: 0
@@ -33783,6 +33783,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
+        type: 3}
+      propertyPath: leaderBoardUI
+      value: 
+      objectReference: {fileID: 746106385}
+    - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
+        type: 3}
+      propertyPath: leaderboardShowcase
+      value: 
+      objectReference: {fileID: 1745247809}
     - target: {fileID: 4437472775545802164, guid: a1436b9bfe25df64b9d701db36da23a3,
         type: 3}
       propertyPath: m_Name
@@ -35841,6 +35851,7 @@ MonoBehaviour:
   breakable: 0
   canExplosed: 0
   breakSound: {fileID: 0}
+  scorePopupPrefab: {fileID: 0}
   breakVFXPrefab: {fileID: 0}
 --- !u!4 &1477838203 stripped
 Transform:
@@ -42014,6 +42025,7 @@ MonoBehaviour:
   _defaultEntriesToTake: 100
   _personalEntryPanel: {fileID: 0}
   _personalEntryText: {fileID: 0}
+  _playerScore: 0
 --- !u!4 &1745247810
 Transform:
   m_ObjectHideFlags: 0
@@ -47883,7 +47895,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 718379774}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.53776246
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -50578,6 +50590,11 @@ PrefabInstance:
     - target: {fileID: 7727908026698649524, guid: c527105fd95e1a84a9b619cf06dc9bac,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096582081670217496, guid: c527105fd95e1a84a9b619cf06dc9bac,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
