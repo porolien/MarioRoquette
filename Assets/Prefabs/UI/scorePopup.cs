@@ -22,7 +22,7 @@ public class scorePopup : MonoBehaviour
         
         //text.outlineColor = color;
         text.text = "+" + score.ToString();
-
-        //scoreManager.score += score; 
+        
+        ScoreManager.Instance.IncreaseScore( score); 
     }
 }
