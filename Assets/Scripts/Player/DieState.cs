@@ -9,7 +9,7 @@ public class DieState : IBasePlayerState
     public override void OnEnter(PlayerStateMachine _stateMachine)
     {
         this.sm = _stateMachine;
-        animName = "StateDead";
+        /*animName = "StateDead";
         sm.pc.playerInput.SwitchCurrentActionMap("UI");
         if (sm.playerAnim != null)
         {
@@ -19,7 +19,8 @@ public class DieState : IBasePlayerState
         sm.pc.enabled = false;
         sm.transform.position = new Vector2(sm.transform.position.x, 0);
         sm.transform.rotation = Quaternion.EulerRotation(sm.transform.rotation.x, 0, sm.transform.rotation.z);
-        RocketManager.Instance._moveRocketLauncher.Cursor.gameObject.SetActive(false);
+        RocketManager.Instance._moveRocketLauncher.Cursor.gameObject.SetActive(false);*/
+        sm.pc.Retry();
     }
 
     public override void OnExit()
