@@ -53,15 +53,16 @@ public class PlayerController : DynamicObject
         cadence = 0.75f;
         SetUpPhysics();
         canShoot = true;
+        playerInput = GetComponent<PlayerInput>();
+        RocketManager.Instance.playerController = this;
+        walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
-        playerInput = GetComponent<PlayerInput>();
-        RocketManager.Instance.playerController = this;
-        walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
-        playerInput.SwitchCurrentActionMap("Player");
+        
     }
 
     private void Update()
@@ -75,7 +76,6 @@ public class PlayerController : DynamicObject
         Debug.DrawRay(transform.position, Vector2.up * (col.bounds.size.y/2 + 0.1f+Velocity.y*Time.deltaTime), Color.red);
         if (Velocity.y > 0 && Physics2D.CircleCast(transform.position, col.bounds.size.x/2-0.1f, Vector2.up,contactFilter, hit, col.bounds.size.y / 2 + 0.1f + Velocity.y * Time.deltaTime) >0)//transform.position, Vector2.up,  , out hit, LayerMask.GetMask("Solid")))
         {
-            Debug.LogAssertion("ta grosse mere la chienne");
             if(hit[0].collider.gameObject.GetComponentInChildren<Blocs>()) hit[0].collider.gameObject.GetComponentInChildren<Blocs>().BlocHitted();
         }
             

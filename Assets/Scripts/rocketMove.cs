@@ -43,7 +43,6 @@ public class RocketMove : MonoBehaviour
         List<RaycastHit2D> results = new List<RaycastHit2D>();
         if (col.Cast(Sense, contactFilter, results, Sense.magnitude * Vitesse * Time.deltaTime, true) > 0)
         {
-            Debug.Log(results[0].collider.name);
             string playerTag = "Player";
             switch (results[0].collider.gameObject.tag)
             {
@@ -53,7 +52,6 @@ public class RocketMove : MonoBehaviour
             }
             if (results[0].collider.gameObject.tag != "Player")
             {
-                Debug.Log("Ceci est une explosion");
                 Explose(results[0]);
 
             }

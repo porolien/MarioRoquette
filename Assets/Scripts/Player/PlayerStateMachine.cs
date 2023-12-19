@@ -31,6 +31,7 @@ public class PlayerStateMachine : MonoBehaviour
         pc._currentState = currentState;
         pc._idleState = idleState;
         Transition(jumpState);
+        pc.setWalkParticlesActive(false);
     }
 
     // Update is called once per frame

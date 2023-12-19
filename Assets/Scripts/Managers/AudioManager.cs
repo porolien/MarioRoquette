@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepsSounds[Random.Range(0,5)],1,1); //suppr liste rdm ?
+        PlaySound(footstepsSounds[Random.Range(0,footstepsSounds.Count)],1,1); //suppr liste rdm ?
         //PlaySound(footstepSound); <- a tester avec le pitch / volume haut
     }
     public void PlayFall()

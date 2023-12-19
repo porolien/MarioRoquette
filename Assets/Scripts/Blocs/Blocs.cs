@@ -25,7 +25,7 @@ public class Blocs : MonoBehaviour
 
     public virtual void BlocHitted()
     {
-        print("BLOCK HITTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         if(!breakable) 
         {
             transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");

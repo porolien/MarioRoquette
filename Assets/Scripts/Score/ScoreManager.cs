@@ -55,6 +55,6 @@ public class ScoreManager : MonoBehaviour
 
     public float SetBestTimer()
     {
-        return timer.elapsedTime;
+        return timer.getTime();
     }
 }

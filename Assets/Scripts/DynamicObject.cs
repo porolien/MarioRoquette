@@ -77,11 +77,13 @@ public class DynamicObject : MonoBehaviour
     }
     bool CheckForGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        int i = Physics2D.CircleCast(transform.position, col.bounds.size.x / 3 - 0.1f, Vector2.down, contactFilter, hits, col.bounds.size.y / 2 + 0.1f  );
         Debug.DrawRay(transform.position, Vector3.down * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f),Color.red);
         //Debug.Log(hit.collider.name);
         //return  hit ;
-        return hit;//rb.velocity.y == 0;
+        return i>0;//rb.velocity.y == 0;
 
     }
 
