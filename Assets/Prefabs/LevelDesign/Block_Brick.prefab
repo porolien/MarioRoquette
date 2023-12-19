@@ -246,6 +246,8 @@ MonoBehaviour:
   breakable: 1
   canExplosed: 1
   breakSound: {fileID: 8300000, guid: 10efb8c3057dc9244812076ceb5309b1, type: 3}
+  scorePopupPrefab: {fileID: 9201798002429850575, guid: 650de3170334aad4b9074ea31add732a,
+    type: 3}
   breakVFXPrefab: {fileID: 2230307488901760445, guid: a80e5c06f27707540954642fe2a83f19,
     type: 3}
 --- !u!1 &6213719959670068782

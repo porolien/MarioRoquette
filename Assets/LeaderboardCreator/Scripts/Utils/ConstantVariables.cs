@@ -4,7 +4,7 @@ namespace Dan
 {
     internal static class ConstantVariables
     {
-        internal const string GUID_KEY = "LEADERBOARD_CREATOR___LOCAL_GUID";
+        internal const string GUID_KEY = "ca06c234e4013f92c018675b676afb30f4cf492bc3cce1d5cbbbbb48799b769b";
         
         internal static string GetServerURL(Routes route = Routes.None, string extra = "")
         {
