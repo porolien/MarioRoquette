@@ -16865,6 +16865,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 190653715}
+    - target: {fileID: 2844131550846300001, guid: bfac62f9cef45e44fbafdeb33034715e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1743338437}
+    - target: {fileID: 2844131550846300001, guid: bfac62f9cef45e44fbafdeb33034715e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
     - target: {fileID: 3008110536486482295, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
       propertyPath: m_AnchorMax.x

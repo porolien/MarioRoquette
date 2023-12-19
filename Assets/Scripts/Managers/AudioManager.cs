@@ -64,7 +64,7 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(coinSound,1,1);
     }
-    public void PlaySound(AudioClip clip, float volume, float pitch)
+    public void PlaySound(AudioClip clip, float volume=1, float pitch=1)
     {
         /*if (clip == fallSound)
         {
