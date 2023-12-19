@@ -33,6 +33,7 @@ public class FallState : IBasePlayerState
         {
             Debug.Log("yes");
             AudioManager.Instance.PlayFall();
+            RumbleManager.Instance.Rumble(0.1f, 0.1f, 0.2f);
             sm.Transition(sm.idleState);
         }
 

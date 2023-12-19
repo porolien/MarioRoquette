@@ -59,6 +59,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a4ab48aff8a5070419a34a775de7d4ef, type: 3}
   - {fileID: 8300000, guid: 8c4fe89b5c6a43047bdb9bbf513c1fbe, type: 3}
   fallSound: {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
+  flightSound: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: 44bf54c01ff779f4da242129ae73f102, type: 3}
 --- !u!1 &4133229331069599540
 GameObject:
   m_ObjectHideFlags: 0
