@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     //
 
     public Timer timer = null;
+
     private void Awake()
     {
         //Singleton
