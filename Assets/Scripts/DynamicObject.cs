@@ -12,6 +12,7 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private float bounciness = 0;
     [SerializeField] private float mass = 1;
     [SerializeField] public float Damping = 1f;
+    public float maxVelocity = 40;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
     public Collider2D col;
@@ -66,7 +67,9 @@ public class DynamicObject : MonoBehaviour
         checkForCollisions();
 
         //apply velocity
-        rb.position += Velocity * Time.deltaTime;
+        
+        Velocity = Vector2.ClampMagnitude(Velocity, maxVelocity);
+        rb.position += Velocity* Time.deltaTime;
 
         //reset force
         totalForce = Vector3.zero;
