@@ -31,6 +31,7 @@ public class PlayerController : DynamicObject
     public PlayerAnim playerAnim;
     float rota;
     public Vector2 aimDirection;
+    public PlayerInput playerInput;
     //Vector2 direction;
 
     [Header("Inputs")]
@@ -55,8 +56,10 @@ public class PlayerController : DynamicObject
 
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         RocketManager.Instance.playerController = this;
         walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     private void Update()
@@ -157,11 +160,7 @@ public class PlayerController : DynamicObject
 
     public void OnReset()
     {
-        RocketMove.muultiplicateurScale = 1;
-        RocketMove.RayonDeLexplosion = 3;
-        RocketMove.multiplicateurDeLexplosion = 1;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        Retry();
     }
 
     public void OnMoveCursorController(InputValue value)
@@ -228,4 +227,12 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlayFootsteps();
     }
 
+    public void Retry()
+    {
+        RocketMove.muultiplicateurScale = 1;
+        RocketMove.RayonDeLexplosion = 3;
+        RocketMove.multiplicateurDeLexplosion = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
+}

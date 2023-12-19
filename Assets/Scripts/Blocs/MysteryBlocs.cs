@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 public class MysteryBlocs : Blocs
 {
     
-    public PowerUp powerUp;
+    public GameObject powerUp;
     public Mesh mesh;
     //[SerializeField] protected GameObject breakVFXPrefab;
     // Start is called before the first frame update
@@ -31,8 +31,9 @@ public class MysteryBlocs : Blocs
     {
 
 
-        PowerUp newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
-        newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 8, 0));
+        GameObject newPowerUp = Instantiate(powerUp,transform.position+Vector3.up,Quaternion.identity);
+        newPowerUp.GetComponent<DynamicObject>().AddImpulse(new Vector3(0, 20, 0));
+        newPowerUp.SendMessage("OnSpawnedByQuestionBlock", SendMessageOptions.DontRequireReceiver);
         //transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
         //GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         //explosionVfx.GetComponent<VisualEffect>().SetInt("Count", 14);
@@ -74,10 +75,12 @@ public class MysteryBlocs : Blocs
 
     void Explosion(Vector2 source)
     {
-        PowerUp newPowerUp = Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
+        GameObject newPowerUp = GameObject.Instantiate(powerUp, transform.position + Vector3.up, Quaternion.identity);
+        newPowerUp.SendMessage("OnSpawnedByQuestionBlock", SendMessageOptions.DontRequireReceiver);
         Vector2 recul = (Vector2)transform.position - source;
         recul = recul.normalized*20;
         newPowerUp.GetComponent<DynamicObject>().AddImpulse(recul);
+        
 
         GameObject explosionVfx = GameObject.Instantiate(breakVFXPrefab, transform.position, Quaternion.identity);
         explosionVfx.GetComponent<VisualEffect>().SetVector3("AdditionalVelocity", (Vector3)(((Vector2)transform.position - source).normalized * 10));

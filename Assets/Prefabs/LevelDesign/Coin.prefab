@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
-  gravityScale: 0
-  bounciness: 1
+  gravityScale: 20
+  bounciness: 10
   mass: 1
-  Damping: 1
+  Damping: 10
   maxVelocity: 40
   col: {fileID: 0}
   isGrounded: 0
@@ -111,8 +111,7 @@ MonoBehaviour:
     type: 3}
   scorePopupPrefab: {fileID: 9201798002429850575, guid: 650de3170334aad4b9074ea31add732a,
     type: 3}
-  magnetDistance: 5
-  magnetStrength: 200
+  magnetDistance: 3
 --- !u!58 &645219254184765481
 CircleCollider2D:
   m_ObjectHideFlags: 0
