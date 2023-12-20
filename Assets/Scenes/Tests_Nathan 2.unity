@@ -5154,7 +5154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -3341070585224904485, guid: 051c1e911d0ad6245994e8da0ee23a47,
+      objectReference: {fileID: 7742836690035926761, guid: becbaa75100c8824b88e390133357cba,
         type: 3}
     - target: {fileID: 9092245468834313826, guid: 96b5b8735c26680498b0b0bd737afe14,
         type: 3}
@@ -18321,6 +18321,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 239210144}
     m_Modifications:
+    - target: {fileID: 516212601019256101, guid: 96b5b8735c26680498b0b0bd737afe14,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755208015115149832, guid: 96b5b8735c26680498b0b0bd737afe14,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c20728554f550a5479464bc5683d6afb, type: 2}
     - target: {fileID: 5133244672790399707, guid: 96b5b8735c26680498b0b0bd737afe14,
         type: 3}
       propertyPath: m_Name
@@ -18331,6 +18341,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6724150605421042196, guid: 96b5b8735c26680498b0b0bd737afe14,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3683630856889376362, guid: becbaa75100c8824b88e390133357cba,
+        type: 3}
     - target: {fileID: 9092245468834313826, guid: 96b5b8735c26680498b0b0bd737afe14,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -23286,6 +23302,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 239210144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &955547535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2507951888540962389, guid: bfac62f9cef45e44fbafdeb33034715e,
+    type: 3}
+  m_PrefabInstance: {fileID: 967612976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &955843775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32110,7 +32132,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leaderBoardUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 955547535}
     - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
         type: 3}
       propertyPath: playerController
@@ -47636,7 +47658,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -6872830843527993340, guid: 051c1e911d0ad6245994e8da0ee23a47,
+      objectReference: {fileID: -2818740345275732845, guid: becbaa75100c8824b88e390133357cba,
         type: 3}
     - target: {fileID: 9092245468834313826, guid: 96b5b8735c26680498b0b0bd737afe14,
         type: 3}
@@ -49484,7 +49506,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -3341070585224904485, guid: 051c1e911d0ad6245994e8da0ee23a47,
+      objectReference: {fileID: 7742836690035926761, guid: becbaa75100c8824b88e390133357cba,
         type: 3}
     - target: {fileID: 9092245468834313826, guid: 96b5b8735c26680498b0b0bd737afe14,
         type: 3}
