@@ -3024,7 +3024,7 @@ GameObject:
   - component: {fileID: 137895982}
   m_Layer: 0
   m_Name: smallPlane (9)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3794,7 +3794,7 @@ GameObject:
   - component: {fileID: 176225982}
   m_Layer: 0
   m_Name: smallPlane (14)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4199,7 +4199,7 @@ GameObject:
   - component: {fileID: 202370473}
   m_Layer: 0
   m_Name: bigPlane (1)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6116,6 +6116,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2375710195425690799, guid: ec6cb291946ce2a4d957d55479513e50,
     type: 3}
   m_PrefabInstance: {fileID: 287524019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &288314561
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1598707131}
+    m_Modifications:
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149115073305189909, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground_Left (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b6b523bb7ac95b4294a3e16515a2df0, type: 3}
+--- !u!4 &288314562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
+    type: 3}
+  m_PrefabInstance: {fileID: 288314561}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &296316487
 PrefabInstance:
@@ -12739,7 +12813,7 @@ GameObject:
   - component: {fileID: 540320391}
   m_Layer: 0
   m_Name: smallPlane (3)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14313,7 +14387,7 @@ GameObject:
   - component: {fileID: 618473217}
   m_Layer: 0
   m_Name: smallPlane (5)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20069,7 +20143,7 @@ GameObject:
   - component: {fileID: 904403080}
   m_Layer: 0
   m_Name: smallPlane (1)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20828,7 +20902,7 @@ GameObject:
   - component: {fileID: 941458242}
   m_Layer: 0
   m_Name: smallPlane (4)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20856,78 +20930,6 @@ Transform:
   - {fileID: 1880368023}
   m_Father: {fileID: 239210144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &944964253
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1598707131}
-    m_Modifications:
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3149115073305189909, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground_Left
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1319739796}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9b6b523bb7ac95b4294a3e16515a2df0, type: 3}
 --- !u!1001 &946277452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21247,7 +21249,7 @@ GameObject:
   - component: {fileID: 953896352}
   m_Layer: 0
   m_Name: smallPlane (7)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22448,12 +22450,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3336857961493648451, guid: 454007ef7109b7c4a937ffe4493e4916,
     type: 3}
   m_PrefabInstance: {fileID: 1710884968}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &988742617 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2375710195425690799, guid: 9b6b523bb7ac95b4294a3e16515a2df0,
-    type: 3}
-  m_PrefabInstance: {fileID: 944964253}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &990158417
 PrefabInstance:
@@ -24973,7 +24969,7 @@ GameObject:
   - component: {fileID: 1087593243}
   m_Layer: 0
   m_Name: smallPlane (8)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29508,110 +29504,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1311640263}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1319739795
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 988742617}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5754084199372789682, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -6066454425776101125, guid: 4288cf60a64a45548bbdbc372b386f36,
-        type: 3}
-    - target: {fileID: 919132149155446097, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1551946895}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09f26b8f3b02a894b932a6a9b1853359, type: 3}
---- !u!4 &1319739796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 09f26b8f3b02a894b932a6a9b1853359,
-    type: 3}
-  m_PrefabInstance: {fileID: 1319739795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1323042270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30133,7 +30025,7 @@ GameObject:
   - component: {fileID: 1348415322}
   m_Layer: 0
   m_Name: smallPlane (12)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30599,7 +30491,7 @@ GameObject:
   - component: {fileID: 1363313047}
   m_Layer: 0
   m_Name: smallPlane (13)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31404,7 +31296,7 @@ GameObject:
   - component: {fileID: 1403066125}
   m_Layer: 0
   m_Name: smallPlane (15)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33424,7 +33316,7 @@ GameObject:
   - component: {fileID: 1469759712}
   m_Layer: 0
   m_Name: smallPlane (17)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33897,7 +33789,7 @@ GameObject:
   - component: {fileID: 1487397225}
   m_Layer: 0
   m_Name: smallPlane (2)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34404,7 +34296,7 @@ GameObject:
   - component: {fileID: 1498771912}
   m_Layer: 0
   m_Name: smallPlane (6)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35534,37 +35426,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1751346777}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1551946894
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1551946895}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1551946895
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551946894}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -2.434042, y: 0.14307976, z: -1.7368716}
-  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1319739796}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1554570805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7014277980596642998, guid: 317b2da781e69bf44825b3f77ed2450b,
@@ -36982,7 +36843,7 @@ GameObject:
   - component: {fileID: 1598707131}
   m_Layer: 0
   m_Name: bigPlane
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37014,7 +36875,7 @@ Transform:
   - {fileID: 544704356}
   - {fileID: 601795271}
   - {fileID: 908342716}
-  - {fileID: 988742617}
+  - {fileID: 288314562}
   m_Father: {fileID: 239210144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1601929533
@@ -37176,7 +37037,7 @@ GameObject:
   - component: {fileID: 1617951638}
   m_Layer: 0
   m_Name: smallPlane
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37386,7 +37247,7 @@ GameObject:
   - component: {fileID: 1647919988}
   m_Layer: 0
   m_Name: smallPlane (16)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45066,7 +44927,7 @@ GameObject:
   - component: {fileID: 2031877766}
   m_Layer: 0
   m_Name: bigPlane (2)
-  m_TagString: Untagged
+  m_TagString: GroupOfTerrainStaticMeshes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
