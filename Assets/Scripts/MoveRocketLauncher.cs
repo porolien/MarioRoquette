@@ -21,11 +21,19 @@ public class MoveRocketLauncher : MonoBehaviour
         if (RocketManager.Instance!=null && RocketManager.Instance.playerController.isControllerMode)
         {
             transform.right = new Vector3( RocketManager.Instance.playerController.aimDirection.x, RocketManager.Instance.playerController.aimDirection.y, 0).normalized;
+            if (UnityEngine.Cursor.visible)
+            {
+                UnityEngine.Cursor.visible = false;
+            }
             //rocketLauncher.transform.up = new Vector3(RocketManager.Instance.playerController.aimDirection.x, RocketManager.Instance.playerController.aimDirection.y, 0).normalized; 
         }
         else
         {
             transform.right = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+            if (!UnityEngine.Cursor.visible)
+            {
+                UnityEngine.Cursor.visible = true;
+            }
             //rocketLauncher.transform.up = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         }
         Vector2 offset = RocketManager.Instance.playerController.transform.position - Cursor.transform.position;

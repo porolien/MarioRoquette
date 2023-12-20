@@ -38,6 +38,7 @@ public class LeaderBoard : MonoBehaviour
 
     public void SetLeaderboardEntry(string username, int score)
     {
+
         Leaderboards.DemoSceneLeaderboard.UploadNewEntry(username, score);
         //LeaderboardCreator.UploadNewEntry(publicLeaderBoardKey, username, score);
         /*
