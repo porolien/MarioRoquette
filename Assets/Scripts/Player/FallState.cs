@@ -31,14 +31,15 @@ public class FallState : IBasePlayerState
     {
         if (sm.pc.isGrounded)
         {
-            Debug.Log("yes");
             AudioManager.Instance.PlayFall();
+            RumbleManager.Instance.Rumble(0.1f, 0.1f, 0.2f);
             sm.Transition(sm.idleState);
         }
 
 
         sm.pc.Damping = sm.pc.gravityScale;
-        sm.pc.AddForce(sm.pc.MovementInput * sm.pc.AirPlayerAcceleration * Vector2.right);
+
+        if (!sm.pc.checkForSideCollisions(sm.pc.MovementInput.x * sm.pc.col.bounds.size.x / 2 + 0.2f)) sm.pc.AddForce(sm.pc.MovementInput * sm.pc.AirPlayerAcceleration * Vector2.right);
 
         if (sm.pc.MovementInput != Vector2.zero)
         {

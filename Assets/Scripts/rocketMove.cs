@@ -43,7 +43,6 @@ public class RocketMove : MonoBehaviour
         List<RaycastHit2D> results = new List<RaycastHit2D>();
         if (col.Cast(Sense, contactFilter, results, Sense.magnitude * Vitesse * Time.deltaTime, true) > 0)
         {
-            Debug.Log(results[0].collider.name);
             string playerTag = "Player";
             switch (results[0].collider.gameObject.tag)
             {
@@ -53,7 +52,6 @@ public class RocketMove : MonoBehaviour
             }
             if (results[0].collider.gameObject.tag != "Player")
             {
-                Debug.Log("Ceci est une explosion");
                 Explose(results[0]);
 
             }
@@ -70,7 +68,6 @@ public class RocketMove : MonoBehaviour
         Collider2D[] ObjetsTouches = Physics2D.OverlapCircleAll(transform.position, RayonDeLexplosion * multiplicateurDeLexplosion);
         foreach (Collider2D ObjetTouche in ObjetsTouches)
         {
-            Debug.Log("Nom de l'objet touch " + ObjetTouche.gameObject.name);
             ObjetTouche.gameObject.SendMessage("Explosion",/*(Vector2) transform.position*/collision.point, SendMessageOptions.DontRequireReceiver);
             Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 
@@ -82,7 +79,7 @@ public class RocketMove : MonoBehaviour
         Destroy(explosionVfx, 2);
         //sfx
         AudioManager.Instance.PlaySound(explosionSound);
-        RumbleManager.Instance.Rumble(1, 1, 1);
+        RumbleManager.Instance.Rumble(0.7f, 0.7f, 0.5f);
         Destroy(gameObject);
 
 

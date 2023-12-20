@@ -10,11 +10,12 @@ public class Blocs : MonoBehaviour
     [SerializeField] AudioClip breakSound;
     [SerializeField] protected GameObject scorePopupPrefab;
     [SerializeField] protected GameObject breakVFXPrefab;
-
+    protected bool isDying = false;
     void Explosion(Vector2 Center)
     {
-        if (canExplosed)
+        if (canExplosed && !isDying)
         {
+            isDying = true;
             StartCoroutine(Die2((Vector3)(((Vector2)transform.position - Center).normalized * 10)));
             
 
@@ -24,14 +25,16 @@ public class Blocs : MonoBehaviour
 
     public virtual void BlocHitted()
     {
+
         if(!breakable) 
         {
             transform.parent.gameObject.GetComponent<Animation>().Play("Brick_bump");
             //grossir le bloc et le faire monter un ptit peu, puis le r�trecir et le remettre � sa place
             //puis le d�truire?
         }
-        else
+        else if(!isDying)
         {
+            isDying = true;
             AudioManager.Instance.PlaySound(breakSound);
             StartCoroutine(Die());
             //Destroy(transform.parent.gameObject);

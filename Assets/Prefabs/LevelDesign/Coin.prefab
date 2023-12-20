@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6318258022814695880}
   - component: {fileID: 5007766294675270435}
   - component: {fileID: 645219254184765481}
+  - component: {fileID: 5281174455191851559}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -98,8 +99,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fadc7368c50f3c428bc082ef31ccd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0}
+  gravityScale: 20
+  bounciness: 10
+  mass: 1
+  Damping: 10
+  maxVelocity: 40
+  col: {fileID: 0}
+  isGrounded: 0
   coinText: {fileID: 2910874931808300389, guid: de58c4988055c97458e222cf8ec530de,
     type: 3}
+  scorePopupPrefab: {fileID: 9201798002429850575, guid: 650de3170334aad4b9074ea31add732a,
+    type: 3}
+  magnetDistance: 3
 --- !u!58 &645219254184765481
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,6 +147,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &5281174455191851559
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055362955293266885}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5325640853812946513
 GameObject:
   m_ObjectHideFlags: 0

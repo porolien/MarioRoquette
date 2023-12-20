@@ -12,11 +12,12 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private float bounciness = 0;
     [SerializeField] private float mass = 1;
     [SerializeField] public float Damping = 1f;
+    public float maxVelocity = 40;
     private Vector2 totalForce = Vector2.zero;
     private Rigidbody2D rb;
     public Collider2D col;
 
-    ContactFilter2D contactFilter;
+    protected ContactFilter2D contactFilter;
 
     public bool isGrounded = false;
 
@@ -40,6 +41,7 @@ public class DynamicObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col=GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid");
+        contactFilter.useLayerMask = true;
     }
     public void UpdatePhysics()
     {
@@ -66,18 +68,22 @@ public class DynamicObject : MonoBehaviour
         checkForCollisions();
 
         //apply velocity
-        rb.position += Velocity * Time.deltaTime;
+        
+        Velocity = Vector2.ClampMagnitude(Velocity, maxVelocity);
+        rb.position += Velocity* Time.deltaTime;
 
         //reset force
         totalForce = Vector3.zero;
     }
     bool CheckForGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        int i = Physics2D.CircleCast(transform.position, col.bounds.size.x / 3 - 0.1f, Vector2.down, contactFilter, hits, col.bounds.size.y / 2 + 0.1f  );
         Debug.DrawRay(transform.position, Vector3.down * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f),Color.red);
         //Debug.Log(hit.collider.name);
         //return  hit ;
-        return hit;//rb.velocity.y == 0;
+        return i>0;//rb.velocity.y == 0;
 
     }
 

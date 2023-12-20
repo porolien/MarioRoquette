@@ -92,7 +92,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -178,8 +178,7 @@ MonoBehaviour:
     type: 3}
   breakVFXPrefab: {fileID: 2230307488901760445, guid: 198f584a2dfff5d4ea9a95437336e0dc,
     type: 3}
-  powerUp: {fileID: -1648808603462894275, guid: d4da2a8e172cc8144a74454b0adbe28e,
-    type: 3}
+  powerUp: {fileID: 2055362955293266885, guid: 454007ef7109b7c4a937ffe4493e4916, type: 3}
   mesh: {fileID: -379973981855230629, guid: ef97df96aa59fb2469a327f9245c4bdf, type: 3}
 --- !u!61 &7421417505444025330
 BoxCollider2D:

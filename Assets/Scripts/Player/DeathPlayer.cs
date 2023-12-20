@@ -14,12 +14,18 @@ public class DeathPlayer : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("Bah t'est mort pas ouf quoi");
-            Destroy(Joueur);
+            var pm = other.GetComponent<PlayerStateMachine>();
+            if (pm.currentState != pm.dieState)
+            {
+                pm.Transition(pm.dieState);
+            }
+            
+           /* Destroy(Joueur);
             RocketMove.muultiplicateurScale = 1;
             RocketMove.RayonDeLexplosion = 3;
             RocketMove.multiplicateurDeLexplosion = 1;
             
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);*/
             
         } 
     }

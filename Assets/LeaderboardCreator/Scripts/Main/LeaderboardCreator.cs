@@ -22,7 +22,7 @@ namespace Dan.Main
         [RuntimeInitializeOnLoadMethod]
         private static void Initialize()
         {
-            Log("Initializing...");
+            //Log("Initializing...");
             _behaviour = new GameObject("[LeaderboardCreator]").AddComponent<LeaderboardCreatorBehaviour>();
             UnityEngine.Object.DontDestroyOnLoad(_behaviour.gameObject);
 

@@ -43,9 +43,11 @@ public class JumpState : IBasePlayerState
             sm.Transition(sm.fallState);
         }
 
+        
         sm.pc.AddForce(Vector2.up * sm.pc.JumpThrustPower);
         sm.pc.Damping = sm.pc.gravityScale;
-        sm.pc.AddForce(sm.pc.MovementInput * sm.pc.AirPlayerAcceleration * Vector2.right);
+
+        if (!sm.pc.checkForSideCollisions(sm.pc.MovementInput.x * sm.pc.col.bounds.size.x / 2 + 0.2f)) sm.pc.AddForce(sm.pc.MovementInput * sm.pc.AirPlayerAcceleration * Vector2.right);
         if (Mathf.Abs(sm.pc.Velocity.x) > sm.pc.maxAirSpeed)
         {
             sm.pc.Damping = sm.pc.AirPlayerAcceleration;

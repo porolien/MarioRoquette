@@ -16,7 +16,7 @@ public class MoveRocketLauncher : MonoBehaviour
     private void FixedUpdate()
     {
         //Move Cursor
-        if (RocketManager.Instance.playerController.isControllerMode)
+        if (RocketManager.Instance!=null && RocketManager.Instance.playerController.isControllerMode)
         {
             transform.right = new Vector3( RocketManager.Instance.playerController.aimDirection.x, RocketManager.Instance.playerController.aimDirection.y, 0).normalized;
             //rocketLauncher.transform.up = new Vector3(RocketManager.Instance.playerController.aimDirection.x, RocketManager.Instance.playerController.aimDirection.y, 0).normalized; 
