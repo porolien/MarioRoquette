@@ -172,9 +172,17 @@ public class PlayerController : DynamicObject
 
     public void OnReset()
     {
-        StartCoroutine( Retry());
+        StartCoroutine(Retry());
     }
 
+    public void TryAgain()
+    {
+        RocketMove.muultiplicateurScale = 1;
+        RocketMove.RayonDeLexplosion = 3;
+        RocketMove.multiplicateurDeLexplosion = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
     public void OnMoveCursorController(InputValue value)
     {
         aimDirection = value.Get<Vector2>();
@@ -241,10 +249,6 @@ public class PlayerController : DynamicObject
     {
         GameOverAnimation.Instance.Play();
         yield return new WaitForSeconds(0.38f);
-        RocketMove.muultiplicateurScale = 1;
-        RocketMove.RayonDeLexplosion = 3;
-        RocketMove.multiplicateurDeLexplosion = 1;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        TryAgain();
     }
 }

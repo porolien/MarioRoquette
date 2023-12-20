@@ -30,7 +30,7 @@ public class EndLevel : MonoBehaviour
             }
             playerController.playerInput.SwitchCurrentActionMap("UI");
             leaderBoardUI.SetActive(true);
-            leaderboardShowcase._playerScore = (int)(Mathf.Round(PlayerPrefs.GetFloat("Timer") * 100f));
+            leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
             leaderboardShowcase.AddPlayerScore();
             
         }
