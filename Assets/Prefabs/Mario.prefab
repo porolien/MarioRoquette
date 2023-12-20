@@ -883,7 +883,7 @@ MonoBehaviour:
   JumpThrustPower: 75
   JumpTime: 0.15
   coyoteTime: 0.2
-  footstepsSeparation: 0.5
+  footstepsSeparation: 0.2
   rocketJumpPower: 50
   reculRoquette: 20
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
