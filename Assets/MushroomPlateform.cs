@@ -7,6 +7,7 @@ public class MushroomPlateform : MonoBehaviour
     [SerializeField] float Power = 45;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioManager.Instance.PlayBounce();
         if(collision.GetComponent<DynamicObject>() != null)
         {
             DynamicObject col = collision.GetComponent<DynamicObject>();

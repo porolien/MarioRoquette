@@ -14,8 +14,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip missileSound;
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip jumpSound;
-    [SerializeField] List<AudioClip> footstepsSounds;
-    //[SerializeField] AudioClip footstepSound;
+    //[SerializeField] List<AudioClip> footstepsSounds;
+    [SerializeField] AudioClip footstepSound;
     [SerializeField] AudioClip fallSound;
     [SerializeField] AudioClip flightSound;
     [SerializeField] AudioClip coinSound;
@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepsSounds[Random.Range(0,footstepsSounds.Count)]); //suppr liste rdm ?
+        PlaySound(footstepSound); //suppr liste rdm ?
         //PlaySound(footstepSound); <- a tester avec le pitch / volume haut
     }
     public void PlayFall()
@@ -76,11 +76,11 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(bounceSound);
     }
-    public void WinSound()
+    public void PlayWin()
     {
         PlaySound(winSound);
     }
-    public void DeathSound()
+    public void PlayDeath()
     {
         PlaySound(deathSound);
     }

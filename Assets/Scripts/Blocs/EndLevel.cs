@@ -15,6 +15,8 @@ public class EndLevel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            AudioManager.Instance.PlayWin();
+            Debug.Log("victoire");
             RocketMove.muultiplicateurScale = 1;
             RocketMove.RayonDeLexplosion = 3;
             RocketMove.multiplicateurDeLexplosion = 1;

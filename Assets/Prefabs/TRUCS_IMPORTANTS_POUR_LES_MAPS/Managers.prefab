@@ -136,21 +136,14 @@ MonoBehaviour:
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
   explosionSound: {fileID: 8300000, guid: c6543f8f949f2f549b8f994b44a312ea, type: 3}
   jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
-  footstepsSounds:
-  - {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
-  - {fileID: 8300000, guid: 40956aa39f95cd7469ac67b1d17958b4, type: 3}
-  - {fileID: 8300000, guid: 3114da7e981eec34d84ac2134eaca2a5, type: 3}
-  - {fileID: 8300000, guid: 114024451a534da47be5005bc592ea7e, type: 3}
-  - {fileID: 8300000, guid: a4ab48aff8a5070419a34a775de7d4ef, type: 3}
-  - {fileID: 8300000, guid: 8c4fe89b5c6a43047bdb9bbf513c1fbe, type: 3}
-  - {fileID: 8300000, guid: c8ba0f433683ef14e9a4473dd5b381a4, type: 3}
+  footstepSound: {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
   fallSound: {fileID: 8300000, guid: c9fd4695dd2b03942b46954fc69f0d24, type: 3}
   flightSound: {fileID: 8300000, guid: a9be76973a5bffc46beb809b5360d6d8, type: 3}
   coinSound: {fileID: 8300000, guid: 44bf54c01ff779f4da242129ae73f102, type: 3}
   powerUpSound: {fileID: 8300000, guid: 3cc17b25b3edee5499b1a78910ee2b5c, type: 3}
-  bounceSound: {fileID: 0}
-  winSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 34eae59734b05f242baa2e1f31796290, type: 3}
+  winSound: {fileID: 8300000, guid: cdb23d534cce8104fb0ed20570eab3f5, type: 3}
+  deathSound: {fileID: 8300000, guid: 25d864539584d07419b146cb8b415617, type: 3}
 --- !u!1 &1710745973629074857
 GameObject:
   m_ObjectHideFlags: 0

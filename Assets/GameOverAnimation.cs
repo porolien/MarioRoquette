@@ -27,5 +27,7 @@ public class GameOverAnimation : MonoBehaviour
     public void Play()
     {
         GetComponentInChildren<Animation>().Play();
+        AudioManager.Instance.PlayDeath();
+
     }
 }
