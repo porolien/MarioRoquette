@@ -412,7 +412,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3806435584564772377, guid: 047153d909e7c8f4da480000cae4769d, type: 3}
+  m_Mesh: {fileID: -5471177741836306362, guid: b8b658500e1b3ec48a06e71b74ce4672, type: 3}
   m_Bones:
   - {fileID: 7064160575885158253}
   - {fileID: 2037120363731275143}
@@ -869,6 +869,8 @@ MonoBehaviour:
   bounciness: 0
   mass: 1
   Damping: 60
+  maxVelocity: 40
+  col: {fileID: 0}
   isGrounded: 1
   GroundPlayerAcceleration: 100
   AirPlayerAcceleration: 30
@@ -889,6 +891,8 @@ MonoBehaviour:
     type: 3}
   playerAnim: {fileID: 0}
   aimDirection: {x: 0, y: 0}
+  playerInput: {fileID: 0}
+  RocketLauncher: {fileID: 0}
   MovementInput: {x: 0, y: 0}
   isHoldingJumpKey: 0
   isHoldingSprintKey: 0
