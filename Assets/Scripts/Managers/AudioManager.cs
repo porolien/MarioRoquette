@@ -8,11 +8,11 @@ public class AudioManager : MonoBehaviour
     //Singleton
     private static AudioManager _instance = null;
     public static AudioManager Instance => _instance;
-    //
+
+    public AudioSource sourceMusique ;
     [SerializeField] AudioClip missileSound;
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip jumpSound;
-    //[SerializeField] List<AudioClip> footstepsSounds;
     [SerializeField] AudioClip footstepSound;
     [SerializeField] AudioClip fallSound;
     [SerializeField] AudioClip flightSound;
@@ -35,44 +35,46 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        sourceMusique = GameObject.Find("Music Source").GetComponent<AudioSource>();
     }
     // all : pitch random entre 0.5 et 0.7
     public void PlayMissile()
     {
-        PlaySound(missileSound); // réduire volume
+        PlaySound(missileSound,Random.Range(0.8f,1), 0.8f); // réduire volume
     }
     public void PlayExplosion()
     {
-        PlaySound(explosionSound); // réduire volume
+        PlaySound(explosionSound, Random.Range(0.8f, 1), 0.8f) ; // réduire volume
     }
     public void PlayJump()
     {
-        PlaySound(jumpSound);
+        PlaySound(jumpSound, Random.Range(0.8f, 1));
     }
     public void PlayFootsteps()
     {
-        PlaySound(footstepSound); //suppr liste rdm ?
+        PlaySound(footstepSound, Random.Range(0.8f, 1)); //suppr liste rdm ?
         //PlaySound(footstepSound); <- a tester avec le pitch / volume haut
     }
     public void PlayFall()
     {
-        PlaySound(fallSound); // volume haut et pitch bas
+        PlaySound(fallSound, Random.Range(0.8f, 1)); // volume haut et pitch bas
     }
     public void PlayFlight()
     {
-        PlaySound(flightSound); //ça marche pas connard
+        PlaySound(flightSound, Random.Range(0.8f, 1)); //ça marche pas connard
     }
     public void PlayCoin() // réduire volume(?)
     {
-        PlaySound(coinSound);
+        PlaySound(coinSound, Random.Range(0.8f, 1));
     }
     public void PlayPowerUp()
     {
-        PlaySound(powerUpSound);
+        PlaySound(powerUpSound, Random.Range(0.8f, 1));
     }
     public void PlayBounce()
     {
-        PlaySound(bounceSound);
+        PlaySound(bounceSound, Random.Range(0.8f, 1));
     }
     public void PlayWin()
     {
@@ -82,26 +84,21 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(deathSound);
     }
-    public void PlaySound(AudioClip clip, float volume=1, float pitch=1)
+    public void PlaySound(AudioClip clip, float pitch = 1, float volume = 1)
     {
-        /*if (clip == fallSound)
-        {
-            sfxSource.pitch = Random.Range(0.5f,0.7f);
-        }
-        else if (clip == coinSound)
-        {
-            sfxSource.pitch = 1;
-        }
-        else
-        {
-            sfxSource.pitch = Random.Range(0.8f,1);
-        }*/
-
         AudioSource source = gameObject.AddComponent<AudioSource>();
         source.volume = volume;
         source.pitch = pitch;
         source.PlayOneShot(clip);
         Destroy(source, 2);
+    }
+    public void PlayMusic()
+    {
+        sourceMusique.Play();
+    }
+    public void StopMusic()
+    {
+        sourceMusique.Stop();
     }
 
     // Tous les sons sont trouvés sur pixabay.
