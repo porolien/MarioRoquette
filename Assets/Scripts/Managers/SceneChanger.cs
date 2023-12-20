@@ -9,7 +9,7 @@ public class SceneChanger : MonoBehaviour
     public void GoToPlay()
     {
         SceneManager.LoadScene("Tests_Nathan");
-        print("Oui");
+        //print("Oui");
     }
 
     public void LeaveGame()
