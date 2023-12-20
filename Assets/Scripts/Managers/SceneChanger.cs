@@ -12,6 +12,11 @@ public class SceneChanger : MonoBehaviour
         //print("Oui");
     }
 
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void LeaveGame()
     {
         Application.Quit();
