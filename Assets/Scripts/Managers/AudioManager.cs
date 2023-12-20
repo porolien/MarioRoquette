@@ -34,9 +34,13 @@ public class AudioManager : MonoBehaviour
         else
         {
             _instance = this;
+            transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
         }
 
+        Debug.Log("te grosse mere");
         sourceMusique = GameObject.Find("Music Source").GetComponent<AudioSource>();
+        //PlayMusic();
     }
     // all : pitch random entre 0.5 et 0.7
     public void PlayMissile()
@@ -80,17 +84,14 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(winSound);
     }
-    public void PlayDeath()
-    {
-        PlaySound(deathSound);
-    }
+
     public void PlaySound(AudioClip clip, float pitch = 1, float volume = 1)
     {
         AudioSource source = gameObject.AddComponent<AudioSource>();
         source.volume = volume;
         source.pitch = pitch;
         source.PlayOneShot(clip);
-        Destroy(source, 2);
+        Destroy(source, 5);
     }
     public void PlayMusic()
     {

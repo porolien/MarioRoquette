@@ -51,10 +51,10 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.1
+      - m_Value: 1.06
         m_Name: hueShift
         m_Overridden: 1
-      - m_Value: 0.44
+      - m_Value: 2.8
         m_Name: Lightness
         m_Overridden: 1
       - m_Value: -0.1

@@ -10,7 +10,6 @@ public class DieState : IBasePlayerState
     {
         this.sm = _stateMachine;
         //animName = "StateDead";
-        AudioManager.Instance.PlayDeath();
         sm.pc.playerInput.SwitchCurrentActionMap("UI");
         /*if (sm.playerAnim != null)
         {
@@ -21,6 +20,7 @@ public class DieState : IBasePlayerState
         //sm.transform.position = new Vector2(sm.transform.position.x, 0);
         //sm.transform.rotation = Quaternion.EulerRotation(sm.transform.rotation.x, 0, sm.transform.rotation.z);
         RocketManager.Instance._moveRocketLauncher.Cursor.gameObject.SetActive(false);
+        GameOverAnimation.Instance.PlayDeath();
         sm.pc.StartCoroutine( sm.pc.Retry());
     }
 

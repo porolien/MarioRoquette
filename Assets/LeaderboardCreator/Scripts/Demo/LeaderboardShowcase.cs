@@ -32,7 +32,7 @@ namespace Dan.Demo
 
         public void AddPlayerScore()
         {
-            _playerScoreText.text = $"Your time: {(float)_playerScore/100} seconds";
+            if(_playerScoreText!=null) _playerScoreText.text = $"Your time: {(float)_playerScore/100} seconds";
         }
         
         public void Load()

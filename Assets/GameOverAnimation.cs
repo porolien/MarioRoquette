@@ -8,6 +8,7 @@ public class GameOverAnimation : MonoBehaviour
 
     private static GameOverAnimation _instance = null;
     public static GameOverAnimation Instance => _instance;
+    public AudioClip deathSound;
     private void Awake()
     {
         //Singleton
@@ -19,6 +20,7 @@ public class GameOverAnimation : MonoBehaviour
         else
         {
             _instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -27,7 +29,21 @@ public class GameOverAnimation : MonoBehaviour
     public void Play()
     {
         GetComponentInChildren<Animation>().Play();
-        AudioManager.Instance.PlayDeath();
+        //AudioManager.Instance.PlayDeath();
 
+    }
+
+    public void PlayDeath()
+    {
+        PlaySound(deathSound);
+    }
+    public void PlaySound(AudioClip clip, float pitch = 1, float volume = 1)
+    {
+        AudioSource source = gameObject.AddComponent<AudioSource>();
+        DontDestroyOnLoad(source.gameObject);
+        source.volume = volume;
+        source.pitch = pitch;
+        source.PlayOneShot(clip);
+        Destroy(source, 2);
     }
 }
