@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tests_Nathan.unity
     guid: a58ab1fd622828a4b8624d423fb3f67f
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 517ee3cd5e702cd40b06e35afc786bc2
   m_configObjects: {}
