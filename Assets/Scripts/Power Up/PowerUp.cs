@@ -45,17 +45,16 @@ public class PowerUp : DynamicObject
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlayPowerUp();
             if(NmbreDePowerUpEnCours < NmbrDePowerUpMax)
             {
                 NmbreDePowerUpEnCours++;
-                Debug.Log(NmbreDePowerUpEnCours);
                 Destroy(gameObject);
                 PowerUpEffect();
             }
             else if (NmbreDePowerUpEnCours > NmbrDePowerUpMax)
             {
                 Destroy(gameObject);
-                Debug.Log("T'as deja un power UP");
             }
           
         }
