@@ -11,6 +11,14 @@ public class EndLevel : MonoBehaviour
     public GameObject UIWhenBestTimer;
     public PlayerController playerController;
 
+    private void Awake()
+    {
+        leaderboardShowcase=FindObjectOfType<LeaderboardShowcase>();
+        //leaderBoardUI = GameObject.Find("LeaderBoard");
+        //UIWhenBestTimer =GameObject.Find("UIWhenBestTimer");
+        playerController =FindObjectOfType<PlayerController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

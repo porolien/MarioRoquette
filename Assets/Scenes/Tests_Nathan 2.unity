@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 57.96867, g: 70.50135, b: 128.50002, a: 1}
+  m_IndirectSpecularColor: {r: 163.96306, g: 118.33681, b: 392.2437, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23802,11 +23802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1743338437}
     - target: {fileID: 2844131550846300001, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
+      value: OnReset
       objectReference: {fileID: 0}
     - target: {fileID: 3008110536486482295, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
@@ -32139,6 +32139,11 @@ PrefabInstance:
       propertyPath: leaderBoardUI
       value: 
       objectReference: {fileID: 955547535}
+    - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
+        type: 3}
+      propertyPath: UIWhenBestTimer
+      value: 
+      objectReference: {fileID: 1867504441}
     - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
         type: 3}
       propertyPath: playerController
@@ -49497,6 +49502,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454007ef7109b7c4a937ffe4493e4916, type: 3}
+--- !u!1 &1867504441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3042556706622455149, guid: bfac62f9cef45e44fbafdeb33034715e,
+    type: 3}
+  m_PrefabInstance: {fileID: 967612976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1867571096
 PrefabInstance:
   m_ObjectHideFlags: 0

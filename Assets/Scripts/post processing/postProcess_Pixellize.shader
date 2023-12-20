@@ -47,7 +47,7 @@ Shader "Hidden/Shader/postProcess_Pixellize"
     float _outlineSize;
     float _outlineStrength;
     float4 fogColor;
-    Texture2D _VFXTexture;
+    //Texture2D _VFXTexture;
     TEXTURE2D_X(_MainTex);
 
 
