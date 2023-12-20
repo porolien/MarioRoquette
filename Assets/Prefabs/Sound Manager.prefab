@@ -61,6 +61,10 @@ MonoBehaviour:
   fallSound: {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
   flightSound: {fileID: 0}
   coinSound: {fileID: 8300000, guid: 44bf54c01ff779f4da242129ae73f102, type: 3}
+  powerUpSound: {fileID: 8300000, guid: 20567d2f3ffa3224fbf3a6fdcf9853cd, type: 3}
+  bounceSound: {fileID: 0}
+  winSound: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!1 &4133229331069599540
 GameObject:
   m_ObjectHideFlags: 0

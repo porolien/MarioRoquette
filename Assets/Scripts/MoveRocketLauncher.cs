@@ -12,9 +12,11 @@ public class MoveRocketLauncher : MonoBehaviour
     {
         Cursor = transform.GetChild(0);
         RocketManager.Instance._moveRocketLauncher = this;
+        RocketManager.Instance.playerController = FindObjectOfType<PlayerController>();
     }
     private void FixedUpdate()
     {
+
         //Move Cursor
         if (RocketManager.Instance!=null && RocketManager.Instance.playerController.isControllerMode)
         {
