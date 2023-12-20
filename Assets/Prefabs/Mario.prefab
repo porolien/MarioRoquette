@@ -723,6 +723,7 @@ Transform:
   - {fileID: 3882382790349692054}
   - {fileID: 3821068563115761938}
   - {fileID: 3809520390996349205}
+  - {fileID: 2871140141228360274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3934560526519629212
@@ -869,6 +870,8 @@ MonoBehaviour:
   bounciness: 0
   mass: 1
   Damping: 60
+  maxVelocity: 40
+  col: {fileID: 0}
   isGrounded: 1
   GroundPlayerAcceleration: 100
   AirPlayerAcceleration: 30
@@ -889,6 +892,8 @@ MonoBehaviour:
     type: 3}
   playerAnim: {fileID: 0}
   aimDirection: {x: 0, y: 0}
+  playerInput: {fileID: 0}
+  RocketLauncher: {fileID: 0}
   MovementInput: {x: 0, y: 0}
   isHoldingJumpKey: 0
   isHoldingSprintKey: 0
@@ -2556,6 +2561,92 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5040917161474745442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2871140141228360274}
+  - component: {fileID: 8693628570686029341}
+  - component: {fileID: 3019000071990901101}
+  m_Layer: 0
+  m_Name: RPG Middle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2871140141228360274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040917161474745442}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0.58321923, z: -2}
+  m_LocalScale: {x: 3.691852, y: 3.6918519, z: 3.6918519}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7452351496694638267}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
+--- !u!33 &8693628570686029341
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040917161474745442}
+  m_Mesh: {fileID: 5820143673581824611, guid: 12fdf1d5b2376054fa3d930391dc898c, type: 3}
+--- !u!23 &3019000071990901101
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040917161474745442}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -6478536213147159724, guid: 12fdf1d5b2376054fa3d930391dc898c, type: 3}
+  - {fileID: 5286673721406747786, guid: 12fdf1d5b2376054fa3d930391dc898c, type: 3}
+  - {fileID: 3821743685862085325, guid: 12fdf1d5b2376054fa3d930391dc898c, type: 3}
+  - {fileID: 4638483203930029516, guid: 12fdf1d5b2376054fa3d930391dc898c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5192677162679838001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,7 +3516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cursor: {fileID: 7727908026698649524}
-  rocketLauncher: {fileID: 9096582081670217496}
+  rocketLauncher: {fileID: 5040917161474745442}
 --- !u!114 &5817366040082109641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3694,6 +3785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4575612672692035396}
   - component: {fileID: 5605507047198383270}
+  - component: {fileID: 1977856201155465063}
   m_Layer: 0
   m_Name: FrenchMarioCombined
   m_TagString: Player
@@ -3740,6 +3832,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1977856201155465063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728170054210085633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b212407006d04e4e82b78879223f1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8731210447257294504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3854,7 +3958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3148069062217707785
 Transform:
   m_ObjectHideFlags: 0
