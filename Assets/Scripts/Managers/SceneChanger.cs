@@ -12,6 +12,11 @@ public class SceneChanger : MonoBehaviour
         //print("Oui");
     }
 
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void GoToCredits()
     {
         SceneManager.LoadScene("Credits");
