@@ -10,6 +10,7 @@ public class DieState : IBasePlayerState
     {
         this.sm = _stateMachine;
         animName = "StateDead";
+        AudioManager.Instance.PlayDeath();
         sm.pc.playerInput.SwitchCurrentActionMap("UI");
         if (sm.playerAnim != null)
         {
