@@ -14,4 +14,6 @@ public class SetEndUI : MonoBehaviour
         leaderboardUI.SetActive(true);
         PlayerScore.text = "you finished this level in " + PlayerPrefs.GetFloat("Timer") + " seconds";
     }
+
+    
 }
