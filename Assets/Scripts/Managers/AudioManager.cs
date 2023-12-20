@@ -9,8 +9,6 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance = null;
     public static AudioManager Instance => _instance;
     //
-    GameObject soundObject;
-    [SerializeField] AudioSource musicSource, sfxSource;
     [SerializeField] AudioClip missileSound;
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip jumpSound;
@@ -106,9 +104,6 @@ public class AudioManager : MonoBehaviour
         Destroy(source, 2);
     }
 
-    public void PlayMusic(AudioClip clip)
-    {
-        musicSource.PlayOneShot(clip);
-    }
     // Tous les sons sont trouvés sur pixabay.
+    // musique par Karl Casey @ White Bat Audio
 }
