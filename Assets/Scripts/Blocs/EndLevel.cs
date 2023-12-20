@@ -33,9 +33,12 @@ public class EndLevel : MonoBehaviour
             if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
             {
                 PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
-                UIWhenBestTimer.SetActive(true);
 
+                UIWhenBestTimer.SetActive(true);
+                
             }
+            
+            
             playerController.playerInput.SwitchCurrentActionMap("UI");
             leaderBoardUI.SetActive(true);
             leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
