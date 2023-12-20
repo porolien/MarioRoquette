@@ -20,7 +20,7 @@ public class DieState : IBasePlayerState
         sm.transform.position = new Vector2(sm.transform.position.x, 0);
         sm.transform.rotation = Quaternion.EulerRotation(sm.transform.rotation.x, 0, sm.transform.rotation.z);
         RocketManager.Instance._moveRocketLauncher.Cursor.gameObject.SetActive(false);*/
-        sm.pc.Retry();
+        sm.pc.StartCoroutine( sm.pc.Retry());
     }
 
     public override void OnExit()
