@@ -19,7 +19,7 @@ public class PlayerController : DynamicObject
     public float JumpThrustPower = 10;
     public float JumpTime = 0.5f;
     public float coyoteTime = 0.2f;
-    public float footstepsSeparation = 0.5f;
+    public float footstepsSeparation = 0.2f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
 
@@ -174,7 +174,7 @@ public class PlayerController : DynamicObject
 
     public void OnReset()
     {
-        Retry();
+        StartCoroutine( Retry());
     }
 
     public void OnMoveCursorController(InputValue value)
@@ -241,8 +241,10 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlayFootsteps();
     }
 
-    public void Retry()
+    public IEnumerator Retry()
     {
+        GameOverAnimation.Instance.Play();
+        yield return new WaitForSeconds(0.38f);
         RocketMove.muultiplicateurScale = 1;
         RocketMove.RayonDeLexplosion = 3;
         RocketMove.multiplicateurDeLexplosion = 1;

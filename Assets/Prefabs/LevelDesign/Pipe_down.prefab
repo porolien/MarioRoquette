@@ -101,12 +101,12 @@ PrefabInstance:
     - target: {fileID: 1876816820925500746, guid: 2dd10ff2859e0504fac5f65b17b4871b,
         type: 3}
       propertyPath: m_Name
-      value: Pipe (20) Variant
+      value: Pipe_down
       objectReference: {fileID: 0}
     - target: {fileID: 5331121783884031189, guid: 2dd10ff2859e0504fac5f65b17b4871b,
         type: 3}
       propertyPath: m_Offset.y
-      value: -97000000
+      value: -960000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
