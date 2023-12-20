@@ -49,7 +49,6 @@ public class PowerUp : DynamicObject
             if(NmbreDePowerUpEnCours < NmbrDePowerUpMax)
             {
                 NmbreDePowerUpEnCours++;
-                Debug.Log(NmbreDePowerUpEnCours);
                 Destroy(gameObject);
                 PowerUpEffect();
             }
