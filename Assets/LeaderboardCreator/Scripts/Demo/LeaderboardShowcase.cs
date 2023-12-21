@@ -151,6 +151,7 @@ namespace Dan.Demo
         private void Start()
         {
             Leaderboards.ChangeKey(SceneManager.GetActiveScene().name);
+            Debug.Log(SceneManager.GetActiveScene().name);
             Debug.Log(PlayerPrefs.GetString("Pseudo"));
             if(PlayerPrefs.GetString("Pseudo") != "")
             {
