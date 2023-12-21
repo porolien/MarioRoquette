@@ -17,9 +17,14 @@ public class MushroomPlateform : MonoBehaviour
             //Debug.Log("HHHHHHHHHHHHHHHHHHHHHHHH  " + transform.up * Vector2.Dot(transform.up, col.Velocity) +"    "+ col.Velocity +"   " + Vector2.Dot(transform.up, col.Velocity));
             transform.parent.gameObject.GetComponent<Animation>().Stop("MushroomBounce");
             transform.parent.gameObject.GetComponent<Animation>().Play("MushroomBounce", PlayMode.StopAll);
-        }else if (collision.GetComponent<RocketMove>())
+
+        }
+        else if (collision.GetComponent<RocketMove>())
         {
-            collision.GetComponent<RocketMove>().Sense += (Vector2)transform.up * -Vector2.Dot(transform.up, collision.GetComponent<RocketMove>().Sense)*2;
+            //collision.GetComponent<RocketMove>().Sense += (Vector2)transform.up * -Vector2.Dot(transform.up, collision.GetComponent<RocketMove>().Sense)*2;
+            collision.GetComponent<RocketMove>().Sense+=(Vector2)transform.up * -Vector2.Dot(transform.up, collision.GetComponent<RocketMove>().Sense);
+            collision.GetComponent<RocketMove>().Sense+= (Vector2)transform.up;
+
             transform.parent.gameObject.GetComponent<Animation>().Stop("MushroomBounce");
             transform.parent.gameObject.GetComponent<Animation>().Play("MushroomBounce", PlayMode.StopAll);
         }
