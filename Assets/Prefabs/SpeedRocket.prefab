@@ -214,8 +214,12 @@ MonoBehaviour:
   bounciness: 0
   mass: 1
   Damping: 2.5
+  maxVelocity: 40
+  col: {fileID: 0}
   isGrounded: 0
   PrefabRocket: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
+    type: 3}
+  infoText: {fileID: 2458808708097963374, guid: 1c61cb95b30653346a504d461e2a75f6,
     type: 3}
 --- !u!61 &5982206467141323710
 BoxCollider2D:
