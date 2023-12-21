@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Palette
     second: {fileID: 2100000, guid: 0ebaabf848634b24f907ec73ef3a5dff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palette.003
+    second: {fileID: 2100000, guid: 0ebaabf848634b24f907ec73ef3a5dff, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
