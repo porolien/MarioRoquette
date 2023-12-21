@@ -30,9 +30,9 @@ public class EndLevel : MonoBehaviour
             RocketMove.multiplicateurDeLexplosion = 1;
             ScoreManager.Instance.timer.StopTime();
             
-            if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
+            if(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) == 0)
             {
-                PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
+                PlayerPrefs.SetFloat("Timer" + SceneManager.GetActiveScene().name, Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
 
                 UIWhenBestTimer.SetActive(true);
                 

@@ -12,6 +12,16 @@ namespace Dan.Main
                     DemoSceneLeaderboard = new LeaderboardReference("ce88d94f85261789f0586157a0b5d653c8a216fcb625aee1dbf98ef96fcdb61e");
                     //Level Tuto
                     break;
+
+                case "Tests_Aure3":
+                    DemoSceneLeaderboard = new LeaderboardReference("d3216b7d2a89c81b31d3884d2a3d0a86c12322cf2c97081d56dd5d71cdb8150f");
+                    //Level Aure
+                    break;
+                case "Tests_Todd":
+                    DemoSceneLeaderboard = new LeaderboardReference("b99150b58baf4152368996cb9e6cd3bfedbf4cbfffd0875bb814a13bb054d613");
+                    //Level Aure
+                    break;
+                    
             }
             
         }

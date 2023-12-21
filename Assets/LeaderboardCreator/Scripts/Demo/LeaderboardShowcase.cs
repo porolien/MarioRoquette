@@ -3,6 +3,7 @@ using Dan.Main;
 using Dan.Models;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Dan.Demo
 {
@@ -149,6 +150,7 @@ namespace Dan.Demo
         
         private void Start()
         {
+            Leaderboards.ChangeKey(SceneManager.GetActiveScene().name);
             Debug.Log(PlayerPrefs.GetString("Pseudo"));
             if(PlayerPrefs.GetString("Pseudo") != "")
             {
