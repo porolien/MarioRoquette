@@ -6,9 +6,10 @@ namespace Dan.Main
 
         public static void ChangeKey(string _sceneName)
         {
+            
             switch (_sceneName)
             {
-                case "Tests_Nathan1":
+                case "Tests_Nathan":
                     DemoSceneLeaderboard = new LeaderboardReference("ce88d94f85261789f0586157a0b5d653c8a216fcb625aee1dbf98ef96fcdb61e");
                     //Level Tuto
                     break;
@@ -17,11 +18,11 @@ namespace Dan.Main
                     DemoSceneLeaderboard = new LeaderboardReference("d3216b7d2a89c81b31d3884d2a3d0a86c12322cf2c97081d56dd5d71cdb8150f");
                     //Level Aure
                     break;
-                case "Tests_Nathan2":
+                case "Tests_Nathan 2":
                     DemoSceneLeaderboard = new LeaderboardReference("13e9feb1017df7f933f85171a849aeb3d982048cf9f1a49d6ea5323873135d0a");
                     //Level Nathan 2 
                     break;
-                case "Tests_Nathan3":
+                case "Tests_Nathan 3":
                     DemoSceneLeaderboard = new LeaderboardReference("132235113b0ed0948e4591822852e90d8ca48f465668d245b03dc91dce9ef7dd");
                     //Level Nathan 3
                     break;
@@ -29,7 +30,7 @@ namespace Dan.Main
                     DemoSceneLeaderboard = new LeaderboardReference("b99150b58baf4152368996cb9e6cd3bfedbf4cbfffd0875bb814a13bb054d613");
                     //Level Todd
                     break;
-                case "Nest2":
+                case "Nest 2":
                     DemoSceneLeaderboard = new LeaderboardReference("aee393e3f2410fffd6713fe92e8eb2b63a32f55a3f1ddf635c0a5b657d347b81");
                     //Level Nestor
                     break;
