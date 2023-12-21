@@ -10,6 +10,7 @@ public class PowerUp : DynamicObject
     private float vmax = 10;
     static int NmbrDePowerUpMax = 3;
     static int NmbreDePowerUpEnCours = 0;
+    public GameObject infoText;
 
     private void Awake()
     {
