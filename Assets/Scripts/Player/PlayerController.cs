@@ -189,6 +189,11 @@ public class PlayerController : DynamicObject
         isControllerMode = true;
     }
 
+    public void OnReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
     public void OnMoveCursorMouse(InputValue value)
     {
         aimDirection = value.Get<Vector2>();
