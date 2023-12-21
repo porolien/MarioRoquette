@@ -301,7 +301,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -5471177741836306362, guid: b8b658500e1b3ec48a06e71b74ce4672, type: 3}
+  m_Mesh: {fileID: -5471177741836306362, guid: 114b9082d79ea6b4f9383844ee672a00, type: 3}
   m_Bones:
   - {fileID: 7064160575885158253}
   - {fileID: 2037120363731275143}
@@ -875,7 +875,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.041068345}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -886,7 +886,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.47}
+  m_Size: {x: 0.8, y: 1.5521367}
   m_EdgeRadius: 0
 --- !u!96 &7826625060982504262
 TrailRenderer:

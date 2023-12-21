@@ -21,7 +21,7 @@ public class Coin : DynamicObject
     GameObject player;
     [SerializeField] bool physicsEnabled = false;
     [SerializeField]
-    public void Awake()
+    public void Start()
     {
         SetUpPhysics();
         player = FindObjectOfType<PlayerController>().gameObject;
