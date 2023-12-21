@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
         sourceMusique = GameObject.Find("Music Source").GetComponent<AudioSource>();
         //PlayMusic();
     }
-    // all : pitch random entre 0.5 et 0.7
+    // all : pitch random entre 0.8 et 1
     public void PlayMissile()
     {
         PlaySound(missileSound,Random.Range(0.8f,1), 0.8f); // réduire volume
