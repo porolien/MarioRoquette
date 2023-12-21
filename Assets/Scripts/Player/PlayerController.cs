@@ -73,7 +73,7 @@ public class PlayerController : DynamicObject
         //block hitting 
         
         RaycastHit2D[] hit = new RaycastHit2D[1];
-        if (Velocity.y > 0 && Physics2D.CircleCast(transform.position, col.bounds.size.x/2-0.1f, Vector2.up,contactFilter, hit, col.bounds.size.y / 2 + 0.1f + Velocity.y * Time.deltaTime) >0)//transform.position, Vector2.up,  , out hit, LayerMask.GetMask("Solid")))
+        if (Velocity.y > 0 && Physics2D.CircleCast(transform.position, col.bounds.size.x/2, Vector2.up,contactFilter, hit, col.bounds.size.y / 2 + 0.1f + Velocity.y * Time.deltaTime) >0)//transform.position, Vector2.up,  , out hit, LayerMask.GetMask("Solid")))
         {
             if(hit[0].collider.gameObject.GetComponentInChildren<Blocs>()) hit[0].collider.gameObject.GetComponentInChildren<Blocs>().BlocHitted();
         }
@@ -231,6 +231,11 @@ public class PlayerController : DynamicObject
         if (collision.gameObject.CompareTag("cameraCheckpoint"))
         {
             Camera.main.transform.parent.gameObject.GetComponent<cameraBehaviour>().targetY = collision.gameObject.transform.position.y;
+        }
+
+        if (collision.gameObject.CompareTag("cameraCheckpointZ"))
+        {
+            Camera.main.transform.parent.gameObject.GetComponent<cameraBehaviour>().targetZ = collision.gameObject.transform.position.z;
         }
     }
     IEnumerator Delay()

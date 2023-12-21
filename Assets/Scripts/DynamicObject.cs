@@ -79,7 +79,7 @@ public class DynamicObject : MonoBehaviour
     {
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.size.y/2+0.1f, LayerMask.GetMask("Solid"));
         RaycastHit2D[] hits = new RaycastHit2D[1];
-        int i = Physics2D.CircleCast(transform.position, col.bounds.size.x / 3 - 0.1f, Vector2.down, contactFilter, hits, col.bounds.size.y / 2 + 0.1f  );
+        int i = Physics2D.CircleCast(transform.position, col.bounds.size.x / 2, Vector2.down, contactFilter, hits, col.bounds.size.y / 2 + 0.1f  );
         Debug.DrawRay(transform.position, Vector3.down * (GetComponent<Collider2D>().bounds.size.y / 2 + 0.1f),Color.red);
         //Debug.Log(hit.collider.name);
         //return  hit ;
@@ -90,6 +90,7 @@ public class DynamicObject : MonoBehaviour
     public bool checkForSideCollisions(float rightMagnitude)
     {
         List<RaycastHit2D> results = new List<RaycastHit2D>();
+
         return col.Cast(Vector3.right, contactFilter, results, rightMagnitude, true) > 0;
     }
 

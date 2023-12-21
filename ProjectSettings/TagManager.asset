@@ -9,6 +9,7 @@ TagManager:
   - Bloc
   - cameraCheckpoint
   - GroupOfTerrainStaticMeshes
+  - cameraCheckpointZ
   layers:
   - Default
   - TransparentFX
