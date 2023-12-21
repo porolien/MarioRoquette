@@ -46,18 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5fa292583f8a7419c8a129e72729d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 826781682462246663}
-  sfxSource: {fileID: 7445846924144409810}
+  sourceMusique: {fileID: 826781682462246663}
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
   explosionSound: {fileID: 8300000, guid: cd08d4d11edef074e8179d2dd210c50f, type: 3}
   jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
-  footstepsSounds:
-  - {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
-  - {fileID: 8300000, guid: 40956aa39f95cd7469ac67b1d17958b4, type: 3}
-  - {fileID: 8300000, guid: 3114da7e981eec34d84ac2134eaca2a5, type: 3}
-  - {fileID: 8300000, guid: 114024451a534da47be5005bc592ea7e, type: 3}
-  - {fileID: 8300000, guid: a4ab48aff8a5070419a34a775de7d4ef, type: 3}
-  - {fileID: 8300000, guid: 8c4fe89b5c6a43047bdb9bbf513c1fbe, type: 3}
+  footstepSound: {fileID: 0}
   fallSound: {fileID: 8300000, guid: 07acce1d22efd884b8edcf3f6edcb609, type: 3}
   flightSound: {fileID: 0}
   coinSound: {fileID: 8300000, guid: 44bf54c01ff779f4da242129ae73f102, type: 3}
@@ -235,11 +228,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: e75bd38fb468a0140b4c129ca4e1c9bc, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

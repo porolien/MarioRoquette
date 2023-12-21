@@ -19,7 +19,7 @@ public class Coin : DynamicObject
 
     [SerializeField] float magnetDistance = 3;
     GameObject player;
-    bool physicsEnabled = false;
+    [SerializeField] bool physicsEnabled = false;
     [SerializeField]
     public void Awake()
     {

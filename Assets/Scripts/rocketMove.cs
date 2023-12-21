@@ -31,9 +31,14 @@ public class RocketMove : MonoBehaviour
         col = GetComponent<Collider2D>();
         contactFilter.layerMask = LayerMask.GetMask("Solid") & LayerMask.GetMask("Ennemis");
 
-        Destroy(gameObject, DureeDeVie);
+        //Destroy(gameObject, DureeDeVie);
 
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -69,7 +74,6 @@ public class RocketMove : MonoBehaviour
         foreach (Collider2D ObjetTouche in ObjetsTouches)
         {
             ObjetTouche.gameObject.SendMessage("Explosion",/*(Vector2) transform.position*/collision.point, SendMessageOptions.DontRequireReceiver);
-            Debug.DrawRay(ObjetTouche.gameObject.transform.position, Vector3.up);
 
         }
         Camera.main.transform.parent.SendMessage("Explosion", SendMessageOptions.DontRequireReceiver);

@@ -54,7 +54,7 @@ public class PlayerController : DynamicObject
         SetUpPhysics();
         canShoot = true;
         playerInput = GetComponent<PlayerInput>();
-        RocketManager.Instance.playerController = this;
+        
         walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
         playerInput.SwitchCurrentActionMap("Player");
     }
@@ -62,7 +62,7 @@ public class PlayerController : DynamicObject
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
-        
+        RocketManager.Instance.playerController = this;
     }
 
     private void Update()
@@ -73,7 +73,6 @@ public class PlayerController : DynamicObject
         //block hitting 
         
         RaycastHit2D[] hit = new RaycastHit2D[1];
-        Debug.DrawRay(transform.position, Vector2.up * (col.bounds.size.y/2 + 0.1f+Velocity.y*Time.deltaTime), Color.red);
         if (Velocity.y > 0 && Physics2D.CircleCast(transform.position, col.bounds.size.x/2-0.1f, Vector2.up,contactFilter, hit, col.bounds.size.y / 2 + 0.1f + Velocity.y * Time.deltaTime) >0)//transform.position, Vector2.up,  , out hit, LayerMask.GetMask("Solid")))
         {
             if(hit[0].collider.gameObject.GetComponentInChildren<Blocs>()) hit[0].collider.gameObject.GetComponentInChildren<Blocs>().BlocHitted();
@@ -100,7 +99,7 @@ public class PlayerController : DynamicObject
 
     public void OnJump(InputValue value)
     {
-        //Debug.Log(value.Get<float>());
+
         if(value.Get<float>() == 1) 
         {
             isHoldingJumpKey = true;
@@ -164,7 +163,6 @@ public class PlayerController : DynamicObject
 
     public void OnShoot()
     {
-        //Debug.Log("su");
         if (canShoot)
         {
             RocketShoot();
@@ -174,20 +172,26 @@ public class PlayerController : DynamicObject
 
     public void OnReset()
     {
-        StartCoroutine( Retry());
+        StartCoroutine(Retry());
     }
 
+    public void TryAgain()
+    {
+        RocketMove.muultiplicateurScale = 1;
+        RocketMove.RayonDeLexplosion = 3;
+        RocketMove.multiplicateurDeLexplosion = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
     public void OnMoveCursorController(InputValue value)
     {
-        Debug.Log(value.Get<Vector2>());
         aimDirection = value.Get<Vector2>();
         isControllerMode = true;
     }
 
     public void OnMoveCursorMouse(InputValue value)
     {
-        /*Debug.Log(value.Get<Vector2>());
-        aimDirection = value.Get<Vector2>();*/
+        aimDirection = value.Get<Vector2>();
         isControllerMode = false;
     }
 
@@ -245,10 +249,6 @@ public class PlayerController : DynamicObject
     {
         GameOverAnimation.Instance.Play();
         yield return new WaitForSeconds(0.38f);
-        RocketMove.muultiplicateurScale = 1;
-        RocketMove.RayonDeLexplosion = 3;
-        RocketMove.multiplicateurDeLexplosion = 1;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        TryAgain();
     }
 }

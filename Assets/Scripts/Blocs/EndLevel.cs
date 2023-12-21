@@ -11,6 +11,14 @@ public class EndLevel : MonoBehaviour
     public GameObject UIWhenBestTimer;
     public PlayerController playerController;
 
+    private void Awake()
+    {
+        leaderboardShowcase=FindObjectOfType<LeaderboardShowcase>();
+        //leaderBoardUI = GameObject.Find("LeaderBoard");
+        //UIWhenBestTimer =GameObject.Find("UIWhenBestTimer");
+        playerController =FindObjectOfType<PlayerController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -25,12 +33,15 @@ public class EndLevel : MonoBehaviour
             if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
             {
                 PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
-                UIWhenBestTimer.SetActive(true);
 
+                UIWhenBestTimer.SetActive(true);
+                
             }
+            
+            
             playerController.playerInput.SwitchCurrentActionMap("UI");
             leaderBoardUI.SetActive(true);
-            leaderboardShowcase._playerScore = (int)(Mathf.Round(PlayerPrefs.GetFloat("Timer") * 100f));
+            leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
             leaderboardShowcase.AddPlayerScore();
             
         }
