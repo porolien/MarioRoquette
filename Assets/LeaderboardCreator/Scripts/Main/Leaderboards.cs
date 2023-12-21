@@ -38,6 +38,10 @@ namespace Dan.Main
                     DemoSceneLeaderboard = new LeaderboardReference("a3b01553352f6198423af64d063d29afce568a9a7ba8f6bcdce1047b9761505c");
                     //Level Noah
                     break;
+                case "LevelLouis":
+                    DemoSceneLeaderboard = new LeaderboardReference("ecb687b722955fb01d633f231af343953b2e9f9bf4798e4fa41f8c27fee8436b");
+                    //Level Louis
+                    break;
             }
             
         }
