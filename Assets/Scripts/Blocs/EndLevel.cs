@@ -41,6 +41,7 @@ public class EndLevel : MonoBehaviour
             
             
             playerController.playerInput.SwitchCurrentActionMap("UI");
+            Debug.Log("eeeeeezzzzz");
             leaderBoardUI.SetActive(true);
             leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
             leaderboardShowcase.AddPlayerScore();
