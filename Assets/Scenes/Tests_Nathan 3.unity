@@ -29186,18 +29186,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2106873712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &955547536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955547535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97112573ada32eb40a7fc5ee1de9dbff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &959283473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65154,41 +65142,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 931358017845551692, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -47
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460825450955635591, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 955547536}
-    - target: {fileID: 1460825450955635591, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: goToMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460825450955635591, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: leaderBoardButtons, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944141416415300779, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 955547536}
-    - target: {fileID: 1944141416415300779, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: retry
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944141416415300779, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: leaderBoardButtons, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3966443665481386900, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
         type: 3}
       propertyPath: TargetGameObject
@@ -65198,11 +65151,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 5652762555241922583, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6243282451967244353, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
         type: 3}
@@ -65257,11 +65205,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2255336078202547615, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 955547536}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a849c73d6554eb4d8f8b79ffa7317ae, type: 3}
 --- !u!1001 &2108659118
 PrefabInstance:
@@ -66822,16 +66766,6 @@ PrefabInstance:
         type: 3}
       propertyPath: maxVelocity
       value: 41
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915829027551933145, guid: c527105fd95e1a84a9b619cf06dc9bac,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5521367
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915829027551933145, guid: c527105fd95e1a84a9b619cf06dc9bac,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.041068345
       objectReference: {fileID: 0}
     - target: {fileID: 7452351496694638267, guid: c527105fd95e1a84a9b619cf06dc9bac,
         type: 3}
