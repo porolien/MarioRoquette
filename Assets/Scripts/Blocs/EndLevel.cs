@@ -29,13 +29,14 @@ public class EndLevel : MonoBehaviour
             RocketMove.RayonDeLexplosion = 3;
             RocketMove.multiplicateurDeLexplosion = 1;
             ScoreManager.Instance.timer.StopTime();
-            
-            if(PlayerPrefs.GetFloat("Timer") > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer") == 0)
+
+            bool beatHisBestTimer = false;
+            if(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) < ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) == 0)
             {
-                PlayerPrefs.SetFloat("Timer", Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
+                PlayerPrefs.SetFloat("Timer" + SceneManager.GetActiveScene().name, Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
 
                 UIWhenBestTimer.SetActive(true);
-                
+                beatHisBestTimer = true;
             }
             
             
@@ -43,7 +44,11 @@ public class EndLevel : MonoBehaviour
             leaderBoardUI.SetActive(true);
             leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
             leaderboardShowcase.AddPlayerScore();
-            
+
+            if (beatHisBestTimer && PlayerPrefs.GetString("Pseudo") != "")
+            {
+                leaderboardShowcase.Submit();
+            }
         }
     }
     public void ReturnToMenu()
