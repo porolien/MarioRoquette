@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tests_Aure2.unity
     guid: 39aeda525c070af4cb054f438c0a5b00
+  - enabled: 1
+    path: Assets/Scenes/Tests_ToddLevel.unity
+    guid: c8744b25b0f96d14688ec371efea27f2
+  - enabled: 1
+    path: Assets/Scenes/Tests_Aure3.unity
+    guid: 5e037dd7899b3574eadbee770368efde
   m_configObjects: {}

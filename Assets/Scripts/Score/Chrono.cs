@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     {
         gameIsNotFinish = true;
         ScoreManager.Instance.timer = this;
-        bestTimerTexte.text = ("Best: " + Mathf.Round(PlayerPrefs.GetFloat("Timer") * 100f) / 100f);
+        bestTimerTexte.text = ("Best: " + Mathf.Round(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) * 100f) / 100f);
         StartTime = Time.time;
     }
     void Update()

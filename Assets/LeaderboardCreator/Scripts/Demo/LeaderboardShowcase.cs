@@ -3,6 +3,7 @@ using Dan.Main;
 using Dan.Models;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Dan.Demo
 {
@@ -149,19 +150,19 @@ namespace Dan.Demo
         
         private void Start()
         {
+            Leaderboards.ChangeKey(SceneManager.GetActiveScene().name);
             Debug.Log(PlayerPrefs.GetString("Pseudo"));
             if(PlayerPrefs.GetString("Pseudo") != "")
             {
                 _playerUsernameInput.text = PlayerPrefs.GetString("Pseudo");
             }
             InitializeComponents();
-            Submit();
             Load();
         }
 
         public void Submit()
         {
-            Debug.Log("sub");
+            Debug.Log(Leaderboards.DemoSceneLeaderboard);
             Leaderboards.DemoSceneLeaderboard.UploadNewEntry(_playerUsernameInput.text, _playerScore, Callback, ErrorCallback);
             if(_playerUsernameInput.text != "")
             {
