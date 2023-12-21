@@ -71,7 +71,7 @@
                 "m_Node": {
                     "m_Id": "595c12dc151a4be89f15ea5745fdbf44"
                 },
-                "m_SlotId": 4
+                "m_SlotId": 7
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -391,7 +391,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"textureArray\":{\"fileID\":18700000,\"guid\":\"2a45c7a694b73df47b05a8f8fb29b5eb\",\"type\":3}}",
+        "m_SerializedTexture": "{\"textureArray\":{\"fileID\":18700000,\"guid\":\"bc9881ec647474b4f82724eb89ddadf8\",\"type\":3}}",
         "m_Guid": ""
     }
 }

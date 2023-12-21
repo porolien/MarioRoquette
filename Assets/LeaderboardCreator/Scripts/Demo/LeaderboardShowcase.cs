@@ -32,7 +32,7 @@ namespace Dan.Demo
 
         public void AddPlayerScore()
         {
-            _playerScoreText.text = $"Your time: {(float)_playerScore/100} seconds";
+            if(_playerScoreText!=null) _playerScoreText.text = $"Your time: {(float)_playerScore/100} seconds";
         }
         
         public void Load()
@@ -149,6 +149,11 @@ namespace Dan.Demo
         
         private void Start()
         {
+            Debug.Log(PlayerPrefs.GetString("Pseudo"));
+            if(PlayerPrefs.GetString("Pseudo") != "")
+            {
+                _playerUsernameInput.text = PlayerPrefs.GetString("Pseudo");
+            }
             InitializeComponents();
             Submit();
             Load();
@@ -156,7 +161,13 @@ namespace Dan.Demo
 
         public void Submit()
         {
+            Debug.Log("sub");
             Leaderboards.DemoSceneLeaderboard.UploadNewEntry(_playerUsernameInput.text, _playerScore, Callback, ErrorCallback);
+            if(_playerUsernameInput.text != "")
+            {
+                PlayerPrefs.SetString("Pseudo", _playerUsernameInput.text);
+            }
+            
         }
         
         public void DeleteEntry()

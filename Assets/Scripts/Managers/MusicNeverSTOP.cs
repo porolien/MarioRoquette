@@ -17,6 +17,7 @@ public class MusicNeverSTOP : MonoBehaviour
         {
             instance = this;
         }
+        transform.SetParent(null);
         DontDestroyOnLoad(gameObject);
     }
 

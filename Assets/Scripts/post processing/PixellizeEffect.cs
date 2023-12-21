@@ -11,8 +11,8 @@ public sealed class PixellizeEffect : CustomPostProcessVolumeComponent, IPostPro
     public FloatParameter outlineSize = new FloatParameter(1f);
     public FloatParameter outlineStrength = new FloatParameter(1f);
     public ColorParameter fogColor = new ColorParameter(Color.white);
-    [SerializeField]
-    public RenderTexture _VFXTexture;
+    //[SerializeField]
+    //public RenderTexture _VFXTexture;
     Material m_Material;
     public bool IsActive() => m_Material != null && Resolution != new Vector2(0, 0);
     // Do not forget to add this post process in the Custom Post Process Orders list (Project Settings > Graphics > HDRP Global Settings).
