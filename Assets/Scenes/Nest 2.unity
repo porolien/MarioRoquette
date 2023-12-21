@@ -3592,6 +3592,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317b2da781e69bf44825b3f77ed2450b, type: 3}
+--- !u!1 &243526988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2507951888540962389, guid: bfac62f9cef45e44fbafdeb33034715e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1456239355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &248526265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25035,7 +25041,7 @@ PrefabInstance:
     - target: {fileID: 2507951888540962389, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3008110536486482295, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
@@ -25195,7 +25201,7 @@ PrefabInstance:
     - target: {fileID: 6466836654432935784, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6855098216710575753, guid: bfac62f9cef45e44fbafdeb33034715e,
         type: 3}
@@ -30385,8 +30391,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leaderBoardUI
       value: 
-      objectReference: {fileID: 2507951888540962389, guid: bfac62f9cef45e44fbafdeb33034715e,
-        type: 3}
+      objectReference: {fileID: 243526988}
     - target: {fileID: -954659066823550967, guid: a1436b9bfe25df64b9d701db36da23a3,
         type: 3}
       propertyPath: UIWhenBestTimer
