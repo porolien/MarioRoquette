@@ -77697,6 +77697,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7106868506902213955, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1661557031}
+    - target: {fileID: 7106868506902213955, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Submit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106868506902213955, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Dan.Demo.LeaderboardShowcase, Dan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79803,6 +79818,41 @@ PrefabInstance:
       propertyPath: HighScoreText
       value: 
       objectReference: {fileID: 1512314735}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _pageInput
+      value: 
+      objectReference: {fileID: 967612979}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _playerScoreText
+      value: 
+      objectReference: {fileID: 967612984}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _entriesToTakeInput
+      value: 
+      objectReference: {fileID: 967612977}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _entryDisplayParent
+      value: 
+      objectReference: {fileID: 967612982}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _timePeriodDropdown
+      value: 
+      objectReference: {fileID: 967612980}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _playerUsernameInput
+      value: 
+      objectReference: {fileID: 967612983}
+    - target: {fileID: 7679856581662306175, guid: b44a1fae78155404285122b28d076a2a,
+        type: 3}
+      propertyPath: _leaderboardLoadingPanel
+      value: 
+      objectReference: {fileID: 967612981}
     - target: {fileID: 8077673214850377394, guid: b44a1fae78155404285122b28d076a2a,
         type: 3}
       propertyPath: m_IsActive
