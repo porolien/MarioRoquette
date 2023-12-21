@@ -64,10 +64,6 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(fallSound, Random.Range(0.8f, 1)); // volume haut et pitch bas
     }
-    public void PlayFlight()
-    {
-        PlaySound(flightSound, Random.Range(0.8f, 1)); //ça marche pas connard
-    }
     public void PlayCoin() // réduire volume(?)
     {
         PlaySound(coinSound, Random.Range(0.8f, 1));
