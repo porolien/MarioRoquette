@@ -157,13 +157,12 @@ namespace Dan.Demo
                 _playerUsernameInput.text = PlayerPrefs.GetString("Pseudo");
             }
             InitializeComponents();
-            Submit();
             Load();
         }
 
         public void Submit()
         {
-            Debug.Log("sub");
+            Debug.Log(Leaderboards.DemoSceneLeaderboard);
             Leaderboards.DemoSceneLeaderboard.UploadNewEntry(_playerUsernameInput.text, _playerScore, Callback, ErrorCallback);
             if(_playerUsernameInput.text != "")
             {
