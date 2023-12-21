@@ -31,7 +31,7 @@ public class EndLevel : MonoBehaviour
             ScoreManager.Instance.timer.StopTime();
 
             bool beatHisBestTimer = false;
-            if(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) < ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) == 0)
+            if(PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) > ScoreManager.Instance.SetBestTimer() || PlayerPrefs.GetFloat("Timer" + SceneManager.GetActiveScene().name) == 0)
             {
                 PlayerPrefs.SetFloat("Timer" + SceneManager.GetActiveScene().name, Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f) / 100f );
 
