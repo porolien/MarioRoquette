@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
 
     void updateScoreDisplay()
     {
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Destruction Score: " + score.ToString();
         if (HighScoreText != null) HighScoreText.text = "Highest: " + PlayerPrefs.GetInt("HighScore" + SceneManager.GetActiveScene().name).ToString();
     }
 
