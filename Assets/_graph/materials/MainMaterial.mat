@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MainMaterial
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 666054913c90aba459546ca9485233ac,
+    type: 3}
   m_Parent: {fileID: 2100000, guid: c20728554f550a5479464bc5683d6afb, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -32,8 +33,7 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -48,12 +48,21 @@ Material:
         m_Texture: {fileID: 2800000, guid: be088d1ad1dc89e499a03ed9cf3309d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: a7db93e93ece94c4081fa1c5707c2212, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: a7db93e93ece94c4081fa1c5707c2212, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Triplanar_9f5e9a7c2d854c2ca5dcbe114c1f454f_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2b2f71d7f2958fc48834a9aaa2239f1e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Smoothness: -25.83
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &2610729307428287295
