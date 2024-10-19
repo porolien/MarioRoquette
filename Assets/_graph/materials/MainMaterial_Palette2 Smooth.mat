@@ -134,6 +134,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_60b7c772a0c04e12a316b8515b87630f_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2b2f71d7f2958fc48834a9aaa2239f1e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_aee4d67a9ad44e67a8572c9726bf2bd4_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2b2f71d7f2958fc48834a9aaa2239f1e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_e7ad4c98cd64467aa3c083fd9aed303b_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: a7db93e93ece94c4081fa1c5707c2212, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -168,6 +176,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _TransmittanceColorMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_720079cd68b14880834636afa72e2b01_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3118ab0c2e7c7ca4fb3d5d4e8833a7a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Triplanar_9f5e9a7c2d854c2ca5dcbe114c1f454f_Texture_1_Texture2D:
@@ -281,7 +293,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _Smoothness: -27.35
+    - _Smoothness: 1
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
