@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 7633102367964507024}
   - component: {fileID: 7399871319590186986}
   - component: {fileID: 6008201889028485406}
+  - component: {fileID: 3400894782272851625}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -75,13 +76,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3911123345150457480}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18052433, y: -0.6228135, z: 0.15067446, w: 0.74619806}
+  m_LocalRotation: {x: -0.1998456, y: -0.5121804, z: 0.12390948, w: -0.8260626}
   m_LocalPosition: {x: -78.95022, y: 58.22053, z: -2.3404438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4260918231801189584}
-  m_LocalEulerAnglesHint: {x: 27.2, y: 640.3, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.2, y: 423.6, z: 0}
 --- !u!108 &7399871319590186986
 Light:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 205.39983
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -103,7 +104,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.19
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -137,7 +138,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6748
+  m_ColorTemperature: 9852
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 1.02e-43, y: 1.4e-44, z: 1.1933e-41, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -266,6 +267,29 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &3400894782272851625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911123345150457480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &8964331434233103055
 GameObject:
   m_ObjectHideFlags: 0

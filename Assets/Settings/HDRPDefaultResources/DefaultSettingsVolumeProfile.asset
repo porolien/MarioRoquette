@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7422e9e5cb3843438d31933f011be39, type: 3}
   m_Name: PixellizeEffect
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   Resolution:
     m_OverrideState: 1
     m_Value: {x: 1920, y: 1080}
