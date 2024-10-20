@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/_Scenes/Menu.unity
     guid: 9007e3a648754484cac695ea45407333
   - enabled: 1
-    path: Assets/Scenes/Tests_Nathan.unity
+    path: Assets/_Scenes/Tests_Nathan.unity
     guid: a58ab1fd622828a4b8624d423fb3f67f
   - enabled: 0
-    path: Assets/Scenes/Credits.unity
+    path: Assets/_Scenes/Credits.unity
     guid: 517ee3cd5e702cd40b06e35afc786bc2
   - enabled: 1
-    path: Assets/Scenes/Tests_ToddLevel.unity
+    path: Assets/_Scenes/Tests_ToddLevel.unity
     guid: c8744b25b0f96d14688ec371efea27f2
   - enabled: 1
-    path: Assets/Scenes/Tests_Aure3.unity
+    path: Assets/_Scenes/Tests_Aure3.unity
     guid: 5e037dd7899b3574eadbee770368efde
   - enabled: 1
-    path: Assets/Scenes/Tests_Nathan 2.unity
+    path: Assets/_Scenes/Tests_Nathan 2.unity
     guid: 7625624a4ad45874db5e71b45d73fd9b
   - enabled: 1
-    path: Assets/Scenes/LOUIS/LevelLouis.unity
+    path: Assets/_Scenes/LOUIS/LevelLouis.unity
     guid: c3158ec0d92335444b74747b8d2ce021
   - enabled: 1
-    path: Assets/Scenes/Tests_Nathan 3.unity
+    path: Assets/_Scenes/Tests_Nathan 3.unity
     guid: b67d96e8328b60e468232c1b96c1cbb6
   - enabled: 1
-    path: Assets/Scenes/LevelNoah.unity
+    path: Assets/_Scenes/LevelNoah.unity
     guid: fb75b3ec47c093045b61813402aa38f9
   - enabled: 1
-    path: Assets/Scenes/Nest 2.unity
+    path: Assets/_Scenes/Nest 2.unity
     guid: a4b155215bb51aa4e87e996cf7b6934c
   m_configObjects: {}
