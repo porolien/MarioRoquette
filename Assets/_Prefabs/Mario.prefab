@@ -775,11 +775,12 @@ MonoBehaviour:
   footstepsSeparation: 0.2
   rocketJumpPower: 50
   reculRoquette: 20
+  RocketVFX: {fileID: 8044209777718765800}
   missileSound: {fileID: 8300000, guid: 2c8702961c41fb14fbb72c554b6a204b, type: 3}
   jumpSound: {fileID: 8300000, guid: 47e2cef7868d71a4faf0ef0c8f85437d, type: 3}
   prefabBalle: {fileID: 791739758288625253, guid: 0fc7b11779095a64cadfdcfab76872bf,
     type: 3}
-  playerAnim: {fileID: 0}
+  playerAnim: {fileID: 793214447299326971}
   aimDirection: {x: 0, y: 0}
   playerInput: {fileID: 0}
   RocketLauncher: {fileID: 5040917161474745442}
@@ -1078,7 +1079,7 @@ GameObject:
   - component: {fileID: 3882382790349692054}
   - component: {fileID: 248958180018380114}
   - component: {fileID: 8739840744973439945}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: vfx_smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1638,7 +1639,7 @@ GameObject:
   - component: {fileID: 3809520390996349205}
   - component: {fileID: 4322020332704662010}
   - component: {fileID: 3994578488529879417}
-  - component: {fileID: 1258739451438077899}
+  - component: {fileID: 2251557410511813842}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -1655,7 +1656,7 @@ Transform:
   m_GameObject: {fileID: 3829579251754642225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63772964, y: 0.4611696, z: 0.14473295}
+  m_LocalPosition: {x: 0, y: 0.4611696, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1716,7 +1717,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4599
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: NaN, y: -1.0142778e-38, z: 4.5904e-41, w: 8.1e-44}
   m_UseBoundingSphereOverride: 0
@@ -1845,7 +1846,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
---- !u!114 &1258739451438077899
+--- !u!114 &2251557410511813842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2040,7 +2041,7 @@ GameObject:
   - component: {fileID: 803836575275464577}
   - component: {fileID: 8044209777718765800}
   - component: {fileID: 1034972024704935271}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: vfx_muzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2055,13 +2056,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110685555334593427}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.16, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: 0.49682665, y: 0.5031534, z: -0.49682662, w: 0.5031534}
+  m_LocalPosition: {x: 0.003, y: -0.6206, z: 0.004}
+  m_LocalScale: {x: 0.326259, y: 0.32625908, z: 0.32625908}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6264604076989116316}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_Father: {fileID: 2871140141228360274}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!2083052967 &8044209777718765800
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -2070,7 +2071,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110685555334593427}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 4a6ff048378588c40bf61d0f632eb23a, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 0a5ce55ac565f3149a3e148d2603b8a4, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -2079,17 +2080,32 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: -0.09
+        m_Name: HueShift
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: ColorIntensity
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1, y: 1, z: 1}
+        m_Name: BaseRingScale
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
       m_Array: []
     m_Int:
-      m_Array: []
+      m_Array:
+      - m_Value: 15
+        m_Name: spikeCount
+        m_Overridden: 1
+      - m_Value: 5
+        m_Name: Sparks
+        m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
@@ -2099,7 +2115,10 @@ VisualEffect:
     m_NamedObject:
       m_Array: []
     m_Bool:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: ShowSpikeMeshes
+        m_Overridden: 1
 --- !u!73398921 &1034972024704935271
 VFXRenderer:
   serializedVersion: 1
@@ -2374,7 +2393,7 @@ GameObject:
   - component: {fileID: 3821068563115761938}
   - component: {fileID: 5086256078597819370}
   - component: {fileID: 2105744606200667348}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: vfx_jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2523,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.58321923, z: -2}
   m_LocalScale: {x: 3.691852, y: 3.6918519, z: 3.6918519}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 803836575275464577}
   m_Father: {fileID: 7452351496694638267}
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &8693628570686029341
@@ -3412,7 +3432,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7727908026698649524}
-  - {fileID: 803836575275464577}
   m_Father: {fileID: 7452351496694638267}
   m_LocalEulerAnglesHint: {x: 0, y: 90.725, z: 0}
 --- !u!114 &4954757786781567630

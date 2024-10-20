@@ -20,7 +20,7 @@ public class scorePopup : MonoBehaviour
     // Update is called once per frame
     public void init(int score, Color color )
     {
-        float s = Random.Range(0.8f, 1.2f) * 0.5f;
+        float s = Random.Range(0.8f, 1.2f) * .8f;
         GetComponentInChildren<Animator>().speed = s;
         Destroy(gameObject, 0.4f / s);
         transform.localScale *= 0.15f;

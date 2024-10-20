@@ -22,7 +22,7 @@ public class PlayerController : DynamicObject
     public float footstepsSeparation = 0.2f;
     [SerializeField] float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
-
+    [SerializeField] VisualEffect RocketVFX;
     [SerializeField] AudioClip missileSound;
     public AudioClip jumpSound;
     [SerializeField] GameObject prefabBalle;
@@ -125,7 +125,7 @@ public class PlayerController : DynamicObject
         AudioManager.Instance.PlaySound(missileSound);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
-        transform.Find("MoveCursor/vfx_muzzleFlash").GetComponent<VisualEffect>().Play();
+        RocketVFX.Play();
         if (rota == 180)
         {
             Direction = new Vector2 (-RocketManager.Instance._moveRocketLauncher.Cursor.position.x + transform.position.x, transform.position.y - RocketManager.Instance._moveRocketLauncher.Cursor.position.y  );

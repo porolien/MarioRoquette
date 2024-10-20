@@ -19,11 +19,11 @@ public class leaderBoardButtons : MonoBehaviour
     private void Awake()
     {
 
-        transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/ReturnToMenu").gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+        /*transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/ReturnToMenu").gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
         transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/ReturnToMenu").gameObject.GetComponent<Button>().onClick.AddListener(goToMenu);
 
         transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/RetryButton").gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-        transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/RetryButton").gameObject.GetComponent<Button>().onClick.AddListener(retry);
+        transform.Find("New/LeftPanel/LeaderboardControlMenu/LeaderboardControlMenu/RetryButton").gameObject.GetComponent<Button>().onClick.AddListener(retry);*/
     }
 
 }

@@ -23,6 +23,8 @@ public class EndLevel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            other.gameObject.SetActive(false);
+
             AudioManager.Instance.PlayWin();
             Debug.Log("victoire");
             RocketMove.muultiplicateurScale = 1;
@@ -40,7 +42,7 @@ public class EndLevel : MonoBehaviour
             }
             
             
-            playerController.playerInput.SwitchCurrentActionMap("UI");
+            //playerController.playerInput.SwitchCurrentActionMap("UI");
             Debug.Log("eeeeeezzzzz");
             leaderBoardUI.SetActive(true);
             leaderboardShowcase._playerScore = (int)(Mathf.Round(ScoreManager.Instance.SetBestTimer() * 100f));
