@@ -90,7 +90,7 @@ public class WalkState : IBasePlayerState
     {
         
         yield return new WaitForSeconds(footstepsSeparation);
-        AudioManager.Instance.PlayFootsteps();
+        AudioManager.Instance.PlaySFXClip(Sounds.Step, 0.3f);
         if (sm.walkState == sm.currentState)
         {
             sm.pc.StartCoroutine(Footsteps(sm.pc.footstepsSeparation));
@@ -100,6 +100,6 @@ public class WalkState : IBasePlayerState
     void Footstepss()
     {
         Debug.Log("marche");
-        AudioManager.Instance.PlayFootsteps();
+        AudioManager.Instance.PlaySFXClip(Sounds.Step, 0.3f);
     }
 }

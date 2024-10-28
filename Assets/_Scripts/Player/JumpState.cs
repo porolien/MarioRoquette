@@ -15,7 +15,7 @@ public class JumpState : IBasePlayerState
         startTime=Time.time;
         this.sm = _stateMachine;
         //AudioManager.Instance.PlaySound(sm.pc.jumpSound);
-        AudioManager.Instance.PlayJump();
+        AudioManager.Instance.PlaySFXClip(Sounds.Jump, 0.5f);
         sm.pc.StopCoroutine("CoyoteTime");
         if (sm.pc.Velocity.y < 0)
         {

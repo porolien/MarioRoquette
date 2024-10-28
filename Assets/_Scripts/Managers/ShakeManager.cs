@@ -9,6 +9,8 @@ public class ShakeManager : MonoBehaviour
     private static ShakeManager _instance = null;
     public static ShakeManager Instance => _instance;
 
+
+    [SerializeField] float BBBBBBBBB;
     private void Awake()
     {
         //Singleton

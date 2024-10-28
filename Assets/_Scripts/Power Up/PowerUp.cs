@@ -45,8 +45,8 @@ public class PowerUp : DynamicObject
         Debug.Log(other.name);
         if (other.gameObject.tag == "Player")
         {
-            AudioManager.Instance.PlayPowerUp();
-            if(NmbreDePowerUpEnCours < NmbrDePowerUpMax)
+            AudioManager.Instance.PlaySFXClip(Sounds.PowerUp);
+            if (NmbreDePowerUpEnCours < NmbrDePowerUpMax)
             {
                 NmbreDePowerUpEnCours++;
                 Destroy(gameObject);

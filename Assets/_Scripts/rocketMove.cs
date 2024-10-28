@@ -82,7 +82,7 @@ public class RocketMove : MonoBehaviour
         explosionVfx.transform.localScale *= multiplicateurDeLexplosion;
         Destroy(explosionVfx, 2);
         //sfx
-        AudioManager.Instance.PlaySound(explosionSound);
+        AudioManager.Instance.PlaySFXClip(Sounds.MissileExplosion, 0.3f);
         RumbleManager.Instance.Rumble(0.7f, 0.7f, 0.5f);
         Destroy(gameObject);
 

@@ -25,7 +25,7 @@ public class EndLevel : MonoBehaviour
         {
             other.gameObject.SetActive(false);
 
-            AudioManager.Instance.PlayWin();
+            AudioManager.Instance.PlaySFXClip(Sounds.Win);
             Debug.Log("victoire");
             RocketMove.muultiplicateurScale = 1;
             RocketMove.RayonDeLexplosion = 3;

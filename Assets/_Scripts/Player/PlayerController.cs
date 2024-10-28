@@ -122,7 +122,7 @@ public class PlayerController : DynamicObject
     }*/
     public void RocketShoot()
     {
-        AudioManager.Instance.PlaySound(missileSound);
+        AudioManager.Instance.PlaySFXClip(Sounds.MissileLaunch);
         GameObject newBalle = Instantiate(prefabBalle, transform.position, transform.rotation);
         Vector2 Direction = RocketManager.Instance._moveRocketLauncher.Cursor.position - transform.position;
         RocketVFX.Play();
@@ -253,7 +253,7 @@ public class PlayerController : DynamicObject
         }
     public void PlayASound()
     {
-        AudioManager.Instance.PlayFootsteps();
+        AudioManager.Instance.PlaySFXClip(Sounds.Step,0.3f);
     }
 
     public IEnumerator Retry()

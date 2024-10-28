@@ -67,7 +67,7 @@ public class Coin : DynamicObject
     IEnumerator Die()
     {
         isDead = true;
-        AudioManager.Instance.PlayCoin();
+        AudioManager.Instance.PlaySFXClip(Sounds.Coin, 0.2f);
         nmbreDePiece++;
         //CoinTexte.text = nmbreDePiece.ToString();
         GetComponentInChildren<Animator>().StopPlayback();

@@ -31,7 +31,7 @@ public class FallState : IBasePlayerState
     {
         if (sm.pc.isGrounded)
         {
-            AudioManager.Instance.PlayFall();
+            AudioManager.Instance.PlaySFXClip(Sounds.Fall);
             RumbleManager.Instance.Rumble(0.1f, 0.1f, 0.2f);
             sm.Transition(sm.idleState);
         }

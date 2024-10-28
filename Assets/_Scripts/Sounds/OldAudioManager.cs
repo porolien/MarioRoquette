@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class AudioManager : MonoBehaviour
+public class OldAudioManager : MonoBehaviour
 {
     //Singleton
-    private static AudioManager _instance = null;
-    public static AudioManager Instance => _instance;
+    private static OldAudioManager _instance = null;
+    public static OldAudioManager Instance => _instance;
 
     public AudioSource sourceMusique ;
     [SerializeField] AudioClip missileSound;

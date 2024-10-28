@@ -35,7 +35,7 @@ public class Blocs : MonoBehaviour
         else if(!isDying)
         {
             isDying = true;
-            AudioManager.Instance.PlaySound(breakSound);
+            //OldAudioManager.Instance.PlaySound(breakSound);
             StartCoroutine(Die());
             //Destroy(transform.parent.gameObject);
         }
