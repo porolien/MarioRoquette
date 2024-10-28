@@ -36,6 +36,7 @@ public class Coin : DynamicObject
 
     private void Update()
     {
+        if(player==null) return;
         Vector2 offset = player.transform.position - transform.position;
         if (Vector2.SqrMagnitude(offset) < magnetDistance * magnetDistance && !Physics2D.Raycast(transform.position, offset, magnetDistance, LayerMask.GetMask("solid")))
         {

@@ -72,13 +72,13 @@ Material:
     - _QueueOffset: 0
     - _Saturation: 0.81
     - _Smoothness: 0
-    - _Thickness: 1.16
+    - _Thickness: 0.94
     - _brightness: 0.31
-    - _depth: 11.36
+    - _depth: 1.81
     - _edgeSpeed: -3.9
     - _flowIntensity: 1
     - _flowSpeed: 0.1
-    - _frequency: 0.65
+    - _frequency: 1.5
     - _hueShift: 177.78
     - _noise_scale: 0.03
     - _scale: 2.07

@@ -9,4 +9,9 @@ public class MoveToGoodScene : MonoBehaviour
     {
         SceneManager.LoadScene(_sceneName, LoadSceneMode.Single);
     }
+
+    public void MoveToLevelByID(int buildID)
+    {
+        SceneManager.LoadScene(buildID, LoadSceneMode.Single);
+    }
 }

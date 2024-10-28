@@ -20,7 +20,7 @@ public class PlayerController : DynamicObject
     public float JumpTime = 0.5f;
     public float coyoteTime = 0.2f;
     public float footstepsSeparation = 0.2f;
-    [SerializeField] float rocketJumpPower = 10;
+   float rocketJumpPower = 10;
     [SerializeField] float reculRoquette = 10;
     [SerializeField] VisualEffect RocketVFX;
     [SerializeField] AudioClip missileSound;
@@ -56,12 +56,12 @@ public class PlayerController : DynamicObject
         playerInput = GetComponent<PlayerInput>();
         
         walkVFX = transform.Find("vfx_smoke").GetComponent<VisualEffect>();
-        playerInput.SwitchCurrentActionMap("Player");
+        //playerInput.SwitchCurrentActionMap("Player");
     }
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         RocketManager.Instance.playerController = this;
 
     }

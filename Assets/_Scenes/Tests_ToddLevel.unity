@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 4622722153228423721}
-  m_IndirectSpecularColor: {r: 0.1629677, g: 0.5095781, b: 0.9558462, a: 1}
+  m_IndirectSpecularColor: {r: 0.15041833, g: 0.57686543, b: 1.1304868, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16594,6 +16594,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1477561912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &888852752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 849845276025129206, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_Name
+      value: WaterPlane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307891438682546390, guid: 9a464995f24a9df489f6a7e817513dac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a464995f24a9df489f6a7e817513dac, type: 3}
 --- !u!1001 &891413193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39360,7 +39428,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 2106873716}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -39368,7 +39437,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -39388,6 +39457,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!20 &2106873716 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4185460991698457740, guid: 0a849c73d6554eb4d8f8b79ffa7317ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 2106873712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2108407417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40371,3 +40446,4 @@ SceneRoots:
   - {fileID: 1806379621}
   - {fileID: 1241012663}
   - {fileID: 1032478006}
+  - {fileID: 888852752}
