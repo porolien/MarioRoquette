@@ -8,7 +8,7 @@ public class MusicNeverSTOP : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(instance != null)
+        /*if(instance != null)
         {
             Debug.Log("dest");
             Destroy(gameObject);
@@ -18,7 +18,7 @@ public class MusicNeverSTOP : MonoBehaviour
             instance = this;
         }
         transform.SetParent(null);
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);*/
     }
 
 }

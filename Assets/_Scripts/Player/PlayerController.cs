@@ -61,7 +61,7 @@ public class PlayerController : DynamicObject
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         RocketManager.Instance.playerController = this;
 
     }

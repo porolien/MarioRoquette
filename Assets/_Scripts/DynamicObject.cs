@@ -24,6 +24,9 @@ public class DynamicObject : MonoBehaviour
     public Vector2 getAcceleration() { return Acceleration; }
     public Vector2 getVelocity() { return Velocity; }
 
+
+    const string solidLayerName = "Solid";
+
     public void AddForce(Vector2 ForceToAdd)
     {
         Velocity += ForceToAdd * Time.deltaTime;
@@ -40,7 +43,7 @@ public class DynamicObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col=GetComponent<Collider2D>();
-        contactFilter.layerMask = LayerMask.GetMask("Solid");
+        contactFilter.layerMask = LayerMask.GetMask(solidLayerName);
         contactFilter.useLayerMask = true;
     }
     public void UpdatePhysics()
